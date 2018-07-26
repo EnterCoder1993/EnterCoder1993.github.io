@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="超文本标记语言(HTML)是一种用于创建网页的标准标记语言">
+<meta name="keywords" content="Note">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HTML标记语言">
+<meta property="og:url" content="http://yoursite.com/2018/03/28/HTML标记语言/index.html">
+<meta property="og:site_name" content="EnterCoder">
+<meta property="og:description" content="超文本标记语言(HTML)是一种用于创建网页的标准标记语言">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/e8c3586egy1fpsyefgexxj22210p045m">
+<meta property="og:updated_time" content="2018-04-01T15:57:44.810Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HTML标记语言">
+<meta name="twitter:description" content="超文本标记语言(HTML)是一种用于创建网页的标准标记语言">
+<meta name="twitter:image" content="https://ws1.sinaimg.cn/large/e8c3586egy1fpsyefgexxj22210p045m">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/03/28/HTML标记语言/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>HTML标记语言 | EnterCoder</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">EnterCoder</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">Enjoy Coding</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/28/HTML标记语言/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="entercoder1993">
+      <meta itemprop="description" content="just coding">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="EnterCoder">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">HTML标记语言
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-03-28 22:38:01" itemprop="dateCreated datePublished" datetime="2018-03-28T22:38:01+08:00">2018-03-28</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-04-01 23:57:44" itemprop="dateModified" datetime="2018-04-01T23:57:44+08:00">2018-04-01</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>超文本标记语言(HTML)是一种用于创建网页的标准标记语言</p>
+</blockquote>
+<a id="more"></a>
+<p><img src="https://ws1.sinaimg.cn/large/e8c3586egy1fpsyefgexxj22210p045m" alt="html思维导图"></p>
+<p>特点</p>
+<ol>
+<li>可以设置文本的格式，比如标题、字号、文本颜色、段落等等</li>
+<li>可以创建列表</li>
+<li>可以插入图像和媒体</li>
+<li>可以建立表格</li>
+<li>超链接，可以使用鼠标点击超链接来实现页面之间的跳转</li>
+</ol>
+<h2 id="HTML的语法"><a href="#HTML的语法" class="headerlink" title="HTML的语法"></a>HTML的语法</h2><p>HTML文档的保存格式</p>
+<ul>
+<li>.html</li>
+<li>.htm</li>
+<li>xhtml</li>
+</ul>
+<p>标记和被标记的内容构建出HTML文档,格式为<code>&lt;标记&gt;内容&lt;/标记&gt;</code></p>
+<p>标记的属性是用来控制内容(图像、文本等的)如何的显示，格式为</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">标记</span> 属性<span class="attr">1</span>=<span class="string">属性值</span> 属性<span class="attr">2</span>=<span class="string">属性值</span> <span class="attr">......</span>&gt;</span>内容<span class="tag">&lt;/<span class="name">标记</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>语法不区分字母大小写</p>
+<p>代码注释使用”\<!-- 注释内容 -->“,代码格式使用空格和回车(在网页中不起作用)进行编排，以“TAB”键进行缩进。</p>
+<p><strong>字符实体</strong></p>
+<figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"> <span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="comment">空格</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span>  <span class="comment">&amp;nbsp;</span> <span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="comment">&amp;#160;</span></span><br><span class="line"><span class="comment"></span>&lt;<span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="comment">小于号</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span> <span class="comment">&amp;lt;</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span> <span class="comment">&amp;#60;</span></span><br><span class="line"><span class="comment"></span>&gt;<span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="comment">大于号</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span> <span class="comment">&amp;gt;</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span> <span class="comment">&amp;#62;</span></span><br><span class="line"><span class="comment">&amp;</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="comment">和号</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span> <span class="comment">&amp;amp;</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span> <span class="comment">&amp;#38;</span></span><br><span class="line"><span class="comment">"</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="comment">引号</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span> <span class="comment">&amp;quot;</span> <span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span> <span class="comment">&amp;#34;</span></span><br><span class="line"><span class="comment">'</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="comment">撇号</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span> <span class="comment">&amp;apos;</span> <span class="comment">(IE不支持)</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span> <span class="comment">&amp;#39;</span></span><br><span class="line"><span class="comment">￠</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="comment">分</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span> <span class="comment">&amp;cent;</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span> <span class="comment">&amp;#162;</span></span><br><span class="line"><span class="comment">£</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="comment">镑</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span> <span class="comment">&amp;pound;</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span> <span class="comment">&amp;#163;</span></span><br><span class="line"><span class="comment">¥</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="comment">日圆</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span> <span class="comment">&amp;yen;</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span> <span class="comment">&amp;#165;</span></span><br><span class="line"><span class="comment">€</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="comment">欧元</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span> <span class="comment">&amp;euro;</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span> <span class="comment">&amp;#8364;</span></span><br><span class="line"><span class="comment">§</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="comment">小节</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span> <span class="comment">&amp;sect;</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span> <span class="comment">&amp;#167;</span></span><br><span class="line"><span class="comment">©</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="comment">版权</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="comment">&amp;copy;</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span> <span class="comment">&amp;#169;</span></span><br><span class="line"><span class="comment">®</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="comment">注册商标</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span> <span class="comment">&amp;reg;</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span> <span class="comment">&amp;#174;</span></span><br><span class="line"><span class="comment">™</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="comment">商标</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span> <span class="comment">&amp;trade;</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span> <span class="comment">&amp;#8482;</span></span><br><span class="line"><span class="comment">×</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="comment">乘号</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span> <span class="comment">&amp;times;</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span> <span class="comment">&amp;#215;</span></span><br><span class="line"><span class="comment">÷</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="comment">除号</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span> <span class="comment">&amp;divide;</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span><span class="literal">-</span> <span class="comment">&amp;#247;</span></span><br></pre></td></tr></table></figure>
+<h2 id="HTML的基本结构"><a href="#HTML的基本结构" class="headerlink" title="HTML的基本结构"></a>HTML的基本结构</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span> </span><br><span class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"keywords"</span> <span class="attr">content</span>=<span class="string">"hello world"</span>&gt;</span> </span><br><span class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span> //页面的元信息，提供有关页面的元信息，针对搜索引擎和更新频度的描述和关键词</span><br><span class="line">		                       //必须的属性 content=some_text</span><br><span class="line">		                       //常见属性 author keywords description others</span><br><span class="line">		                       //meta标记必须放在head元素里面</span><br><span class="line">		                       </span><br><span class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span> //网页的主体标记，可以包含段落、标题、回车、横线等标记</span><br><span class="line">	       //常见属性 bgcolor text link vlink alink</span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="文档设置标记"><a href="#文档设置标记" class="headerlink" title="文档设置标记"></a>文档设置标记</h2><h3 id="格式标记"><a href="#格式标记" class="headerlink" title="格式标记"></a>格式标记</h3><p><code>&lt;br&gt;</code> 换行标记<br><code>&lt;p&gt;</code> 段落标记<br><code>&lt;center&gt;</code> 居中标记<br><code>&lt;pre&gt;</code> 预格式化标记<br><code>&lt;li&gt;</code> 列表项目标记<br><code>&lt;ul&gt;</code> 无序列表标记<br><code>&lt;ol&gt;</code> 有序列表标记</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;ol <span class="keyword">type</span>=<span class="string">"1"</span>&gt;</span><br><span class="line">    &lt;<span class="keyword">li</span> <span class="keyword">type</span>=<span class="string">"A"</span>&gt;&lt;/<span class="keyword">li</span>&gt;</span><br><span class="line">    &lt;<span class="keyword">li</span> <span class="keyword">type</span>=<span class="string">"a"</span>&gt;&lt;/<span class="keyword">li</span>&gt;</span><br><span class="line">    &lt;<span class="keyword">li</span> <span class="keyword">type</span>=<span class="string">"a"</span>&gt;&lt;/<span class="keyword">li</span>&gt;</span><br><span class="line">    &lt;<span class="keyword">li</span> <span class="keyword">type</span>=<span class="string">"I"</span>&gt;&lt;/<span class="keyword">li</span>&gt;</span><br><span class="line">    &lt;<span class="keyword">li</span> <span class="keyword">type</span>=<span class="string">"i"</span>&gt;&lt;/<span class="keyword">li</span>&gt;</span><br><span class="line">&lt;/ol&gt;</span><br></pre></td></tr></table></figure>
+<p><code>&lt;dl&gt;&lt;dt&gt;&lt;dd&gt;</code> 定义型列表<br><code>&lt;hr&gt;</code> 水平分割线<br><code>&lt;div&gt;</code> 分区标记，也称为层标记 </p>
+<h3 id="文本标记"><a href="#文本标记" class="headerlink" title="文本标记"></a>文本标记</h3><ol>
+<li>hn 标题标记</li>
+<li>font 字体设置标记</li>
+<li>sub 下标字体标记</li>
+<li>sup 上标字体标记</li>
+<li>tt 打印机字体标记</li>
+<li>cite 引用方式的字体，通常是斜体</li>
+<li>b strong 粗体字体标记</li>
+<li>i em 斜字体标记</li>
+<li>small 小型字体标记</li>
+<li>big 大型字体标记</li>
+<li>u 下划线字体标记</li>
+</ol>
+<h2 id="图像标记"><a href="#图像标记" class="headerlink" title="图像标记"></a>图像标记</h2><p>使用方法</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="selector-tag">img</span> src=<span class="string">"路径/文件名.图片格式 "</span> <span class="attribute">width</span>=<span class="string">"属性值"</span> height=<span class="string">"属性值"</span> border=<span class="string">"属性值"</span> alt=<span class="string">"属性值"</span>&gt;</span><br><span class="line"><span class="comment">//src属性 指定我们要加载的图片的路径和图片的名称以及图片格式</span></span><br><span class="line"><span class="comment">//width属性 指定图片的宽度，单位px、em、cm、mm</span></span><br><span class="line"><span class="comment">//height属性 指定图片的高度，单位px、em、cm、mm</span></span><br><span class="line"><span class="comment">//border属性 指定图标的边框宽度，单位px、em、cm、mm</span></span><br><span class="line"><span class="comment">//alt属性 1.当网页上的图片被加载完成后，鼠标移动到上面去，会显示这个图片指定的属性文字 </span></span><br><span class="line">        <span class="comment">//2.如果图像没有下载或者加载失败，会用文字来代替图像显示</span></span><br><span class="line">        <span class="comment">//3.搜索引擎可以通过这个属性的文字来抓取图片</span></span><br></pre></td></tr></table></figure>
+<p><strong>注意</strong></p>
+<ol>
+<li>img为单标记，不需要使用\闭合</li>
+<li>加载图片时，文件路径或者文件名文件格式错误，将无法加载图片</li>
+</ol>
+<h2 id="超链接的使用"><a href="#超链接的使用" class="headerlink" title="超链接的使用"></a>超链接的使用</h2><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">a</span> href=<span class="string">""</span> target=<span class="string">"打开方式"</span> name=<span class="string">"页面锚点名称"</span>&gt;链接文字或者图片&lt;/<span class="keyword">a</span>&gt;</span><br><span class="line">//target属性 <span class="title">_blank</span> 新窗口打开链接</span><br><span class="line">//          <span class="title">_self</span>() 当前窗口打开链接</span><br><span class="line">//          <span class="title">_parent</span> 父窗口打开链接</span><br><span class="line">//          <span class="title">_top</span> 顶层窗口打开链接</span><br><span class="line">//name属性 制定页面的锚点名称</span><br></pre></td></tr></table></figure>
+<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><h3 id="table标记"><a href="#table标记" class="headerlink" title="table标记"></a>table标记</h3><figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">table</span> </span><br><span class="line">    width=<span class="string">""</span> <span class="comment">//px or %</span></span><br><span class="line">    height=<span class="string">""</span> <span class="comment">//px or %</span></span><br><span class="line">    border=<span class="string">""</span> <span class="comment">//外边框的宽度</span></span><br><span class="line">    align<span class="string">""</span>   <span class="comment">//left or center or right,default=left </span></span><br><span class="line">    cellspacing=<span class="string">""</span> <span class="comment">//单元格之间的间距，默认是2px</span></span><br><span class="line">    cellpadding=<span class="string">""</span> <span class="comment">//单元格内容与边框的现实距离</span></span><br><span class="line">    frame=<span class="string">""</span>       <span class="comment">//控制表格边框最外层的四条线框 void above below hsides lhs rhs vsides box border       </span></span><br><span class="line">    rules=<span class="string">""</span>       <span class="comment">//控制是否显示以及如何显示单元格之间的分割线 none all rows clos groups</span></span><br><span class="line">    &gt;表格内容&lt;/<span class="keyword">table</span>&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="caption标记"><a href="#caption标记" class="headerlink" title="caption标记"></a>caption标记</h3><p>表格需要使用表格时，可以使用<code>&lt;caption&gt;</code>标记，caption属性位于table属性之后，tr属性之前。</p>
+<p>属性值</p>
+<ul>
+<li>top </li>
+<li>bottom </li>
+<li>left </li>
+<li>right</li>
+</ul>
+<h3 id="tr标记"><a href="#tr标记" class="headerlink" title="tr标记"></a>tr标记</h3><p>定义表格的一行，每一行tr标记可以嵌套多个td或th标记</p>
+<p>属性</p>
+<ul>
+<li>bgcolor</li>
+<li>align 设置垂直方向对齐方式<ul>
+<li>bottom </li>
+<li>top</li>
+<li>middle</li>
+</ul>
+</li>
+<li>valign 设置水平方向对齐方式<ul>
+<li>left</li>
+<li>right</li>
+<li>center    </li>
+</ul>
+</li>
+</ul>
+<h3 id="td和th标记"><a href="#td和th标记" class="headerlink" title="td和th标记"></a>td和th标记</h3><p>th是表头标记，通常 位于首行或首列，th中的文字默认会被加粗，而td不会</p>
+<p>td是数据标记，表示该单元的具体数据</p>
+<p>属性值</p>
+<ul>
+<li>bgcolor</li>
+<li>align</li>
+<li>valign</li>
+<li>width</li>
+<li>height</li>
+<li>rowspan 设置单元格所占行数</li>
+<li>colspan 设置单元格所占列数</li>
+</ul>
+<h2 id="HTML框架"><a href="#HTML框架" class="headerlink" title="HTML框架"></a>HTML框架</h2><p>框架将浏览器划分成不同的部分，每一部分加载不同的网页，实现在同一浏览器窗口中加载多个页面的效果</p>
+<p>frameset标记</p>
+<figure class="highlight nix"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;frameset <span class="attr">cols="*,*</span> <span class="literal">or</span> px <span class="literal">or</span> %<span class="string">" frameborder="</span><span class="number">0</span> <span class="literal">or</span> <span class="number">1</span><span class="string">" border="</span><span class="number">5</span>px(default)<span class="string">"&gt;</span></span><br><span class="line"><span class="string">    &lt;frame src="</span><span class="string">" name="</span><span class="string">" noresize="</span>noresize<span class="string">" //表示不能调整框架的大小，没有设置时就可以调整</span></span><br><span class="line"><span class="string">    scrolling="</span>auto <span class="literal">or</span> yes <span class="literal">or</span> no<span class="string">" frameborder="</span><span class="number">1</span> <span class="literal">or</span> <span class="number">0</span><span class="string">"&gt;</span></span><br><span class="line"><span class="string">    &lt;frame&gt;</span></span><br><span class="line"><span class="string">&lt;/frameset&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="表单设计"><a href="#表单设计" class="headerlink" title="表单设计"></a>表单设计</h2><h3 id="表单标记"><a href="#表单标记" class="headerlink" title="表单标记"></a>表单标记</h3><figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">from</span> actoin=<span class="string">"服务器端地址"</span> method=<span class="string">"post|get"</span> enctype=<span class="string">""</span> target=<span class="string">""</span>&gt;</span><br><span class="line">    <span class="comment">//post:post方式提交时，将表单中的数据一并包含在表单主体中，一起传送到服务器中处理，没有数据大小限制</span></span><br><span class="line">    <span class="comment">//get:get方式提交时，会将表单的内容附加在URL地址的后面，所以限制了提交的内容的长度，不超过8192个字符，且不具备保密性</span></span><br><span class="line">    <span class="comment">//enctype 设置表单的资料的编码方式</span></span><br><span class="line">    <span class="comment">//指定目标窗口打开方式</span></span><br><span class="line">&lt;/<span class="keyword">from</span>&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="文本域和密码"><a href="#文本域和密码" class="headerlink" title="文本域和密码"></a>文本域和密码</h3><figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;input </span><br><span class="line">type=<span class="string">""</span> //text|password</span><br><span class="line">name=<span class="string">""</span> </span><br><span class="line">value=<span class="string">""</span> </span><br><span class="line">size=<span class="string">""</span> </span><br><span class="line">maxlength=<span class="string">""</span>&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="提交、重置和普通按钮"><a href="#提交、重置和普通按钮" class="headerlink" title="提交、重置和普通按钮"></a>提交、重置和普通按钮</h3><figure class="highlight fsharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;input </span><br><span class="line">    <span class="class"><span class="keyword">type</span></span>=<span class="string">"submit"</span></span><br><span class="line">    <span class="class"><span class="keyword">type</span></span>=<span class="string">"reset"</span></span><br><span class="line">    <span class="class"><span class="keyword">type</span></span>=<span class="string">"button"</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="单选框和复选框"><a href="#单选框和复选框" class="headerlink" title="单选框和复选框"></a>单选框和复选框</h3><figure class="highlight fsharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;input </span><br><span class="line">    <span class="class"><span class="keyword">type</span></span>=<span class="string">"radio"</span></span><br><span class="line">    <span class="comment">//使用checked属性来设置默认选中项</span></span><br><span class="line">&gt;</span><br><span class="line">&lt;input </span><br><span class="line">    <span class="class"><span class="keyword">type</span></span>=<span class="string">"checkbox"</span></span><br><span class="line">    <span class="comment">//使用checked属性来设置默认选中项</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="隐藏域"><a href="#隐藏域" class="headerlink" title="隐藏域"></a>隐藏域</h3><p>当type为hidden时为隐藏表单域</p>
+<h3 id="多行文本域"><a href="#多行文本域" class="headerlink" title="多行文本域"></a>多行文本域</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">使用<span class="tag">&lt;<span class="name">textarea</span>&gt;</span>标记可以实现一个能够输入多行文本的区域</span><br><span class="line"><span class="tag">&lt;<span class="name">textarea</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">rows</span>=<span class="string">""</span> <span class="attr">cols</span>=<span class="string">""</span> <span class="attr">value</span>=<span class="string">""</span>&gt;</span></span><br><span class="line">    </span><br><span class="line"><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="菜单下拉列表域"><a href="#菜单下拉列表域" class="headerlink" title="菜单下拉列表域"></a>菜单下拉列表域</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">size</span>=<span class="string">""</span> <span class="attr">mulitple</span>&gt;</span> //设置多选</span><br><span class="line">    <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">""</span> <span class="attr">selected</span>&gt;</span>选项1<span class="tag">&lt;/<span class="name">option</span>&gt;</span> //给选项赋值，指定传送到服务器上面的值，selected设置默认选中项</span><br><span class="line">    <span class="tag">&lt;<span class="name">option</span>&gt;</span>选项2<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">option</span>&gt;</span>选项3<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Note/" rel="tag"># Note</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/21/从零开始学编程/" rel="next" title="从零开始学编程">
+                <i class="fa fa-chevron-left"></i> 从零开始学编程
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/03/31/CSS层叠样式表/" rel="prev" title="CSS层叠样式表">
+                CSS层叠样式表 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">entercoder1993</p>
+              <p class="site-description motion-element" itemprop="description">just coding</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">16</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/entercoder1993" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML的语法"><span class="nav-number">1.</span> <span class="nav-text">HTML的语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML的基本结构"><span class="nav-number">2.</span> <span class="nav-text">HTML的基本结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文档设置标记"><span class="nav-number">3.</span> <span class="nav-text">文档设置标记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#格式标记"><span class="nav-number">3.1.</span> <span class="nav-text">格式标记</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文本标记"><span class="nav-number">3.2.</span> <span class="nav-text">文本标记</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图像标记"><span class="nav-number">4.</span> <span class="nav-text">图像标记</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#超链接的使用"><span class="nav-number">5.</span> <span class="nav-text">超链接的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表格"><span class="nav-number">6.</span> <span class="nav-text">表格</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#table标记"><span class="nav-number">6.1.</span> <span class="nav-text">table标记</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#caption标记"><span class="nav-number">6.2.</span> <span class="nav-text">caption标记</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tr标记"><span class="nav-number">6.3.</span> <span class="nav-text">tr标记</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#td和th标记"><span class="nav-number">6.4.</span> <span class="nav-text">td和th标记</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML框架"><span class="nav-number">7.</span> <span class="nav-text">HTML框架</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表单设计"><span class="nav-number">8.</span> <span class="nav-text">表单设计</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#表单标记"><span class="nav-number">8.1.</span> <span class="nav-text">表单标记</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文本域和密码"><span class="nav-number">8.2.</span> <span class="nav-text">文本域和密码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#提交、重置和普通按钮"><span class="nav-number">8.3.</span> <span class="nav-text">提交、重置和普通按钮</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单选框和复选框"><span class="nav-number">8.4.</span> <span class="nav-text">单选框和复选框</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#隐藏域"><span class="nav-number">8.5.</span> <span class="nav-text">隐藏域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多行文本域"><span class="nav-number">8.6.</span> <span class="nav-text">多行文本域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#菜单下拉列表域"><span class="nav-number">8.7.</span> <span class="nav-text">菜单下拉列表域</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">entercoder1993</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Mist</a> v6.3.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

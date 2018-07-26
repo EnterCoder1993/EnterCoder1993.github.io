@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="层叠样式表(英文全称：Cascading Style Sheets)是一种用来表现HTML（标准通用标记语言的一个应用）或XML（标准通用标记语言的一个子集）等文件样式的计算机语言。CSS不仅可以静态地修饰网页，还可以配合各种脚本语言动态地对网页各元素进行格式化。">
+<meta name="keywords" content="Note">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CSS层叠样式表">
+<meta property="og:url" content="http://yoursite.com/2018/03/31/CSS层叠样式表/index.html">
+<meta property="og:site_name" content="EnterCoder">
+<meta property="og:description" content="层叠样式表(英文全称：Cascading Style Sheets)是一种用来表现HTML（标准通用标记语言的一个应用）或XML（标准通用标记语言的一个子集）等文件样式的计算机语言。CSS不仅可以静态地修饰网页，还可以配合各种脚本语言动态地对网页各元素进行格式化。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/e8c3586egy1fpxkpjnodkj220o28vwuu">
+<meta property="og:updated_time" content="2018-04-01T15:56:55.420Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CSS层叠样式表">
+<meta name="twitter:description" content="层叠样式表(英文全称：Cascading Style Sheets)是一种用来表现HTML（标准通用标记语言的一个应用）或XML（标准通用标记语言的一个子集）等文件样式的计算机语言。CSS不仅可以静态地修饰网页，还可以配合各种脚本语言动态地对网页各元素进行格式化。">
+<meta name="twitter:image" content="https://ws1.sinaimg.cn/large/e8c3586egy1fpxkpjnodkj220o28vwuu">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/03/31/CSS层叠样式表/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>CSS层叠样式表 | EnterCoder</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">EnterCoder</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">Enjoy Coding</p>
+      
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/03/31/CSS层叠样式表/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="entercoder1993">
+      <meta itemprop="description" content="just coding">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="EnterCoder">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">CSS层叠样式表
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-03-31 00:39:55" itemprop="dateCreated datePublished" datetime="2018-03-31T00:39:55+08:00">2018-03-31</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-04-01 23:56:55" itemprop="dateModified" datetime="2018-04-01T23:56:55+08:00">2018-04-01</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/前端/" itemprop="url" rel="index"><span itemprop="name">前端</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>层叠样式表(英文全称：Cascading Style Sheets)是一种用来表现HTML（标准通用标记语言的一个应用）或XML（标准通用标记语言的一个子集）等文件样式的计算机语言。CSS不仅可以静态地修饰网页，还可以配合各种脚本语言动态地对网页各元素进行格式化。</p>
+</blockquote>
+<a id="more"></a>
+<p><img src="https://ws1.sinaimg.cn/large/e8c3586egy1fpxkpjnodkj220o28vwuu" alt="CSS层叠样式表"></p>
+<h2 id="使用CSS样式的方式"><a href="#使用CSS样式的方式" class="headerlink" title="使用CSS样式的方式"></a>使用CSS样式的方式</h2><ul>
+<li>内链样式表</li>
+</ul>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">body</span> style=<span class="string">"background-color:green; margin:0; padding:0;"</span>&gt;</span><br><span class="line"></span><br><span class="line">&lt;/<span class="keyword">body</span>&gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>嵌入式样式表</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">    </span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>引入式样式表</li>
+</ul>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;link <span class="attribute">rel</span>=<span class="string">"stylesheet"</span> <span class="attribute">type</span>=<span class="string">"text/css"</span> <span class="attribute">href</span>=<span class="string">"style.css"</span>&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="定义样式表"><a href="#定义样式表" class="headerlink" title="定义样式表"></a>定义样式表</h2><p>定义方式</p>
+<ul>
+<li>HTML标记定义</li>
+</ul>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="params">&lt;p&gt;</span>...<span class="params">&lt;/p&gt;</span></span><br><span class="line">p&#123;</span><br><span class="line">    属性:属性值;</span><br><span class="line">    属性<span class="number">2</span>:属性值<span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//p可以叫选择器，定义那个标记中的内容执行其中的样式</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>class定义</li>
+</ul>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;p class=<span class="string">"a"</span>&gt;<span class="string">...</span>&lt;<span class="string">/p</span>&gt;</span><br><span class="line"><span class="string">.a</span> &#123;</span><br><span class="line">    属性:属性值;</span><br><span class="line">    属性2:属性值2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>id定义</li>
+</ul>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;p id=<span class="string">"b"</span>&gt;<span class="string">...</span>&lt;<span class="string">/p</span>&gt;</span><br><span class="line"><span class="comment">#b &#123;</span></span><br><span class="line">    属性:属性值;</span><br><span class="line">    属性2:属性值2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>优先级问题</strong></p>
+<p>id&gt;class&gt;HTML标记</p>
+<p>组合选择器</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">h1,h2,h3,.a,<span class="comment">#b &#123;</span></span><br><span class="line">    属性:属性值<span class="comment">;</span></span><br><span class="line">    属性<span class="number">2</span>:属性值<span class="number">2</span><span class="comment">;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>伪元素选择器</p>
+<ul>
+<li>a:link 正常连接的样式</li>
+<li>a:hover 鼠标放上去的样式</li>
+<li>a:active 选择链接时的样式</li>
+<li>a:visited 已经访问过的链接的样式</li>
+</ul>
+<h2 id="常见属性"><a href="#常见属性" class="headerlink" title="常见属性"></a>常见属性</h2><h3 id="颜色"><a href="#颜色" class="headerlink" title="颜色"></a>颜色</h3><p>color属性定义文本的颜色</p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">color:</span>green</span><br><span class="line"><span class="symbol">color:</span><span class="meta">#ff6600</span></span><br><span class="line"><span class="symbol">color:</span><span class="meta">#f60 <span class="comment">//简写式</span></span></span><br><span class="line"><span class="symbol">color:</span>rgb(<span class="number">255</span>,<span class="number">255</span>,<span class="number">255</span>)</span><br><span class="line"><span class="symbol">color:</span>rgba(<span class="number">255</span>,<span class="number">255</span>,<span class="number">255</span>,<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h3><p>font-size属性定义字体的大小<code>font-size:14px</code></p>
+<p>font-family定义字体<code>font-family:微软雅黑,serif;</code>使用,隔开,以确保当字体不存在时直接使用下一个</p>
+<p>font-family字体加粗<code>normal|bold|bolder|lighter</code>,也可以使用100|200|300~900,400=normal,700=bold</p>
+<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><ul>
+<li>背景颜色<code>background-color</code></li>
+<li>背景图片<code>background-image:url(图片路径)|nore</code></li>
+<li>背景重复<code>background-repeat:repeat|repeat-x|repeat-y|no-repeat</code></li>
+<li>背景位置<code>background-position:横向(left,center,right)|纵向(top,center,bottom)</code></li>
+</ul>
+<p>简写方式<code>background:#f60 url(images/bg,jpt) no-repeat top center</code></p>
+<h3 id="文本"><a href="#文本" class="headerlink" title="文本"></a>文本</h3><p>横向排列<code>text-align:left|center|right</code><br>文本行高<code>line-height:100%|20</code><br>首行缩进<code>text-indent:4</code><br>字符间距<code>letter-spacing:normal|10|inherit</code></p>
+<h3 id="边框"><a href="#边框" class="headerlink" title="边框"></a>边框</h3><ul>
+<li><p>边框风格border-style</p>
+</li>
+<li><p>边框宽度border-width</p>
+</li>
+<li><p>边框颜色border-color</p>
+</li>
+</ul>
+<p>简写方式`border:solid 2px #f60</p>
+<h3 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h3><ul>
+<li>标记类型list-style-type</li>
+</ul>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">none</span>	无标记。</span><br><span class="line">disc	默认。标记是实心圆。</span><br><span class="line">circle	标记是空心圆。</span><br><span class="line">square	标记是实心方块。</span><br><span class="line">decimal	标记是数字。</span><br><span class="line">decimal-leading-zero	<span class="number">0</span>开头的数字标记。(<span class="number">01</span>, <span class="number">02</span>, <span class="number">03</span>, 等。)</span><br><span class="line">lower-roman  	小写罗马数字(<span class="selector-tag">i</span>, ii, iii, iv, v, 等。)</span><br><span class="line">upper-roman	大写罗马数字(I, II, III, IV, V, 等。)</span><br><span class="line">lower-alpha 	小写英文字母The marker is lower-alpha (<span class="selector-tag">a</span>, <span class="selector-tag">b</span>, c, d, e, 等。)</span><br><span class="line">upper-alpha 	大写英文字母The marker is upper-alpha (A, B, C, D, E, 等。)</span><br><span class="line">lower-greek	 小写希腊字母(alpha, beta, gamma, 等。)</span><br><span class="line">lower-latin	小写拉丁字母(<span class="selector-tag">a</span>, <span class="selector-tag">b</span>, c, d, e, 等。)</span><br><span class="line">upper-latin	大写拉丁字母(A, B, C, D, E, 等。)</span><br><span class="line">hebrew	  传统的希伯来编号方式</span><br><span class="line">armenian	传统的亚美尼亚编号方式</span><br><span class="line">georgian	传统的乔治亚编号方式(an, ban, gan, 等。)</span><br><span class="line">cjk-ideographic	简单的表意数字</span><br><span class="line">hiragana	标记是：<span class="selector-tag">a</span>, <span class="selector-tag">i</span>, u, e, o, ka, ki, 等。（日文片假名）</span><br><span class="line">katakana	标记是：A, I, U, E, O, KA, KI, 等。（日文片假名）</span><br><span class="line">hiragana-iroha	标记是：<span class="selector-tag">i</span>, ro, ha, ni, ho, he, to, 等。（日文片假名）</span><br><span class="line">katakana-iroha	标记是：I, RO, HA, NI, HO, HE, TO, 等。（日文片假名）</span><br></pre></td></tr></table></figure>
+<ul>
+<li>标记位置list-style-position</li>
+</ul>
+<figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">inside	</span>列表项目标记放置在文本以内，且环绕文本根据标记对齐。</span><br><span class="line"><span class="string">outside	</span>默认值。保持标记位于文本的左侧。列表项目标记放置在文本以外，且环绕文本不根据标记对齐。</span><br><span class="line"><span class="string">inherit	</span>规定应该从父元素继承 <span class="built_in">list-style-position</span> 属性的值。</span><br></pre></td></tr></table></figure>
+<ul>
+<li>设置图像列表标记list-style-image</li>
+</ul>
+<figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">URL	</span>图像的路径。</span><br><span class="line"><span class="string">none	</span>默认。无图形被显示。</span><br><span class="line"><span class="string">inherit	</span>规定应该从父元素继承 <span class="built_in">list-style-image</span> 属性的值。</span><br></pre></td></tr></table></figure>
+<p>简写方式list-style:square inside url(‘/user/hello.jpg’);</p>
+<h2 id="DIV-CSS布局"><a href="#DIV-CSS布局" class="headerlink" title="DIV+CSS布局"></a>DIV+CSS布局</h2><p>DIV和SPAN在整个HTML标记中，没有任何意义，他们的存在就是为了应用CSS样式,DIV和span的区别在与，span是内联元素，div是块级元素</p>
+<h3 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a><strong>盒模型</strong></h3><ul>
+<li>盒子外边距 margin</li>
+<li>盒子内编剧 padding</li>
+<li>盒子边框宽度 border</li>
+<li>盒子宽度 width</li>
+<li>盒子高度 height</li>
+</ul>
+<h3 id="布局相关属性"><a href="#布局相关属性" class="headerlink" title="布局相关属性"></a><strong>布局相关属性</strong></h3><ol>
+<li><p>position定位方式</p>
+<ul>
+<li>relative 正常定位</li>
+<li>absolute 根据父元素定位</li>
+<li>fixed 根据浏览器窗口定位</li>
+<li>static 没有定位</li>
+<li>inherit 继承</li>
+</ul>
+</li>
+<li><p>定位(离页面顶点的距离)</p>
+<ul>
+<li>left</li>
+<li>right</li>
+<li>top</li>
+<li>bottom</li>
+</ul>
+</li>
+<li><p>z-index层覆盖先后顺序</p>
+</li>
+<li><p>display显示属性</p>
+<ul>
+<li>none 层不显示</li>
+<li>block 块状显示,在元素后面换行,显示下一块元素</li>
+<li>内联显示,多个块可以显示在一行内</li>
+</ul>
+</li>
+<li><p>float属性</p>
+<ul>
+<li>left 左浮动</li>
+<li>right 右浮动</li>
+</ul>
+</li>
+<li><p>clear属性</p>
+<ol>
+<li>clear:both 清除浮动</li>
+<li>scroll无论内容是否超出层大小都添加滚动条</li>
+<li>auto 超出时自动添加滚动条</li>
+</ol>
+</li>
+<li><p>overflow溢出处理</p>
+<p> hidden隐藏超出层大小的内容</p>
+</li>
+</ol>
+<h3 id="兼容问题及高效开发工具"><a href="#兼容问题及高效开发工具" class="headerlink" title="兼容问题及高效开发工具"></a><strong>兼容问题及高效开发工具</strong></h3><h4 id="兼容性测试工具"><a href="#兼容性测试工具" class="headerlink" title="兼容性测试工具"></a>兼容性测试工具</h4><ul>
+<li>IE Tester</li>
+<li>Multibrowser</li>
+</ul>
+<h4 id="常用浏览器"><a href="#常用浏览器" class="headerlink" title="常用浏览器"></a>常用浏览器</h4><ul>
+<li>Chrome</li>
+<li>Firefox</li>
+<li>Opera</li>
+</ul>
+<h4 id="高效开发工具"><a href="#高效开发工具" class="headerlink" title="高效开发工具"></a>高效开发工具</h4><ol>
+<li><p>轻量级</p>
+<ul>
+<li>Notepad++</li>
+<li>Sublime Text</li>
+</ul>
+</li>
+<li><p>重量级</p>
+<ul>
+<li>WebStorm</li>
+<li>Dreamweaver</li>
+</ul>
+</li>
+</ol>
+<h4 id="网页设计工具"><a href="#网页设计工具" class="headerlink" title="网页设计工具"></a>网页设计工具</h4><ul>
+<li>fireworks</li>
+<li>photoshop</li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Note/" rel="tag"># Note</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/03/28/HTML标记语言/" rel="next" title="HTML标记语言">
+                <i class="fa fa-chevron-left"></i> HTML标记语言
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/04/05/JavaScript/" rel="prev" title="JavaScript">
+                JavaScript <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">entercoder1993</p>
+              <p class="site-description motion-element" itemprop="description">just coding</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">16</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">7</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">5</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/entercoder1993" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用CSS样式的方式"><span class="nav-number">1.</span> <span class="nav-text">使用CSS样式的方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定义样式表"><span class="nav-number">2.</span> <span class="nav-text">定义样式表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常见属性"><span class="nav-number">3.</span> <span class="nav-text">常见属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#颜色"><span class="nav-number">3.1.</span> <span class="nav-text">颜色</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字体"><span class="nav-number">3.2.</span> <span class="nav-text">字体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#背景"><span class="nav-number">3.3.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文本"><span class="nav-number">3.4.</span> <span class="nav-text">文本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#边框"><span class="nav-number">3.5.</span> <span class="nav-text">边框</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#列表"><span class="nav-number">3.6.</span> <span class="nav-text">列表</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DIV-CSS布局"><span class="nav-number">4.</span> <span class="nav-text">DIV+CSS布局</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#盒模型"><span class="nav-number">4.1.</span> <span class="nav-text">盒模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#布局相关属性"><span class="nav-number">4.2.</span> <span class="nav-text">布局相关属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#兼容问题及高效开发工具"><span class="nav-number">4.3.</span> <span class="nav-text">兼容问题及高效开发工具</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#兼容性测试工具"><span class="nav-number">4.3.1.</span> <span class="nav-text">兼容性测试工具</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常用浏览器"><span class="nav-number">4.3.2.</span> <span class="nav-text">常用浏览器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#高效开发工具"><span class="nav-number">4.3.3.</span> <span class="nav-text">高效开发工具</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#网页设计工具"><span class="nav-number">4.3.4.</span> <span class="nav-text">网页设计工具</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">entercoder1993</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Mist</a> v6.3.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
