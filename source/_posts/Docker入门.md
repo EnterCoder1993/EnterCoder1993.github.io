@@ -9,6 +9,8 @@ tags: Docker
 
 <!-- more -->
 
+# Docker入门
+
 ## 初识Docker
 
 ### 什么是Docker
@@ -73,10 +75,8 @@ Docker引擎的基础是Linux容器(Linux Containers,LXC)技术（容器有效�
         * 超虚拟化：部分硬件接口以软件的形式提供给客户机操作系统，客户操作系统需要进行修改。
         * 操作系统及虚拟化：内核通过创建多个虚拟的操作系统实例来隔离不同的进行。容器相关技术属于这个范畴。
 
-
 Docker和传统虚拟机方式的不同之处
 ![38b79a7fd4361f03533adffa283d13bc.png](https://ws2.sinaimg.cn/large/0069RVTdgy1fuooutd18sj30lp096wey.jpg)
-
 
 ## Docker的核心概念和安装
 
@@ -84,13 +84,13 @@ Docker和传统虚拟机方式的不同之处
 
 ### 核心概念
 
-##### Docker镜像
+#### Docker镜像
 
 Docker镜像类似于虚拟机镜像，可以理解为一个面向Docker引擎的只读模板，包含了文件系统。
 
 镜像是创建Docker容器的基础。通过版本管理和增量的文件系统，Docker提供了一套简单的机制来创建和更新现有的镜像，用户设置可以从网上下载一个已经做好的应用镜像，并通过简单的命令就可以直接使用。
 
-##### Docker容器
+#### Docker容器
 
 Docker容器类似于一个轻量级的沙箱，Docker利用容器来运行和隔离应用。容器是从镜像创建的应用运行实例，可以将其启动、开始、停止、删除，而这些容器都是互相隔离、不可见的。
 
@@ -98,7 +98,7 @@ Docker容器类似于一个轻量级的沙箱，Docker利用容器来运行和�
 
 镜像自身是只读的。容器从镜像启动的时候，Docker会在镜像的最上层创建一个可写层，镜像本身保持不变。
 
-##### Docker仓库
+#### Docker仓库
 
 注册服务器是存放仓库的地方，不能将Docker仓库和注册服务器(Registry)混为一谈。
 
@@ -111,6 +111,7 @@ Docker仓库类似于代码仓库，是Docker集中存放镜像文件的场所�
 * CentOS
 * Windows
 * Mac OS
+
 ```bash
 brew install docker
 ```
@@ -122,10 +123,13 @@ brew install docker
 ### 获取镜像
 
 镜像是Docker运行容器的前提。使用`docker pull`命令从网络上下载镜像。
+
 ```bash
 docker pull NAME[:TAG]
 ```
+
 若不显式地指定TAG，则默认会选择latest标签，即下载仓库的最新版本的镜像。
+
 ```bash
 docker pull ubuntu
 # 指定TAG
@@ -141,15 +145,19 @@ e12192999ff1: Already exists
 Digest: sha256:aade50db36e1ed96716662cfe748789e154c213a711931c66746c42ce34aa296
 Status: Downloaded newer image for ubuntu:latest
 ```
+
 下载过程可以看出，镜像文件一般由若干层组成，行首的c64513b74145代表了各层的ID。下载过程中会获取病输出镜像的各层信息。层其实是AUFS(Advanced Union File System，一种联合文件系统)中的重要概念，是实现增量保存与更新的基础。
 
 两条安装命令相当于：`docker pull registry.hub.docker.com/ubuntu:latest`，即从默认的注册服务器registry.hub.docker.com中的ubuntu仓库下载标记为latest的镜像。
 
 指定完整的仓库注册服务器地址。例如从DockerPool社区的镜像源下载
+
 ```bash
 docker pull dl.dockerpool.com:5000/ubuntu
 ```
+
 使用镜像创建容器并运行bash应用
+
 ```bash
 docker run -t -i ubuntu /bin/bash
 ```
@@ -164,6 +172,7 @@ docker images
 ```
 
 TAG信息用来标记来自同一个仓库的不同镜像。仓库中有多个镜像，通过TAG信息来区分发行版本。
+
 ```bash
 # 使用docker tag为本地镜像添加新的标签
 docker tag dl.dockerpool.com:5000/ubuntu:latest ubuntu:latest
@@ -173,6 +182,7 @@ docker tag dl.dockerpool.com:5000/ubuntu:latest ubuntu:latest
 不同标签的镜像的ID完全一致的，说明它们实际上指向了同一个镜像文件，只是别名不同。标签起到了引用或快捷方式的作用。
 
 `docker inspect`可以获取镜像的详细信息，`docker inspect`命令返回的是一个JSON格式的消息，若只要其中一项内容，可以使用-f参数指定。
+
 ```bash
 docker inspect 2cb0d9787c4d
 
@@ -185,6 +195,7 @@ docker inspect -f {{".Architecture"}} 550
 使用`docker search`命令可以搜索远端仓库中的共享的镜像，默认搜索Docker Hub官方仓库中的镜像。
 
 支持的参数：
+
 * --automated=false 仅显示自动创建的镜像
 * --no-trunc=false 输出信息不截断显示
 * -s,--starts=0 指定仅显示评价为指定星级以上的镜像
@@ -192,17 +203,19 @@ docker inspect -f {{".Architecture"}} 550
 ### 删除镜像
 
 使用`docker rmi`可以删除镜像
+
 ```bash
 # IMAGE可以为标签或ID
 docker rmi IMAGE
 # -f 参数强制执行
 docker rmi -f ubuntu
 ```
+
 当一个镜像拥有多个标签时，`docker rmi`只是删除了该镜像多个标签中的指定标签而已，并不影响镜像文件。但当只剩下一个标签时，执行`docker rmi`命令会删除这个镜像文件的所有AUFS层。
 
 当使用`docker rmi`命令后面跟上镜像ID(也可以是ID能进行区分的部分前缀串)时，会先尝试删除所有指定该镜像的标签，然后删除镜像文件本身。
 
-当有镜像创建的容器存在时，镜像文件默认是无法被删除的。
+当有镜像创建的容器存在时，镜像文件默认是无法被删除的
 ```bash
 # 删除依赖该镜像的所有容器
 docker rm ubuntu
@@ -217,10 +230,13 @@ docker rmi ubuntu
 #### 基于已有镜像的容器创建
 
 使用`docker commit`命令，格式：
+
 ```bash
 docker commit [OPTIONS] CONTAINER [REPOSITORY[:TAG]]
 ```
+
 主要选项包括：
+
 * -a，--author=""作者信息
 * -m，--message=""提交信息
 * -p，--pause=true提交时暂停容器运行
@@ -244,6 +260,7 @@ test                 latest              4ff6ec596961        6 seconds ago      
 
 使用OpenVZ提供的模板创建。OPENVZ模板的下载地址为[https://download.openvz.org/template/precreated/](https://download.openvz.org/template/precreated/)
 导入命令
+
 ```bash
 cat ubuntu-14.04-x86_64-minimal.tar.gz | docker import - ubuntu:14.04
 ```
@@ -270,7 +287,6 @@ docker load < ubuntu_14.04.tar
 
 使用`docker push`命令上传镜像到仓库，默认上传到DockerHub官方仓库（需要登录），命令格式为`docker push NAME[:NAME]`，第一次使用时，会提示输入登录信息或进行注册。
 
-
 ## 容器
 
 > 容器时Docker的另一个核心概念，容器就是镜像的一个运行实例，不同的是，它带有额外的可写文件层。
@@ -280,25 +296,32 @@ docker load < ubuntu_14.04.tar
 #### 新建容器
 
 使用`docker create`命令新建一个容器
+
 ```bash
 docker create -it ubuntu:latest
 fb461fbaa2ffe5ebab82548feb5898a1b35b7a3d678b52e1085d94db0f08c6e5
 docker ps -a
 fb461fbaa2ff        ubuntu:latest       "/bin/bash"         23 seconds ago      Up 5 seconds                            heuristic_lamport
 ```
+
 使用`docker create`新建的容器处于停止状态，可以使用`docker start`启动。
 
 #### 新建并启动容器
 
 启动容器的方式有两种
+
 * 基于镜像新建一个容器并启动
 * 将在终止状态的容器重新启动
+
 `docker run` = `docker create` + `docker start`
+
 ```bash
 # 使用如下命令输出一个‘hello world’，之后容器自动终止
 docker run ubuntu /bin/echo 'hello world'
 ```
+
 当利用`docker run`创建并启动容器时，Docker在后台运行的标准操作：
+
 1. 检查本地是否存在指定的镜像，不存在就从共有仓库下载。
 2. 利用镜像创建并启动一个容器。
 3. 分配一个文件系统，并在只读的镜像层外挂载一层可读写层。
@@ -308,11 +331,14 @@ docker run ubuntu /bin/echo 'hello world'
 7. 执行完毕后容器被终止。
 
 下面命令启动一个bash终端，允许用户进行交互
+
 ```bash
 docker run -t -i ubuntu:latest /bin/bash
 ```
+
 > -t：让Docker分配一个伪终端并绑定到容器的标准输出上
 > -i：让容器的标准输入保持打开
+
 ```bash
 docker run -ti ubuntu /bin/bash
 root@d3df425445cf:/# ls
@@ -332,6 +358,7 @@ exit
 #### 守护态运行
 
 `-d`参数可以让Docker容器在后台以守护态形式运行
+
 ```bash
 ➜  ~ docker run -d ubuntu /bin/bash -c "while true;do echo hello world;sleep 1;done"
 9c9db4515c703021cd2fc3e4583291cb62007ecafa28709f898cf2183eb914c1
@@ -366,11 +393,13 @@ root@a9e625b70f57:/# ls
 bin   dev  home  lib64  mnt  proc  run   srv  tmp  var
 boot  etc  lib   media  opt  root  sbin  sys  usr
 ```
+
 但是使用attach命令有时候并不方便。当多个窗口同时attach到同一个容器时，所有的窗口都会同步显示。当某个命令因命令阻塞时，其他窗口也无法执行操作。
 
 #### exec命令
 
 Docker自1.3版本起，提供了exec工具，可以直接在容器内运行命令。
+
 ```bash
 docker exec -ti a9e625 /bin/bash
 ```
@@ -382,6 +411,7 @@ nsenter工具在util-linux包2.33版本后包含。
 ### 删除容器
 
 `docker rm`可以删除处于终止状态的容器，命令格式为`docker rm [OPTION] CONTAINER [CONTAINER...]`支持的选项包括：
+
 * -f，--force=false强行终止并删除一个运行中的容器
 * -l，--link=false删除容器的连接，但保留容器
 * -v，--volume=false删除容器挂载的数据卷
@@ -390,7 +420,8 @@ nsenter工具在util-linux包2.33版本后包含。
 
 #### 导出容器
 
-导出容器是指导出一个已经创建的容器到一个文件，不管此时这个容器是否处于运行状态，可以使用`docker export`命令，命令格式为`docker export CONTAINER`.
+导出容器是指导出一个已经创建的容器到一个文件，不管此时这个容器是否处于运行状态，可以使用`docker export`命令，命令格式为`docker export CONTAINER`。
+
 ```bash
 docker export ce4 > test_for_run.tar
 ```
@@ -398,6 +429,7 @@ docker export ce4 > test_for_run.tar
 #### 导入容器
 
 `docker import`可以导入文件成为镜像
+
 ```bash
 cat test_for_run.tar | docker import - test/ubuntu:v1.0
 ```
@@ -414,11 +446,13 @@ cat test_for_run.tar | docker import - test/ubuntu:v1.0
 ### Docker Hub
 
 基础操作
+
 * docker pull 下载镜像到本地
 * docker search 搜索公共仓库镜像
 * docker push 将本地奖项推动到Docker Hub
 
 镜像资源分为两类
+
 1. 类似ubuntu这样的基础镜像，成为基础或根镜像。这些镜像由Docker公司创建、验证、支持、提供，这样的镜像往往使用单个单词作为名字
 2. 类似user/ubuntu这样的镜像，它是由DockerHub的用户user闯将并维护的，带有用户名称前缀，
 
@@ -428,10 +462,12 @@ cat test_for_run.tar | docker import - test/ubuntu:v1.0
 
 自动创建使用户通过Docker Hub指定跟踪一个目标网站（目前支持GitHub或BitBucket）上的项目，一旦项目发现新的提交，则自动执行创建。
 步骤：
+
 1. 创建并登陆Docker Hub，以及目标网站；\*在目标网站中连接账户到Docker Hub
 2. 在Docker Hub中配置一个自动创建
 3. 选取一个目标网站中的项目（需要含Dockerfile）和分支
 4. 指定Dockerfile的位置，并提交创建。
+
 之后可以在Docker Hub的“自动创建”页面中跟踪每次创建的动态。
 
 ### 创建和使用私有仓库
@@ -439,6 +475,7 @@ cat test_for_run.tar | docker import - test/ubuntu:v1.0
 #### 使用registry镜像创建私有仓库
 
 通过官方的registry镜像简单搭建一套本地私有仓库环境：
+
 ```bash
 docker run -d -p 5000:5000 registry
 ```
@@ -463,14 +500,17 @@ docker run -d -p 5000:5000 registry
 使用`docker run`命令的时候，使用-v编辑可以在容器内创建一个数据卷。多次会用-v标记可以创建多个数据卷。
 
 使用training/webapp镜像创建一个Web容器，并创建一个数据卷挂载到容器的/web目录：
+
 ```bash
 docker run -d -P --name web -v /webapp training/webapp python app.py
 ```
+
 > -P是允许外部访问容器需要暴露的端口
 
 #### 挂载一个本地主机文件作为数据卷
 
 -v标记也可以从主机上挂载单个文件到容器中作为数据卷：
+
 ```bash
 docker run --rm -it -v ~/.zshrc ubuntu /bin/bash
 ```
@@ -482,6 +522,7 @@ docker run --rm -it -v ~/.zshrc ubuntu /bin/bash
 ### 从外部访问容器应用
 
 可以通过`-P`或`-p`参数来指定端口映射。当使用`-P`标记时，Docker会随机映射一个49000~49900的端口至容器内部开放的网络端口。`-p`则可以指定要映射的端口，并且在一个指定端口上只可以绑定一个容器。支持的格式有：`ip:hostport:containerPort | ip::containerPort | hostPort:containerPort`
+
 ```bash
 docker run -d -P training/webapp python app.py
 docker ps -l
@@ -491,10 +532,13 @@ d5c545dc020f        training/webapp     "python app.py"     7 seconds ago       
 #### 映射所有的接口地址
 
 将本地的5000端口映射到容器的5000端口
+
 ```bash
 docker run -d -p 5000:5000 training/webapp python app.py
 ```
+
 亦可以多次使用`-p`标记绑定多个端口
+
 ```bash
 docker run -d -p 5000:5000 -p 3000:80 training/webapp python app.py
 ```
@@ -508,6 +552,7 @@ docker run -d -p 127.0.0.1:5000:5000 training/webapp python app.py
 #### 映射到指定地址的任意端口
 
 使用`ip::containerPort`绑定localhost的任意端口到容器的5000端口，本地主机会自动分配一个端口：
+
 ```bash
 docker run -d -p 127.0.0.1::5000 training/webapp python app.py
 # 使用ud标记来指定udp端口
@@ -517,9 +562,11 @@ docker run -d -p 127.0.0.1:5000:5000/udp training/webapp python app.py
 #### 查看映射端口配置
 
 使用`docker port`查看当前映射的端口配置，也可以查看到绑定的地址
+
 ```bash
 docker port DOCKERNAME containerPort
 ```
+
 > 容器有自己的内部网络和IP地址(`docker inspert + 容器ID`可以获取所有的变量值)。
 
 ### 容器互联实现容器间通信
@@ -527,10 +574,164 @@ docker port DOCKERNAME containerPort
 > 容器的连接系统是除了端口映射外另一种可以与容器中应用进行交互的方式。它会在源和接收容器之间创建一个隧道，接收容器可以看到源容器指定的信息。
 
 连接系统根据容器的名称来执行，因此需要先自定义一个好记的容器命名。使用`--name`标记可以为容器自定义命名
+
 ```bash
 docker run -d -P --name web training/webapp python app.py
 ```
 
+## 八、使用Dockerfile创建镜像
 
+> Dockerfile是一个文本格式的配置文件，用户可以使用Dockerfile快速创建自定义的镜像。
 
+### 基本结构
 
+Docker由一行行命令语句组成，并且支持以#开头的注释行。一般分为四部分：基础镜像信息、维护者信息、镜像操作指令和容器启动执行指令。
+
+```bash
+# This dockerfile uses the ubuntu image
+# VERSION 2 - EDITION 1
+# Author:docker_user
+# Command format: Instruction [arguments / command]...
+
+# 第一行必须指定基于的基础镜像
+From ubuntu
+
+# 维护者信息
+MAINTAINER entercoder entercoder1993@gmail.com
+
+# 镜像的操作指令
+RUN echo "deb http://archive.ubuntu.com/ubuntu/ raring main universe" >> /etc/apt/sources.list
+RUN apt-get update && apt-get install -y nginx
+Run echo "\nadaemon off;;" >> /etc/nginx/nginx.conf
+
+# 容器启动时执行指令
+CMD /usr/sbin/nginx
+```
+
+* Example1
+
+```bash
+From ubuntu
+MAINTAINER entercoder entercoder1993@gmail.com
+
+RUN apt-get update && apt-get install -y inotify-tools nginx apache2 openssh-server%
+```
+
+* Example2
+
+基于ubuntu，安装firfox和vnc软件，启动后，用户可以通过5900端口通过vnc方式使用firefox
+
+```bash
+FROM ubuntu
+
+RUN apt-get update && apt-get install -y xllvnc xvfb firefox
+RUN mkdir /.vnc
+RUN xllvnc -storepasswd 1234 ~/.vnc/passwd
+RUN bash -c 'echo "firefox" >> /.bashrc'
+
+EXPOSE 5900
+CMD ["xllvnc,"-forever","-usepw","-create"]
+```
+
+### 指令
+
+指令的一般格式为INSTRUCTION arguments，指令包括FROM、MAINTAINER、RUN等
+
+#### FROM
+
+第一条必须为FROM指令。并且，如果在同一个Dockerfile中创建多个镜像时，可以使用多个FROM指令。
+格式：`FROM <image>或FROM <image>:<tag>`
+
+#### MAINTAINER
+
+指定维护者的信息
+格式：`MAINTAINER <name>`
+
+#### RUN
+
+在shell终端中运行命令，即`/bin/sh -c`
+格式：`RUN <command>`
+使用exec执行命令，指定其他终端可以用这种方式实现
+格式：`RUN ["/bin/bash","-c","echo hello"]`
+每条RUN指令将在当前镜像基础上执行指定命令，并提交为新的镜像。当命令较长时可以用\来换行。
+
+#### CMD
+
+支持三种形式
+
+1. `CMD [”executable","param1","param2"]`使用exec执行，推荐方式
+2. `CMD command param1 param2`在`/bin/bash`中执行，
+3. `CMD ["param1","param2"]`提供给ENTRYPOINT的默认参数
+
+指定启动容器时执行的命令，每个Dockerfile只能有一条CMD命令。如果指定了多条命令，只有最后一条会被执行。如果用户启动容器时制定了运行的命令，则会覆盖掉CMD指定的命令。
+
+#### EXPOSE
+
+告诉Docker服务端容器暴露的端口号，供互联网使用。在启动容器时需要通过-P，Docker主机会自动分配一个端口转发到指定的端口；使用-p，则可以指定哪个本地端口映射过来。
+格式：`EXPOSE <port> [<port>...]`
+
+#### ENV
+
+指定一个环境变量，会被后续RUN指令使用，并在容器运行时保持。
+格式：`ENV <key> <value>`
+```bash
+ENV PG_MAJOR 9.3
+ENV PG_VERSIOIN 9.3.4
+RUN curl -SL http://example.com/postgres-$PG_VERSION.tar.xz | tar -xJC /usr/src/postgress && ...
+ENV PATH /usr/local/postgress-$PG_MAJOR/bin:$PATH
+```
+
+#### ADD
+
+将复制指定的`<src>`到容器中的`<dest>`。其中`<src>`可以是Dockerfile所在目录的一个相对露冷静(文件或目录)；也可以是一个URL；还可以是一个tar文件(自动解压为目录)。
+格式：`ADD <src> <dest>`
+
+#### COPY
+
+复制指定的`<src>`(为Dockerfile所在目录的相对路径，文件或目录)为容器中的`<dest>`。目标路径不存在，会自动创建。使用本地目录为源目录时，推荐使用COPY
+格式：`COPY <src> <dest>`
+
+#### ENTRYPOINT
+
+配置容器启动后执行的命令，并且不可被docker run提供的参数覆盖。每个Dockerfile中只能有一个ENTRYPOINT，当指定多个ENTRYPOINT时，只有最后一个生效。
+格式：
+`ENTRYPOINT ["executable","param1","param2"]`
+`ENTRYPOINT command param1 param2(shell中执行)`
+
+#### VOLUME
+
+创建一个可以从本地主机或其他容器挂载的挂载点，一般用来存放数据库和需要保持的数据等。
+格式：`VOLUME ["/data"]`
+
+#### USER
+
+指定运行容器时的用户名或UID，后续的RUN也会使用指定用户。当服务不需要管理员权限时，可以通过该命令指定运行用户，并且可以在之前创建所需要的用户，例如：`RUN groupadd -r postgres && useradd -r -g postgres postgres`。要临时获取管理员权限可以使用gosu，而不推荐sudo。
+格式：`USER daemon`
+
+#### WORKDIR
+
+为后续的RUN、CMD、ENTRYPOINT指令配置工作目录。可以使用多个WORKDIR指令，后续命令如果参数是相对路径，则会基于之前命令指定的路径。
+格式：`WORKDIR /path/to/workdir`
+
+```bash
+WORDDIR /a
+WORKDIR b
+WORKDIR c
+RUN pwd
+# 则最终路径为/a/b/c
+```
+
+#### ONBUILD
+
+配置当所创建的镜像作为其他新创建镜像的基础镜像时所操作的指令。
+格式：`ONBUILD [INSTRUCTION]`
+
+### Dockerfile创建镜像
+
+编写完成Dockerfile后，通过`docker build`命令来创建镜像。
+格式：`docker build [option] path`
+该命令将读取指定路径下(包括子目录)的Dockerfile，并将该路径下所有内容发给Docker服务端，由服务端来创建镜像。因此一般建议放置Dockerfile的目录为空目录。
+
+通过.dockerignore文件(每行添加一条匹配模式)来让Docker忽略路径下的目录和文件。
+
+通过`-t`选项可以指定镜像的标签信息。
