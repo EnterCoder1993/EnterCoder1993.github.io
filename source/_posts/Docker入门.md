@@ -5,7 +5,9 @@ categories: Tools
 tags: Docker
 ---
 
-<!--more-->
+> Docker 是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口。
+
+<!-- more -->
 
 ## 初识Docker
 
@@ -529,14 +531,6 @@ docker port DOCKERNAME containerPort
 docker run -d -P --name web training/webapp python app.py
 ```
 
-| 方法                | 说明                                           |
-| ------------------- | ---------------------------------------------- |
-| requests.requests() | 构造一个请求，支撑一下各方法的基础方法         |
-| requests.get()      | 获取HTML网页的主要方法，对应于HTTP的GET        |
-| requests.head()     | 获取HTML网页头信息的方法，对应于HTTP的HEAD     |
-| requests.post()     | 向HTML网页提交POST请求的方法，对应于HTTP的POST |
-| requests.put()      | 向HTML网页提交PUT请求的方法，对应与HTTP的PUT   |
-| requests.patch()    | 向HTML网页提交局部修改请求，对应于HTTP的PATCH  |
-| requests.delete()   | 向HTML页面提交删除请求，对应于HTTP的DELETE     |
+
 
 
