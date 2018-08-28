@@ -108,20 +108,20 @@
 
 
 
-  <meta name="description" content="初识Docker什么是DockerDocker开源项目Docker是基于Go语言实现的云开源项目，诞生于2013年初，最初发起者为dotCloud公司。Docker项目目前已加入Linux基金会，遵循Apache2.0协议，全部开源代码均在https://github.com/docker/docker上进行维护。 Docker的主要目标是”Build,ship and Run Any App,">
+  <meta name="description" content="Docker 是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口。">
 <meta name="keywords" content="Docker">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Docker入门">
 <meta property="og:url" content="http://yoursite.com/2018/08/27/Docker入门/index.html">
-<meta property="og:site_name" content="EnterCoder">
-<meta property="og:description" content="初识Docker什么是DockerDocker开源项目Docker是基于Go语言实现的云开源项目，诞生于2013年初，最初发起者为dotCloud公司。Docker项目目前已加入Linux基金会，遵循Apache2.0协议，全部开源代码均在https://github.com/docker/docker上进行维护。 Docker的主要目标是”Build,ship and Run Any App,">
+<meta property="og:site_name" content="EnterCoder&#39;s Blog">
+<meta property="og:description" content="Docker 是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://ws2.sinaimg.cn/large/0069RVTdgy1fuooutd18sj30lp096wey.jpg">
 <meta property="og:image" content="https://ws4.sinaimg.cn/large/0069RVTdgy1fuoovlxlhxj30jm010745.jpg">
-<meta property="og:updated_time" content="2018-08-27T15:45:05.467Z">
+<meta property="og:updated_time" content="2018-08-28T02:57:42.210Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Docker入门">
-<meta name="twitter:description" content="初识Docker什么是DockerDocker开源项目Docker是基于Go语言实现的云开源项目，诞生于2013年初，最初发起者为dotCloud公司。Docker项目目前已加入Linux基金会，遵循Apache2.0协议，全部开源代码均在https://github.com/docker/docker上进行维护。 Docker的主要目标是”Build,ship and Run Any App,">
+<meta name="twitter:description" content="Docker 是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口。">
 <meta name="twitter:image" content="https://ws2.sinaimg.cn/large/0069RVTdgy1fuooutd18sj30lp096wey.jpg">
 
 
@@ -139,7 +139,7 @@
   };
 </script>
 
-  <title>Docker入门 | EnterCoder</title>
+  <title>Docker入门 | EnterCoder's Blog</title>
   
 
 
@@ -197,7 +197,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">EnterCoder</span>
+        <span class="site-title">EnterCoder's Blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -321,7 +321,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="EnterCoder">
+      <meta itemprop="name" content="EnterCoder's Blog">
     </span>
 
     
@@ -354,12 +354,24 @@
                 
               
 
-              <time title="创建时间：2018-08-27 23:41:17 / 修改时间：23:45:05" itemprop="dateCreated datePublished" datetime="2018-08-27T23:41:17+08:00">2018-08-27</time>
+              <time title="创建时间：2018-08-27 23:41:17" itemprop="dateCreated datePublished" datetime="2018-08-27T23:41:17+08:00">2018-08-27</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-08-28 10:57:42" itemprop="dateModified" datetime="2018-08-28T10:57:42+08:00">2018-08-28</time>
               
             
           </span>
@@ -410,7 +422,10 @@
       
 
       
-        <a id="more"></a>
+        <blockquote>
+<p>Docker 是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口。</p>
+</blockquote>
+<a id="more"></a>
 <h2 id="初识Docker"><a href="#初识Docker" class="headerlink" title="初识Docker"></a>初识Docker</h2><h3 id="什么是Docker"><a href="#什么是Docker" class="headerlink" title="什么是Docker"></a>什么是Docker</h3><h4 id="Docker开源项目"><a href="#Docker开源项目" class="headerlink" title="Docker开源项目"></a>Docker开源项目</h4><p>Docker是基于Go语言实现的云开源项目，诞生于2013年初，最初发起者为dotCloud公司。Docker项目目前已加入Linux基金会，遵循Apache2.0协议，全部开源代码均在<a href="https://github.com/docker/docker" target="_blank" rel="noopener">https://github.com/docker/docker</a>上进行维护。</p>
 <p>Docker的主要目标是”Build,ship and Run Any App,Anywhere“，即通过对应用组件的封装、分发、部署、运行等生命周期的管理，达到应用级别的”一次封装，到处运行“。这里的应用组件，可以是一个Web应用，也可以是一套数据库服务，甚至是一个操作系统或编译器。</p>
 <h4 id="Linux容器技术"><a href="#Linux容器技术" class="headerlink" title="Linux容器技术"></a>Linux容器技术</h4><p>Docker引擎的基础是Linux容器(Linux Containers,LXC)技术（容器有效第将由单个操作系统管理的资源划分到孤立的组中，以便更好第在孤立的组之间平衡有冲突的资源使用需求。与虚拟化相比，这样既不需要指令级模拟，也不需要即时编译。容器可以在核心CPU本地运行指令，儿不需要任何专门的解释机制。此外，也避免了准虚拟化和系统调用替换中的复杂性。）</p>
@@ -639,44 +654,6 @@
 <p>容器的连接系统是除了端口映射外另一种可以与容器中应用进行交互的方式。它会在源和接收容器之间创建一个隧道，接收容器可以看到源容器指定的信息。</p>
 </blockquote>
 <p>连接系统根据容器的名称来执行，因此需要先自定义一个好记的容器命名。使用<code>--name</code>标记可以为容器自定义命名<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -P --name web training/webapp python app.py</span><br></pre></td></tr></table></figure></p>
-<table>
-<thead>
-<tr>
-<th>方法</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>requests.requests()</td>
-<td>构造一个请求，支撑一下各方法的基础方法</td>
-</tr>
-<tr>
-<td>requests.get()</td>
-<td>获取HTML网页的主要方法，对应于HTTP的GET</td>
-</tr>
-<tr>
-<td>requests.head()</td>
-<td>获取HTML网页头信息的方法，对应于HTTP的HEAD</td>
-</tr>
-<tr>
-<td>requests.post()</td>
-<td>向HTML网页提交POST请求的方法，对应于HTTP的POST</td>
-</tr>
-<tr>
-<td>requests.put()</td>
-<td>向HTML网页提交PUT请求的方法，对应与HTTP的PUT</td>
-</tr>
-<tr>
-<td>requests.patch()</td>
-<td>向HTML网页提交局部修改请求，对应于HTTP的PATCH</td>
-</tr>
-<tr>
-<td>requests.delete()</td>
-<td>向HTML页面提交删除请求，对应于HTTP的DELETE</td>
-</tr>
-</tbody>
-</table>
 
       
     </div>

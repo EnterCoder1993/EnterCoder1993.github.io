@@ -110,13 +110,13 @@
 
   <meta name="description" content="just coding">
 <meta property="og:type" content="website">
-<meta property="og:title" content="EnterCoder">
+<meta property="og:title" content="EnterCoder&#39;s Blog">
 <meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="EnterCoder">
+<meta property="og:site_name" content="EnterCoder&#39;s Blog">
 <meta property="og:description" content="just coding">
 <meta property="og:locale" content="zh-CN">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="EnterCoder">
+<meta name="twitter:title" content="EnterCoder&#39;s Blog">
 <meta name="twitter:description" content="just coding">
 
 
@@ -134,7 +134,7 @@
   };
 </script>
 
-  <title>EnterCoder</title>
+  <title>EnterCoder's Blog</title>
   
 
 
@@ -193,7 +193,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">EnterCoder</span>
+        <span class="site-title">EnterCoder's Blog</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -317,7 +317,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="EnterCoder">
+      <meta itemprop="name" content="EnterCoder's Blog">
     </span>
 
     
@@ -354,12 +354,24 @@
                 
               
 
-              <time title="创建时间：2018-08-27 23:41:17 / 修改时间：23:45:05" itemprop="dateCreated datePublished" datetime="2018-08-27T23:41:17+08:00">2018-08-27</time>
+              <time title="创建时间：2018-08-27 23:41:17" itemprop="dateCreated datePublished" datetime="2018-08-27T23:41:17+08:00">2018-08-27</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-08-28 10:57:42" itemprop="dateModified" datetime="2018-08-28T10:57:42+08:00">2018-08-28</time>
               
             
           </span>
@@ -411,276 +423,16 @@
 
       
         
-          
-            <a id="more"></a>
-<h2 id="初识Docker"><a href="#初识Docker" class="headerlink" title="初识Docker"></a>初识Docker</h2><h3 id="什么是Docker"><a href="#什么是Docker" class="headerlink" title="什么是Docker"></a>什么是Docker</h3><h4 id="Docker开源项目"><a href="#Docker开源项目" class="headerlink" title="Docker开源项目"></a>Docker开源项目</h4><p>Docker是基于Go语言实现的云开源项目，诞生于2013年初，最初发起者为dotCloud公司。Docker项目目前已加入Linux基金会，遵循Apache2.0协议，全部开源代码均在<a href="https://github.com/docker/docker" target="_blank" rel="noopener">https://github.com/docker/docker</a>上进行维护。</p>
-<p>Docker的主要目标是”Build,ship and Run Any App,Anywhere“，即通过对应用组件的封装、分发、部署、运行等生命周期的管理，达到应用级别的”一次封装，到处运行“。这里的应用组件，可以是一个Web应用，也可以是一套数据库服务，甚至是一个操作系统或编译器。</p>
-<h4 id="Linux容器技术"><a href="#Linux容器技术" class="headerlink" title="Linux容器技术"></a>Linux容器技术</h4><p>Docker引擎的基础是Linux容器(Linux Containers,LXC)技术（容器有效第将由单个操作系统管理的资源划分到孤立的组中，以便更好第在孤立的组之间平衡有冲突的资源使用需求。与虚拟化相比，这样既不需要指令级模拟，也不需要即时编译。容器可以在核心CPU本地运行指令，儿不需要任何专门的解释机制。此外，也避免了准虚拟化和系统调用替换中的复杂性。）</p>
-<h4 id="从Linux容器到Docker"><a href="#从Linux容器到Docker" class="headerlink" title="从Linux容器到Docker"></a>从Linux容器到Docker</h4><p>在Linux容器的基础上，Docker进一步优化了容器的使用体验。Docker提供了各种容器管理工具（如分发、版本、移植等)让用户无需关注底层的操作，可以简单明了地管理和使用容器。</p>
-<p>可以简单地将Docker容器理解为一种沙盒。每个容器内运行一个应用，不同的容器相互隔离，容器之间也可以建立通信机制。容器的创建和停止都十分快速，容器自身对资源的需求也十分有限，远远低于虚拟机。很多时候，甚至直接把容器当作应用本身也没有任何问题。</p>
-<h3 id="为什么使用Docke"><a href="#为什么使用Docke" class="headerlink" title="为什么使用Docke"></a>为什么使用Docke</h3><h4 id="Docker容器虚拟化的好处"><a href="#Docker容器虚拟化的好处" class="headerlink" title="Docker容器虚拟化的好处"></a>Docker容器虚拟化的好处</h4><p>高效地构建应用</p>
-<h4 id="Docker在开发和运维中的优势"><a href="#Docker在开发和运维中的优势" class="headerlink" title="Docker在开发和运维中的优势"></a>Docker在开发和运维中的优势</h4><ul>
-<li>更快的交付和部署。使用Docker，开发人员可以使用镜像来快速构建一套标准的开发环境；测试和运维人员可以直接使用相同的开发环境来部署代码。Docker可以快速创建和删除容器，实现快速迭代，大量节约开发、测试、部署的时间。并且各个步骤都有明确的配置和操作，整个过程全程课件，使团队更容易理解应用的创建和工作过程。</li>
-<li>更高效的资源利用。Docker容器的运行不需要额外的虚拟化管理程序支持，它是内核级的虚拟化，可以实现更高的性能，同时对资源的额外需求很低。</li>
-<li>更轻松的迁移和扩展。Docker容器几乎可以在任意的平台上运行，包括物理机、虚拟机、公有云、私有云、个人电脑、服务器等。</li>
-<li>更简单的更新管理。使用Dockerfile，只需要小小的配置修改，就可以替代以往大量的更新工作。并且所有修改都可以以增量的方式进行分发和更新，从而实现自动化并且高效的容器管理。</li>
-</ul>
-<h4 id="Dcoker与虚拟机比较"><a href="#Dcoker与虚拟机比较" class="headerlink" title="Dcoker与虚拟机比较"></a>Dcoker与虚拟机比较</h4><ul>
-<li>Docker容器很快，启动和停止可以在秒级实现。</li>
-<li>Docker容器对系统资源需求很少，一台主机可以同时运行数千个Docker容器。</li>
-<li>Docker通过类似Git的操作来方便用户获取、分发和更新应用镜像，指令简明，学习成本较低。</li>
-<li>Docker通过Dockerfile配置文件来支持灵活的自动化创建和部署机制，提高工作效率。</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>特性</th>
-<th>容器</th>
-<th>虚拟机</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>启动速度</td>
-<td>秒级</td>
-<td>分钟级</td>
-</tr>
-<tr>
-<td>硬盘使用</td>
-<td>一般为MB</td>
-<td>一般为GB</td>
-</tr>
-<tr>
-<td>性能</td>
-<td>接近原生</td>
-<td>弱于</td>
-</tr>
-<tr>
-<td>系统支持量</td>
-<td>单机支持上千个容器</td>
-<td>一般几十个</td>
-</tr>
-<tr>
-<td>隔离性</td>
-<td>安全隔离</td>
-<td>完全隔离</td>
-</tr>
-</tbody>
-</table>
-<h4 id="虚拟化与Docker"><a href="#虚拟化与Docker" class="headerlink" title="虚拟化与Docker"></a>虚拟化与Docker</h4><p>在计算领域，一般指的是计算虚拟化，或通常说的服务器虚拟化。（维基百科：在计算机技术中，虚拟化是一种资源管理技术，是将计算机的各种实体资源，如服务器、网络、内存及存储等，予以抽象、转换后呈现出来，打破实体结构间的不可切割的障碍，使用户可以用比原本的组态更好的方式来应用这些资源。）</p>
-<p>虚拟化技术分类</p>
-<ul>
-<li>基于硬件的虚拟化（不常见）</li>
-<li>基于软件的虚拟化<ul>
-<li>应用虚拟化</li>
-<li>平台虚拟化<ul>
-<li>完全虚拟化。虚拟机模拟完整的底层硬件环境和特权指令的执行过程，客户操作系统无需进行修改。</li>
-<li>硬件辅助虚拟化：利用硬件辅助支持处理敏感指令来实现完全虚拟化的功能，客户操作系统无需进行修改。</li>
-<li>部分虚拟化：只针对部分硬件资源进行虚拟化，客户操作系统需要进行修改。</li>
-<li>超虚拟化：部分硬件接口以软件的形式提供给客户机操作系统，客户操作系统需要进行修改。</li>
-<li>操作系统及虚拟化：内核通过创建多个虚拟的操作系统实例来隔离不同的进行。容器相关技术属于这个范畴。</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p>Docker和传统虚拟机方式的不同之处<br><img src="https://ws2.sinaimg.cn/large/0069RVTdgy1fuooutd18sj30lp096wey.jpg" alt="38b79a7fd4361f03533adffa283d13bc.png"></p>
-<h2 id="Docker的核心概念和安装"><a href="#Docker的核心概念和安装" class="headerlink" title="Docker的核心概念和安装"></a>Docker的核心概念和安装</h2><blockquote>
-<p>三大核心概念：镜像、容器、仓库</p>
+          <blockquote>
+<p>Docker 是一个开源的应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的容器中，然后发布到任何流行的 Linux 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口。</p>
 </blockquote>
-<h3 id="核心概念"><a href="#核心概念" class="headerlink" title="核心概念"></a>核心概念</h3><h5 id="Docker镜像"><a href="#Docker镜像" class="headerlink" title="Docker镜像"></a>Docker镜像</h5><p>Docker镜像类似于虚拟机镜像，可以理解为一个面向Docker引擎的只读模板，包含了文件系统。</p>
-<p>镜像是创建Docker容器的基础。通过版本管理和增量的文件系统，Docker提供了一套简单的机制来创建和更新现有的镜像，用户设置可以从网上下载一个已经做好的应用镜像，并通过简单的命令就可以直接使用。</p>
-<h5 id="Docker容器"><a href="#Docker容器" class="headerlink" title="Docker容器"></a>Docker容器</h5><p>Docker容器类似于一个轻量级的沙箱，Docker利用容器来运行和隔离应用。容器是从镜像创建的应用运行实例，可以将其启动、开始、停止、删除，而这些容器都是互相隔离、不可见的。</p>
-<p>容器可以看做一个简易版的Linux系统环境（包括root用户权限、进程空间、用户空间和网络空间等），以及运行在其中的应用程序打包成应用盒子。</p>
-<p>镜像自身是只读的。容器从镜像启动的时候，Docker会在镜像的最上层创建一个可写层，镜像本身保持不变。</p>
-<h5 id="Docker仓库"><a href="#Docker仓库" class="headerlink" title="Docker仓库"></a>Docker仓库</h5><p>注册服务器是存放仓库的地方，不能将Docker仓库和注册服务器(Registry)混为一谈。</p>
-<p>Docker仓库类似于代码仓库，是Docker集中存放镜像文件的场所。每个仓库放着某一类镜像，往往包括多个镜像文件，通过不同的标签(tag)来区分。<br>根据所存储的镜像公开与否，Docker仓库可以分为公开仓库和私有仓库两种形式。目前最大的公开仓库是Docker Hub，存放了数量庞大的镜像供用户下载。国内的公开仓库包括Docker Pool等，可以提供稳定的国内访问。Docker也支持用户在本地网络创建一个只能自己访问的私有仓库。</p>
-<h3 id="安装Docker"><a href="#安装Docker" class="headerlink" title="安装Docker"></a>安装Docker</h3><ul>
-<li>Ubuntu</li>
-<li>CentOS</li>
-<li>Windows</li>
-<li>Mac OS<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install docker</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="镜像"><a href="#镜像" class="headerlink" title="镜像"></a>镜像</h2><blockquote>
-<p>镜像是Docker的三大核心概念之一。Docker运行容器前需要本地存在对应的镜像，如果镜像不存在本地，Docker会尝试先从默认镜像仓库下载，用户也可以通过配置，使用自定义的镜像仓库。</p>
-</blockquote>
-<h3 id="获取镜像"><a href="#获取镜像" class="headerlink" title="获取镜像"></a>获取镜像</h3><p>镜像是Docker运行容器的前提。使用<code>docker pull</code>命令从网络上下载镜像。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull NAME[:TAG]</span><br></pre></td></tr></table></figure></p>
-<p>若不显式地指定TAG，则默认会选择latest标签，即下载仓库的最新版本的镜像。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">docker pull ubuntu</span><br><span class="line"><span class="comment"># 指定TAG</span></span><br><span class="line">docker pull ubuntu:14.04</span><br><span class="line"><span class="comment"># 已下载</span></span><br><span class="line">Using default tag: latest</span><br><span class="line">latest: Pulling from library/ubuntu</span><br><span class="line">c64513b74145: Already exists</span><br><span class="line">01b8b12bad90: Already exists</span><br><span class="line">c5d85cf7a05f: Already exists</span><br><span class="line">b6b268720157: Already exists</span><br><span class="line">e12192999ff1: Already exists</span><br><span class="line">Digest: sha256:aade50db36e1ed96716662cfe748789e154c213a711931c66746c42ce34aa296</span><br><span class="line">Status: Downloaded newer image <span class="keyword">for</span> ubuntu:latest</span><br></pre></td></tr></table></figure></p>
-<p>下载过程可以看出，镜像文件一般由若干层组成，行首的c64513b74145代表了各层的ID。下载过程中会获取病输出镜像的各层信息。层其实是AUFS(Advanced Union File System，一种联合文件系统)中的重要概念，是实现增量保存与更新的基础。</p>
-<p>两条安装命令相当于：<code>docker pull registry.hub.docker.com/ubuntu:latest</code>，即从默认的注册服务器registry.hub.docker.com中的ubuntu仓库下载标记为latest的镜像。</p>
-<p>指定完整的仓库注册服务器地址。例如从DockerPool社区的镜像源下载<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull dl.dockerpool.com:5000/ubuntu</span><br></pre></td></tr></table></figure></p>
-<p>使用镜像创建容器并运行bash应用<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -t -i ubuntu /bin/bash</span><br></pre></td></tr></table></figure></p>
-<h3 id="查看镜像信息"><a href="#查看镜像信息" class="headerlink" title="查看镜像信息"></a>查看镜像信息</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 列出本地主机上已有的镜像</span></span><br><span class="line">docker images</span><br><span class="line"><span class="comment"># 来源仓库     标签  镜像的ID号  创建时间  大小</span></span><br><span class="line"><span class="comment"># REPOSITORY  TAG  IMAGE ID  CREATED  SIZE</span></span><br></pre></td></tr></table></figure>
-<p>TAG信息用来标记来自同一个仓库的不同镜像。仓库中有多个镜像，通过TAG信息来区分发行版本。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用docker tag为本地镜像添加新的标签</span></span><br><span class="line">docker tag dl.dockerpool.com:5000/ubuntu:latest ubuntu:latest</span><br></pre></td></tr></table></figure></p>
-<p><img src="https://ws4.sinaimg.cn/large/0069RVTdgy1fuoovlxlhxj30jm010745.jpg" alt="a44f587ebdbb248faa256709056b4f7f.png"><br>不同标签的镜像的ID完全一致的，说明它们实际上指向了同一个镜像文件，只是别名不同。标签起到了引用或快捷方式的作用。</p>
-<p><code>docker inspect</code>可以获取镜像的详细信息，<code>docker inspect</code>命令返回的是一个JSON格式的消息，若只要其中一项内容，可以使用-f参数指定。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker inspect 2cb0d9787c4d</span><br><span class="line"></span><br><span class="line"><span class="comment"># 指定镜像ID时，通常使用该ID的前若干个字符组成的可区分字串来替代完整ID</span></span><br><span class="line">docker inspect -f &#123;&#123;<span class="string">".Architecture"</span>&#125;&#125; 550</span><br></pre></td></tr></table></figure></p>
-<h3 id="搜寻镜像"><a href="#搜寻镜像" class="headerlink" title="搜寻镜像"></a>搜寻镜像</h3><p>使用<code>docker search</code>命令可以搜索远端仓库中的共享的镜像，默认搜索Docker Hub官方仓库中的镜像。</p>
-<p>支持的参数：</p>
-<ul>
-<li>–automated=false 仅显示自动创建的镜像</li>
-<li>–no-trunc=false 输出信息不截断显示</li>
-<li>-s,–starts=0 指定仅显示评价为指定星级以上的镜像</li>
-</ul>
-<h3 id="删除镜像"><a href="#删除镜像" class="headerlink" title="删除镜像"></a>删除镜像</h3><p>使用<code>docker rmi</code>可以删除镜像<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># IMAGE可以为标签或ID</span></span><br><span class="line">docker rmi IMAGE</span><br><span class="line"><span class="comment"># -f 参数强制执行</span></span><br><span class="line">docker rmi -f ubuntu</span><br></pre></td></tr></table></figure></p>
-<p>当一个镜像拥有多个标签时，<code>docker rmi</code>只是删除了该镜像多个标签中的指定标签而已，并不影响镜像文件。但当只剩下一个标签时，执行<code>docker rmi</code>命令会删除这个镜像文件的所有AUFS层。</p>
-<p>当使用<code>docker rmi</code>命令后面跟上镜像ID(也可以是ID能进行区分的部分前缀串)时，会先尝试删除所有指定该镜像的标签，然后删除镜像文件本身。</p>
-<p>当有镜像创建的容器存在时，镜像文件默认是无法被删除的。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 删除依赖该镜像的所有容器</span></span><br><span class="line">docker rm ubuntu</span><br><span class="line"><span class="comment"># 然后再删除镜像</span></span><br><span class="line">docker rmi ubuntu</span><br></pre></td></tr></table></figure></p>
-<h3 id="创建镜像"><a href="#创建镜像" class="headerlink" title="创建镜像"></a>创建镜像</h3><blockquote>
-<p>三种方法：基于已有镜像的容器创建、基于本地模板导入、基于Dockerfile创建</p>
-</blockquote>
-<h4 id="基于已有镜像的容器创建"><a href="#基于已有镜像的容器创建" class="headerlink" title="基于已有镜像的容器创建"></a>基于已有镜像的容器创建</h4><p>使用<code>docker commit</code>命令，格式：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker commit [OPTIONS] CONTAINER [REPOSITORY[:TAG]]</span><br></pre></td></tr></table></figure></p>
-<p>主要选项包括：</p>
-<ul>
-<li>-a，–author=””作者信息</li>
-<li>-m，–message=””提交信息</li>
-<li>-p，–pause=true提交时暂停容器运行</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 演示</span></span><br><span class="line">docker run -ti ubuntu /bin/bash</span><br><span class="line">root@32fe63d85c53:/<span class="comment"># touch test</span></span><br><span class="line">root@32fe63d85c53:/<span class="comment"># exit</span></span><br><span class="line"></span><br><span class="line">docker commit -m <span class="string">"add a new file "</span> 32fe63d85c53 <span class="built_in">test</span></span><br><span class="line">sha256:4ff6ec596961a2c5f25bcd31e912abd40cc108b7e7e35d53d239b1ef4ff13233</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用docker images查看本地镜像列表</span></span><br><span class="line">docker images</span><br><span class="line">REPOSITORY           TAG                 IMAGE ID            CREATED             SIZE</span><br><span class="line"><span class="built_in">test</span>                 latest              4ff6ec596961        6 seconds ago       83.5MB</span><br></pre></td></tr></table></figure>
-<h4 id="基于本地模板导入"><a href="#基于本地模板导入" class="headerlink" title="基于本地模板导入"></a>基于本地模板导入</h4><p>使用OpenVZ提供的模板创建。OPENVZ模板的下载地址为<a href="https://download.openvz.org/template/precreated/" target="_blank" rel="noopener">https://download.openvz.org/template/precreated/</a><br>导入命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat ubuntu-14.04-x86_64-minimal.tar.gz | docker import - ubuntu:14.04</span><br></pre></td></tr></table></figure></p>
-<h3 id="存出和载入镜像"><a href="#存出和载入镜像" class="headerlink" title="存出和载入镜像"></a>存出和载入镜像</h3><p>可以使用<code>docker save</code>和<code>docker load</code>命令来存出和载入镜像</p>
-<h4 id="存出镜像"><a href="#存出镜像" class="headerlink" title="存出镜像"></a>存出镜像</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker save -o ubuntu_14.04.tar ubuntu:14.04</span><br></pre></td></tr></table></figure>
-<h4 id="载入镜像"><a href="#载入镜像" class="headerlink" title="载入镜像"></a>载入镜像</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker load --input ubuntu_14.04.tar</span><br><span class="line"></span><br><span class="line">docker load &lt; ubuntu_14.04.tar</span><br></pre></td></tr></table></figure>
-<h3 id="上传镜像"><a href="#上传镜像" class="headerlink" title="上传镜像"></a>上传镜像</h3><p>使用<code>docker push</code>命令上传镜像到仓库，默认上传到DockerHub官方仓库（需要登录），命令格式为<code>docker push NAME[:NAME]</code>，第一次使用时，会提示输入登录信息或进行注册。</p>
-<h2 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h2><blockquote>
-<p>容器时Docker的另一个核心概念，容器就是镜像的一个运行实例，不同的是，它带有额外的可写文件层。</p>
-</blockquote>
-<h3 id="创建容器"><a href="#创建容器" class="headerlink" title="创建容器"></a>创建容器</h3><h4 id="新建容器"><a href="#新建容器" class="headerlink" title="新建容器"></a>新建容器</h4><p>使用<code>docker create</code>命令新建一个容器<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker create -it ubuntu:latest</span><br><span class="line">fb461fbaa2ffe5ebab82548feb5898a1b35b7a3d678b52e1085d94db0f08c6e5</span><br><span class="line">docker ps -a</span><br><span class="line">fb461fbaa2ff        ubuntu:latest       <span class="string">"/bin/bash"</span>         23 seconds ago      Up 5 seconds                            heuristic_lamport</span><br></pre></td></tr></table></figure></p>
-<p>使用<code>docker create</code>新建的容器处于停止状态，可以使用<code>docker start</code>启动。</p>
-<h4 id="新建并启动容器"><a href="#新建并启动容器" class="headerlink" title="新建并启动容器"></a>新建并启动容器</h4><p>启动容器的方式有两种</p>
-<ul>
-<li>基于镜像新建一个容器并启动</li>
-<li>将在终止状态的容器重新启动<br><code>docker run</code> = <code>docker create</code> + <code>docker start</code><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用如下命令输出一个‘hello world’，之后容器自动终止</span></span><br><span class="line">docker run ubuntu /bin/<span class="built_in">echo</span> <span class="string">'hello world'</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>当利用<code>docker run</code>创建并启动容器时，Docker在后台运行的标准操作：</p>
-<ol>
-<li>检查本地是否存在指定的镜像，不存在就从共有仓库下载。</li>
-<li>利用镜像创建并启动一个容器。</li>
-<li>分配一个文件系统，并在只读的镜像层外挂载一层可读写层。</li>
-<li>从宿主主机配置的网桥接口中桥接一个虚拟接口道容器中去。</li>
-<li>从地址池配置一个IP地址给容器。</li>
-<li>执行用户指定的应用程序。</li>
-<li>执行完毕后容器被终止。</li>
-</ol>
-<p>下面命令启动一个bash终端，允许用户进行交互<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -t -i ubuntu:latest /bin/bash</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>-t：让Docker分配一个伪终端并绑定到容器的标准输出上<br>-i：让容器的标准输入保持打开<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">docker run -ti ubuntu /bin/bash</span><br><span class="line">root@d3df425445cf:/<span class="comment"># ls</span></span><br><span class="line">bin   dev  home  lib64  mnt  proc  run   srv  tmp  var</span><br><span class="line">boot  etc  lib   media  opt  root  sbin  sys  usr</span><br><span class="line">root@d3df425445cf:/<span class="comment"># pwd</span></span><br><span class="line">/</span><br><span class="line">root@d3df425445cf:/<span class="comment"># ps</span></span><br><span class="line">  PID TTY          TIME CMD</span><br><span class="line">    1 pts/0    00:00:00 bash</span><br><span class="line">   11 pts/0    00:00:00 ps</span><br><span class="line">root@d3df425445cf:/<span class="comment"># exit</span></span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line"><span class="comment"># 使用exit退出后，容器自动处于终止状态</span></span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<h4 id="守护态运行"><a href="#守护态运行" class="headerlink" title="守护态运行"></a>守护态运行</h4><p><code>-d</code>参数可以让Docker容器在后台以守护态形式运行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ docker run -d ubuntu /bin/bash -c <span class="string">"while true;do echo hello world;sleep 1;done"</span></span><br><span class="line">9c9db4515c703021cd2fc3e4583291cb62007ecafa28709f898cf2183eb914c1</span><br><span class="line">➜  ~ docker logs 9c9db4515c703</span><br><span class="line">hello world</span><br><span class="line">hello world</span><br><span class="line">➜  ~ docker ps</span><br><span class="line">CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS               NAMES</span><br><span class="line">9c9db4515c70        ubuntu              <span class="string">"/bin/bash -c 'while…"</span>   41 seconds ago      Up 40 seconds                           elastic_brattain</span><br></pre></td></tr></table></figure></p>
-<h3 id="终止容器"><a href="#终止容器" class="headerlink" title="终止容器"></a>终止容器</h3><p><code>docker stop</code>可以用来终止一个运行中的容器，命令格式<code>docker stop [-t|--time[=10]]</code>它会首先向容器发送SIGTERM信号，等待一段时间后（默认为10s），再发送SIGKILL信号终止容器，当Docker容器中指定的应用终结时，容器也自动终止。</p>
-<p>处于终止状态的容器，可以通过<code>docker start</code>重新启动</p>
-<p><code>docker restart</code>可以重启一个运行中的容器。</p>
-<h3 id="进入容器"><a href="#进入容器" class="headerlink" title="进入容器"></a>进入容器</h3><h4 id="attach命令"><a href="#attach命令" class="headerlink" title="attach命令"></a>attach命令</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">➜  ~ docker run -idt ubuntu</span><br><span class="line">a9e625b70f57ec70c242e5baf5c9a4431515e0e4d239b81a4729fcc4c08a0eef</span><br><span class="line">➜  ~ docker ps</span><br><span class="line">CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS               NAMES</span><br><span class="line">a9e625b70f57        ubuntu              <span class="string">"/bin/bash"</span>              5 seconds ago       Up 4 seconds                            hungry_brown</span><br><span class="line">➜  ~ docker attach hungry_brown</span><br><span class="line">root@a9e625b70f57:/<span class="comment"># ls</span></span><br><span class="line">bin   dev  home  lib64  mnt  proc  run   srv  tmp  var</span><br><span class="line">boot  etc  lib   media  opt  root  sbin  sys  usr</span><br></pre></td></tr></table></figure>
-<p>但是使用attach命令有时候并不方便。当多个窗口同时attach到同一个容器时，所有的窗口都会同步显示。当某个命令因命令阻塞时，其他窗口也无法执行操作。</p>
-<h4 id="exec命令"><a href="#exec命令" class="headerlink" title="exec命令"></a>exec命令</h4><p>Docker自1.3版本起，提供了exec工具，可以直接在容器内运行命令。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -ti a9e625 /bin/bash</span><br></pre></td></tr></table></figure></p>
-<h4 id="nsenter工具"><a href="#nsenter工具" class="headerlink" title="nsenter工具"></a>nsenter工具</h4><p>nsenter工具在util-linux包2.33版本后包含。</p>
-<h3 id="删除容器"><a href="#删除容器" class="headerlink" title="删除容器"></a>删除容器</h3><p><code>docker rm</code>可以删除处于终止状态的容器，命令格式为<code>docker rm [OPTION] CONTAINER [CONTAINER...]</code>支持的选项包括：</p>
-<ul>
-<li>-f，–force=false强行终止并删除一个运行中的容器</li>
-<li>-l，–link=false删除容器的连接，但保留容器</li>
-<li>-v，–volume=false删除容器挂载的数据卷</li>
-</ul>
-<h3 id="导入和导出容器"><a href="#导入和导出容器" class="headerlink" title="导入和导出容器"></a>导入和导出容器</h3><h4 id="导出容器"><a href="#导出容器" class="headerlink" title="导出容器"></a>导出容器</h4><p>导出容器是指导出一个已经创建的容器到一个文件，不管此时这个容器是否处于运行状态，可以使用<code>docker export</code>命令，命令格式为<code>docker export CONTAINER</code>.<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">export</span> ce4 &gt; test_for_run.tar</span><br></pre></td></tr></table></figure></p>
-<h4 id="导入容器"><a href="#导入容器" class="headerlink" title="导入容器"></a>导入容器</h4><p><code>docker import</code>可以导入文件成为镜像<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat test_for_run.tar | docker import - <span class="built_in">test</span>/ubuntu:v1.0</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>与docker load的区别：<br>docker load命令导入镜像存储文件到本地的镜像库<br>docker import命令导入一个容器快照到本地镜像库<br>容器快照文件将丢弃所有的历史记录和元数据信息（仅保留容器当时的快照状态），而镜像存储文件保留完整记录，体积也更大。此外，从容器快照文件导入可以重新指定标签等元数据信息。</p>
-</blockquote>
-<h2 id="仓库"><a href="#仓库" class="headerlink" title="仓库"></a>仓库</h2><blockquote>
-<p>仓库是集中存放镜像的地方，注册服务器是存放仓库的具体服务器，每个服务器上可以有多个仓库，每个仓库下面有多个镜像。仓库地址dl.dockerpool.com/ubuntu，dl.dockerpool.com是注册服务器，ubuntu是仓库名。</p>
-</blockquote>
-<h3 id="Docker-Hub"><a href="#Docker-Hub" class="headerlink" title="Docker Hub"></a>Docker Hub</h3><p>基础操作</p>
-<ul>
-<li>docker pull 下载镜像到本地</li>
-<li>docker search 搜索公共仓库镜像</li>
-<li>docker push 将本地奖项推动到Docker Hub</li>
-</ul>
-<p>镜像资源分为两类</p>
-<ol>
-<li>类似ubuntu这样的基础镜像，成为基础或根镜像。这些镜像由Docker公司创建、验证、支持、提供，这样的镜像往往使用单个单词作为名字</li>
-<li>类似user/ubuntu这样的镜像，它是由DockerHub的用户user闯将并维护的，带有用户名称前缀，</li>
-</ol>
-<blockquote>
-<p>查找时可以通过-s N参数指定仅显示评价为N星以上的镜像。</p>
-</blockquote>
-<h4 id="自动创建"><a href="#自动创建" class="headerlink" title="自动创建"></a>自动创建</h4><p>自动创建使用户通过Docker Hub指定跟踪一个目标网站（目前支持GitHub或BitBucket）上的项目，一旦项目发现新的提交，则自动执行创建。<br>步骤：</p>
-<ol>
-<li>创建并登陆Docker Hub，以及目标网站；*在目标网站中连接账户到Docker Hub</li>
-<li>在Docker Hub中配置一个自动创建</li>
-<li>选取一个目标网站中的项目（需要含Dockerfile）和分支</li>
-<li>指定Dockerfile的位置，并提交创建。<br>之后可以在Docker Hub的“自动创建”页面中跟踪每次创建的动态。</li>
-</ol>
-<h3 id="创建和使用私有仓库"><a href="#创建和使用私有仓库" class="headerlink" title="创建和使用私有仓库"></a>创建和使用私有仓库</h3><h4 id="使用registry镜像创建私有仓库"><a href="#使用registry镜像创建私有仓库" class="headerlink" title="使用registry镜像创建私有仓库"></a>使用registry镜像创建私有仓库</h4><p>通过官方的registry镜像简单搭建一套本地私有仓库环境：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p 5000:5000 registry</span><br></pre></td></tr></table></figure></p>
-<h2 id="数据管理"><a href="#数据管理" class="headerlink" title="数据管理"></a>数据管理</h2><blockquote>
-<p>用户在使用Docker的过程中，需要能查看容器内应用产生的数据，或者需要把容器内的数据进行备份，甚至多个容器之间进行数据共享，必然涉及到容器内的数据管理操作。容器中管理数据的方式主要有两种方式：1.数据卷 2.数据卷容器</p>
-</blockquote>
-<h3 id="数据卷"><a href="#数据卷" class="headerlink" title="数据卷"></a>数据卷</h3><p>数据卷是一个可供容器使用的特殊目录，它绕过文件系统，提供很多有用的特性：</p>
-<ol>
-<li>数据卷可以在容器之间共享和重用</li>
-<li>对数据卷的修改会立马生效</li>
-<li>对数据卷的更新，不会影响镜像</li>
-<li>卷会一致存在，知道没有容器使用</li>
-</ol>
-<p>数据卷的使用用，类似于Linux下对目录或文件进行mmount操作。</p>
-<h4 id="在容器内创建一个数据卷"><a href="#在容器内创建一个数据卷" class="headerlink" title="在容器内创建一个数据卷"></a>在容器内创建一个数据卷</h4><p>使用<code>docker run</code>命令的时候，使用-v编辑可以在容器内创建一个数据卷。多次会用-v标记可以创建多个数据卷。</p>
-<p>使用training/webapp镜像创建一个Web容器，并创建一个数据卷挂载到容器的/web目录：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -P --name web -v /webapp training/webapp python app.py</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>-P是允许外部访问容器需要暴露的端口</p>
-</blockquote>
-<h4 id="挂载一个本地主机文件作为数据卷"><a href="#挂载一个本地主机文件作为数据卷" class="headerlink" title="挂载一个本地主机文件作为数据卷"></a>挂载一个本地主机文件作为数据卷</h4><p>-v标记也可以从主机上挂载单个文件到容器中作为数据卷：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --rm -it -v ~/.zshrc ubuntu /bin/bash</span><br></pre></td></tr></table></figure></p>
-<h2 id="网络基础配置"><a href="#网络基础配置" class="headerlink" title="网络基础配置"></a>网络基础配置</h2><h3 id="端口映射实现访问"><a href="#端口映射实现访问" class="headerlink" title="端口映射实现访问"></a>端口映射实现访问</h3><h3 id="从外部访问容器应用"><a href="#从外部访问容器应用" class="headerlink" title="从外部访问容器应用"></a>从外部访问容器应用</h3><p>可以通过<code>-P</code>或<code>-p</code>参数来指定端口映射。当使用<code>-P</code>标记时，Docker会随机映射一个49000~49900的端口至容器内部开放的网络端口。<code>-p</code>则可以指定要映射的端口，并且在一个指定端口上只可以绑定一个容器。支持的格式有：<code>ip:hostport:containerPort | ip::containerPort | hostPort:containerPort</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -P training/webapp python app.py</span><br><span class="line">docker ps -l</span><br><span class="line">d5c545dc020f        training/webapp     <span class="string">"python app.py"</span>     7 seconds ago       Up 6 seconds        0.0.0.0:32774-&gt;5000/tcp   infallible_varahamihira</span><br></pre></td></tr></table></figure></p>
-<h4 id="映射所有的接口地址"><a href="#映射所有的接口地址" class="headerlink" title="映射所有的接口地址"></a>映射所有的接口地址</h4><p>将本地的5000端口映射到容器的5000端口<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p 5000:5000 training/webapp python app.py</span><br></pre></td></tr></table></figure></p>
-<p>亦可以多次使用<code>-p</code>标记绑定多个端口<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p 5000:5000 -p 3000:80 training/webapp python app.py</span><br></pre></td></tr></table></figure></p>
-<h4 id="映射到指定地址的指定端口"><a href="#映射到指定地址的指定端口" class="headerlink" title="映射到指定地址的指定端口"></a>映射到指定地址的指定端口</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p 127.0.0.1:5000:5000 training/webapp python app.py</span><br></pre></td></tr></table></figure>
-<h4 id="映射到指定地址的任意端口"><a href="#映射到指定地址的任意端口" class="headerlink" title="映射到指定地址的任意端口"></a>映射到指定地址的任意端口</h4><p>使用<code>ip::containerPort</code>绑定localhost的任意端口到容器的5000端口，本地主机会自动分配一个端口：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p 127.0.0.1::5000 training/webapp python app.py</span><br><span class="line"><span class="comment"># 使用ud标记来指定udp端口</span></span><br><span class="line">docker run -d -p 127.0.0.1:5000:5000/udp training/webapp python app.py</span><br></pre></td></tr></table></figure></p>
-<h4 id="查看映射端口配置"><a href="#查看映射端口配置" class="headerlink" title="查看映射端口配置"></a>查看映射端口配置</h4><p>使用<code>docker port</code>查看当前映射的端口配置，也可以查看到绑定的地址<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker port DOCKERNAME containerPort</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>容器有自己的内部网络和IP地址(<code>docker inspert + 容器ID</code>可以获取所有的变量值)。</p>
-</blockquote>
-<h3 id="容器互联实现容器间通信"><a href="#容器互联实现容器间通信" class="headerlink" title="容器互联实现容器间通信"></a>容器互联实现容器间通信</h3><blockquote>
-<p>容器的连接系统是除了端口映射外另一种可以与容器中应用进行交互的方式。它会在源和接收容器之间创建一个隧道，接收容器可以看到源容器指定的信息。</p>
-</blockquote>
-<p>连接系统根据容器的名称来执行，因此需要先自定义一个好记的容器命名。使用<code>--name</code>标记可以为容器自定义命名<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -P --name web training/webapp python app.py</span><br></pre></td></tr></table></figure></p>
-<table>
-<thead>
-<tr>
-<th>方法</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>requests.requests()</td>
-<td>构造一个请求，支撑一下各方法的基础方法</td>
-</tr>
-<tr>
-<td>requests.get()</td>
-<td>获取HTML网页的主要方法，对应于HTTP的GET</td>
-</tr>
-<tr>
-<td>requests.head()</td>
-<td>获取HTML网页头信息的方法，对应于HTTP的HEAD</td>
-</tr>
-<tr>
-<td>requests.post()</td>
-<td>向HTML网页提交POST请求的方法，对应于HTTP的POST</td>
-</tr>
-<tr>
-<td>requests.put()</td>
-<td>向HTML网页提交PUT请求的方法，对应与HTTP的PUT</td>
-</tr>
-<tr>
-<td>requests.patch()</td>
-<td>向HTML网页提交局部修改请求，对应于HTTP的PATCH</td>
-</tr>
-<tr>
-<td>requests.delete()</td>
-<td>向HTML页面提交删除请求，对应于HTTP的DELETE</td>
-</tr>
-</tbody>
-</table>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/08/27/Docker入门/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -741,7 +493,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="EnterCoder">
+      <meta itemprop="name" content="EnterCoder's Blog">
     </span>
 
     
@@ -795,7 +547,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-08-27 23:40:26" itemprop="dateModified" datetime="2018-08-27T23:40:26+08:00">2018-08-27</time>
+                <time title="修改时间：2018-08-28 01:09:23" itemprop="dateModified" datetime="2018-08-28T01:09:23+08:00">2018-08-28</time>
               
             
           </span>
@@ -915,7 +667,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="EnterCoder">
+      <meta itemprop="name" content="EnterCoder's Blog">
     </span>
 
     
@@ -969,7 +721,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-08-27 23:03:15" itemprop="dateModified" datetime="2018-08-27T23:03:15+08:00">2018-08-27</time>
+                <time title="修改时间：2018-08-28 01:09:23" itemprop="dateModified" datetime="2018-08-28T01:09:23+08:00">2018-08-28</time>
               
             
           </span>
@@ -1066,7 +818,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="EnterCoder">
+      <meta itemprop="name" content="EnterCoder's Blog">
     </span>
 
     
@@ -1120,7 +872,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-08-27 23:03:15" itemprop="dateModified" datetime="2018-08-27T23:03:15+08:00">2018-08-27</time>
+                <time title="修改时间：2018-08-28 01:09:23" itemprop="dateModified" datetime="2018-08-28T01:09:23+08:00">2018-08-28</time>
               
             
           </span>
@@ -1242,7 +994,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="EnterCoder">
+      <meta itemprop="name" content="EnterCoder's Blog">
     </span>
 
     
@@ -1296,7 +1048,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-08-27 23:03:15" itemprop="dateModified" datetime="2018-08-27T23:03:15+08:00">2018-08-27</time>
+                <time title="修改时间：2018-08-28 01:09:23" itemprop="dateModified" datetime="2018-08-28T01:09:23+08:00">2018-08-28</time>
               
             
           </span>
