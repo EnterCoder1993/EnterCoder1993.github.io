@@ -19,8 +19,6 @@ tags: [Python,Note,Spider]
   * PyCharm
   * Anaconda & Spyder
 
-  
-
 ## Requests库入门
 
 ### Request库的安装
@@ -39,7 +37,7 @@ $ git clone git://github.com/kennethreitz/requests.git
 
 也可以下载tarball
 
-```
+```bash
 $ curl -OL https://github.com/requests/requests/tarball/master
 ```
 
@@ -94,13 +92,13 @@ print(r.text) # baidu的html源码
 >>> r.encoding = 'utf-8'
 >>> r.text
 '<!DOCTYPE html>\r\n<!--STATUS OK-->
-<html> 
+<html>
   <head>
     ......
     </head>
     <body>
     ......
-    </body> 
+    </body>
 </html>
 ```
 
@@ -180,7 +178,7 @@ print(r.text) # baidu的html源码
 
   * Requests库的head()方法
 
-    * ```python
+      ```python
       >>> r = requests.head('http://www.baidu.com')
       >>> r.headers
       {'Cache-Control': 'private, no-cache, no-store, proxy-revalidate, no-transform', 'Connection': 'Keep-Alive', 'Content-Encoding': 'gzip', 'Content-Type': 'text/html', 'Date': 'Sun, 01 Jul 2018 07:38:20 GMT', 'Last-Modified': 'Mon, 13 Jun 2016 02:50:26 GMT', 'Pragma': 'no-cache', 'Server': 'bfe/1.0.8.18'}
