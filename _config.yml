@@ -13,7 +13,7 @@ timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: https://entercoder1993.github.io/
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -57,7 +57,7 @@ symbols_count_time:
 # order_by: Posts order. (Order by date descending by default)
 index_generator:
   path: ''
-  per_page: 5
+  per_page: 8
   order_by: -date
   
 # Category & Tag
