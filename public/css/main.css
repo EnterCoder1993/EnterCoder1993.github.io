@@ -1666,9 +1666,9 @@ pre .javascript .function {
 .posts-expand .post-eof {
   display: block;
   margin: 80px auto 60px;
-  width: 8%;
-  height: 1px;
-  background: #ccc;
+  width: 100%;
+  height: 3px;
+  background: #bbb;
   text-align: center;
 }
 .post:last-child .post-eof.post-eof.post-eof {
@@ -1910,7 +1910,7 @@ img:hover {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #c14fa8;
+  background: #ff4279;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2037,6 +2037,9 @@ img:hover {
 }
 .footer-inner {
   text-align: center;
+}
+#animate {
+  animation: iconAnimate 1.33s ease-in-out infinite;
 }
 .with-love {
   display: inline-block;
