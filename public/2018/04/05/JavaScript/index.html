@@ -118,7 +118,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://ws4.sinaimg.cn/large/0069RVTdgy1fuqvork5jhj308303bmwy.jpg">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/0069RVTdgy1fuqw7plym9j309f09idfo.jpg">
-<meta property="og:updated_time" content="2018-08-29T17:20:05.950Z">
+<meta property="og:updated_time" content="2018-08-31T14:50:07.677Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JavaScript">
 <meta name="twitter:description" content="JavaScript，通常缩写为JS，是一种高级的，解释执行的编程语言。 JavaScript是一门基于原型、函数先行的语言，是一门多范式的语言，它支持面向对象编程，命令式编程，以及函数式编程。 它提供语法来操控文本、数组、日期以及正则表达式等，不支持I/O，比如网络、存储和图形等，但这些都可以由它的宿主环境提供支持。">
@@ -413,7 +413,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-08-30 01:20:05" itemprop="dateModified" datetime="2018-08-30T01:20:05+08:00">2018-08-30</time>
+                <time title="修改时间：2018-08-31 22:50:07" itemprop="dateModified" datetime="2018-08-31T22:50:07+08:00">2018-08-31</time>
               
             
           </span>
@@ -468,7 +468,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">1.7k</span>
+                <span title="本文字数">4.9k</span>
               
 
               
@@ -482,7 +482,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">2 分钟</span>
+                <span title="阅读时长">4 分钟</span>
               
             </div>
           
@@ -553,6 +553,42 @@
 <li>src：可选。表示包含要执行代码的外部文件。</li>
 <li>type：可选。可以看成是language的替代属性；表示编写代码使用的脚本语言的内容类型(也称为MIME类型。))</li>
 </ul>
+<p>使用<code>&lt;script&gt;</code>元素的两种方式：嵌入式和外本文件，在使用<code>&lt;script&gt;</code>元素嵌入JavaScript代码时，只须魏<code>&lt;script&gt;</code>指定type属性。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">sayHi</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        alert(<span class="string">"Hi!"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<p>包含在<code>&lt;script&gt;</code>元素的代码将从上至下依次解释。</p>
+<p>通过<code>&lt;script&gt;</code>元素来包含外部JavaScript文件，必须包含src属性。这个属性的值指向外部JavaScript文件的链接。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span> src=<span class="string">"example.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>一般外部的JavaScript文件带有.js扩展名。但不是必须的，李兰器不会检查包含JavaScript文件的扩展名。因此，也可以使用JSP、PHP或其他服务器端语言动态生成JavaScript代码。</p>
+</blockquote>
+<p>外部文件example.js将被加载到当前页面中。与解析嵌入式JavaScript代码一样，在解析外部JavaScript文件(包括下载该文件)时，页面的处理会暂时停止。如果是在XHTML文档中，可以省略<code>&lt;/script&gt;</code>标签。</p>
+<p><strong>带有src属性的<code>&lt;script&gt;</code>元素会忽略<code>&lt;script&gt;</code>和<code>&lt;/script&gt;</code>标签内的代码，scr属性也可以包含外部域的JavaScript文件。</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span> src=<span class="string">"http://www.somewhere.com/afile.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<h4 id="标签的位置"><a href="#标签的位置" class="headerlink" title="标签的位置"></a>标签的位置</h4><p><code>&lt;script&gt;</code>元素应该放在页面的<code>&lt;head&gt;</code>元素中</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Example HTML Page<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"example1.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"example2.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- content --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这样意味着必须等到全部的JavaScript代码都被下载、解析和执行完成后才开始呈现页面的内容。若JavaScript代码很多，这将会导致浏览器在呈现页面时出现明显的延迟，因此现代的Web应用程序一般把全部JavaScript引用放在<code>&lt;body&gt;</code>元素中页面内容的后面。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Example HTML Page<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- content --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"example1.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"example2.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="延迟脚本"><a href="#延迟脚本" class="headerlink" title="延迟脚本"></a>延迟脚本</h4><p>HTML4.01为<code>&lt;script&gt;</code>标签定义了defer属性。这个属性表明脚本在执行时不会影响页面的构造。即脚本会被延迟到整个页面都解析完毕后再运行。浏览器会立即下载，但延迟执行。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">defer</span>=<span class="string">"defer"</span> <span class="attr">src</span>=<span class="string">"example2.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>延迟脚本并不一定按照顺序执行，因此最好只包含一个延迟脚本。且defer属性只适用于外部脚本文件。HTML5的实现会默认忽略嵌入脚本设置的defer属性。</p>
+<blockquote>
+<p>在XHTML文档中，要把defer属性设置为defer=”defer”。</p>
+</blockquote>
+<h4 id="异步脚本"><a href="#异步脚本" class="headerlink" title="异步脚本"></a>异步脚本</h4><p>HTML5为<code>&lt;script&gt;</code>元素定义了async属性。async只适用于外部脚本文件，浏览器会立即下载文件，但标记为async的脚本并不保证按照指定它们的先后顺序执行。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">async</span> <span class="attr">src</span>=<span class="string">"example1.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">async</span> <span class="attr">src</span>=<span class="string">"example2.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>在以上代码中，第二个脚本可能会在第一个脚本执行前执行。因此要确保两者之间互不依赖。指定async属性目的是不让页面等待两个脚本下载和执行，从而异步加载页面其他内容。异步脚本不要再加载期间修改DOM。</p>
+<blockquote>
+<p>在XHTML文档中，要把async属性设置为async=”async”。</p>
+</blockquote>
+<h4 id="在XHTML中的用法"><a href="#在XHTML中的用法" class="headerlink" title="在XHTML中的用法"></a>在XHTML中的用法</h4><p>XHTML(Extensible HyperText Markup Language，可扩展超文本标记语言)是将HTML作为XML的应用重新定义的一个标准。XHTML代码的规则必HTML要严格得多，而且直接影响嵌入的JavaScript代码是否有效。</p>
+<h3 id="嵌入代码与外部文件"><a href="#嵌入代码与外部文件" class="headerlink" title="嵌入代码与外部文件"></a>嵌入代码与外部文件</h3><p>使用外部文件引入JavaScript代码的优点：</p>
+<ul>
+<li>可维护性：遍及不同HTML页面的JavaScript会造成维护问题。</li>
+<li>可缓存：浏览器可以根据具体的设置换轮链接的所有外部JavaScript文件。</li>
+<li>适应未来：HTML和XHTML包含外部文件的语法是相同的。</li>
+</ul>
+<h3 id="lt-noscript-gt-元素"><a href="#lt-noscript-gt-元素" class="headerlink" title="&lt;noscript&gt;元素"></a><code>&lt;noscript&gt;</code>元素</h3><p>若浏览器不支持JavaScript时，可以使用<code>&lt;noscript&gt;</code>元素显示替代的内容。这个元素可以出现在任何HTML元素(<code>&lt;script&gt;</code>元素除外)。包含在<code>&lt;noscript&gt;</code>元素的内容只在浏览器不支持脚本或脚本被禁用的情况下再回显示出来。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Example HTML Page<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"example1.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"example2.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- content --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">noscript</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">p</span>&gt;</span>本页面需要浏览器支持(启用)JavaScript。</span><br><span class="line">    <span class="tag">&lt;/<span class="name">noscript</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -804,7 +840,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript笔记-一"><span class="nav-number">1.</span> <span class="nav-text">JavaScript笔记(一)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript简介"><span class="nav-number">1.1.</span> <span class="nav-text">JavaScript简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ECMAScript"><span class="nav-number">1.1.1.</span> <span class="nav-text">ECMAScript</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是ECMAScript兼容"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">什么是ECMAScript兼容</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文档对象模型-DOM"><span class="nav-number">1.1.2.</span> <span class="nav-text">文档对象模型(DOM)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#浏览器对象模型"><span class="nav-number">1.1.3.</span> <span class="nav-text">浏览器对象模型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在HTML中使用JavaScript"><span class="nav-number">1.2.</span> <span class="nav-text">在HTML中使用JavaScript</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#lt-script-gt-元素"><span class="nav-number">1.2.1.</span> <span class="nav-text">&lt;script&gt;元素</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#JavaScript笔记-一"><span class="nav-number">1.</span> <span class="nav-text">JavaScript笔记(一)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#JavaScript简介"><span class="nav-number">1.1.</span> <span class="nav-text">JavaScript简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ECMAScript"><span class="nav-number">1.1.1.</span> <span class="nav-text">ECMAScript</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#什么是ECMAScript兼容"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">什么是ECMAScript兼容</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文档对象模型-DOM"><span class="nav-number">1.1.2.</span> <span class="nav-text">文档对象模型(DOM)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#浏览器对象模型"><span class="nav-number">1.1.3.</span> <span class="nav-text">浏览器对象模型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在HTML中使用JavaScript"><span class="nav-number">1.2.</span> <span class="nav-text">在HTML中使用JavaScript</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#lt-script-gt-元素"><span class="nav-number">1.2.1.</span> <span class="nav-text">&lt;script&gt;元素</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#标签的位置"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">标签的位置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#延迟脚本"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">延迟脚本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#异步脚本"><span class="nav-number">1.2.1.3.</span> <span class="nav-text">异步脚本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在XHTML中的用法"><span class="nav-number">1.2.1.4.</span> <span class="nav-text">在XHTML中的用法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#嵌入代码与外部文件"><span class="nav-number">1.2.2.</span> <span class="nav-text">嵌入代码与外部文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#lt-noscript-gt-元素"><span class="nav-number">1.2.3.</span> <span class="nav-text">&lt;noscript&gt;元素</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -843,7 +879,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">87k</span>
+    <span title="站点总字数">86k</span>
   
 
   
@@ -852,7 +888,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">1:19</span>
+    <span title="站点阅读时长">1:18</span>
   
 </div>
 
