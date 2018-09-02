@@ -9,6 +9,8 @@ categories: macOS
 
 > macOS美化及设置教程
 
+<!--more-->
+
 ### iTerm
 
 * 安装：[下载地址](https://iterm2.com/downloads/stable/latest)
