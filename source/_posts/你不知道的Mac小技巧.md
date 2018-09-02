@@ -1,8 +1,8 @@
 ---
 title: 你不知道的Mac小技巧
 date: 2017-09-05 09:33:23
-tags: 常用
-categories: Mac技巧
+tags: [常用,Mac技巧]
+categories: macOS
 ---
 
 ## Mac可以添加自定义功能

@@ -11,7 +11,7 @@ categories: 前端
 
 # JavaScript笔记(一)
 
-## JavaScript简介
+## 一、JavaScript简介
 
 > JavaScript和ECMAScript通常都被人们用来表达相同的含义，但JavaScript的含义却比ECMA-262中规定的要多的多。
 
@@ -72,7 +72,7 @@ ECMAScript就是对实现该标准的各个方面内容的描述。JavaScript实
 * 对cookies的支持
 * 项XMLHttpRequest和IE的ActiveXObject这样的自定义对象。
 
-## 在HTML中使用JavaScript
+## 二、在HTML中使用JavaScript
 
 ### `<script>`元素
 
@@ -204,3 +204,147 @@ XHTML(Extensible HyperText Markup Language，可扩展超文本标记语言)是�
 </body>
 </html>
 ```
+
+## 三、基本概念
+
+### 语法
+
+* 区分大小写
+* 标识符：
+    * 第一个字符必须是字母、下划线(_)或美元符号($)。
+    * 其他字符可以使字母、下划线、美元符号或数字。
+    * ECMAScript标识符采用驼峰大小写格式。
+* 注释
+    * //单行注释
+    * /* 多行注释  */
+* 严格模式：在函数内部上方包含`"use strict";`编译指示。
+* 语句
+    * 语句结尾建议使用一个分号结尾。
+    * 始终在控制语句中使用代码块——即使代码块中只有一条语句。
+
+> 不能把关键字、保留字、true、false和null用作标识符。
+
+### 关键字和保留字
+
+关键字：用于表示语句的开始或结束，或者用于执行特定操作等。
+![keywork](https://ws2.sinaimg.cn/large/0069RVTdgy1fuubt4bzkaj30du042dfq.jpg)
+
+保留字：保留字在JavaScript中还没有任何特定的用途，但他们有可能在将来被用作关键字。
+![keep](https://ws1.sinaimg.cn/large/0069RVTdgy1fuububz8wqj30db01fmwy.jpg)
+
+### 变量
+
+ECMAScript的变量是松散类型的(可以用来保存任何类型的数据)。即每个变量仅仅是一个用于保存值得占位符。定义变量时使用var操作符。`var message;`,未经过初始化的变量会保存一个特殊的值——undefined。ECMAScript支持直接初始化变量`var message = "hi";`
+
+> 用var操作符定义的变量将成为定义该变量的作用域中的局部变量，该变量在函数退出后就会被销毁。
+
+省略var操作符创建的变量为全局变量。
+
+```javascript
+function test(){
+    message = "hi";
+}
+test();
+alert(message);
+```
+
+可以使用一条语句定义多个变量
+
+```javascript
+var message = "hi",
+    found = false,
+    age = 29;
+```
+
+### 数据类型
+
+5中简单数据类型(基本数据类型)：
+
+* Undefined
+* Null
+* Boolean
+* Number
+* String
+
+复杂数据类型——Object(由一组无序的键值对组成)
+
+#### typeof操作符
+
+对值使用typeof操作符可能返回下列某个字符串：
+
+* "undefined" —— 如果这个值未定义；
+* "boolean" —— 如果这个值是布尔值；
+* "string" —— 如果这个值是字符串；
+* "number" —— 如果这个值是树脂；
+* "object" —— 如果这个值是对象或null；
+* "function" —— 如果这个值是函数。
+
+#### Undefined类型
+
+Undefined类型只有一个值，即特殊的undefined。使用var声明变量但却未初始化，这个变量的值就是undefined。对未初始化和未声明的变量执行typeof操作符都可以返回undefined值。
+
+#### Null类型
+
+Null类型也只有一个值，即特殊的null。null值表示一个空对象指针，使用typeof检测时返回"object"。若定义的变量用于保存对象，那么最好将变量初始化为null值而不是其他。
+
+```javascript
+alert(null == undefined); //true
+```
+
+#### Boolean类型
+
+#### Number类型
+
+#### String类型
+
+#### Object类型
+
+### 操作符
+
+#### 一院操作符
+
+#### 位操作符
+
+#### 布尔操作符
+
+#### 乘兴操作符
+
+#### 加性操作符
+
+#### 关系操作符
+
+#### 相等操作符
+
+#### 条件操作符
+
+#### 赋值操作符
+
+#### 逗号操作符
+
+### 语句
+
+#### if
+
+#### do-while
+
+#### while
+
+#### for
+
+#### for-in
+
+#### label
+
+#### break和continue
+
+#### with
+
+#### switch
+
+### 函数
+
+#### 参数
+
+#### 没有重载
+
+#### 

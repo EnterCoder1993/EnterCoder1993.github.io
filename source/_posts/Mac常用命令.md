@@ -1,8 +1,8 @@
 ---
 title: Mac常用命令
 date: 2017-09-15 14:55:03
-tags: 常用
-categories: Mac技巧
+tags: Mac技巧
+categories: macOS
 ---
 
 macOS常用命令整理,此文记录了平常使用终端的一些基本命令，使用命令行进行操作还是很有成就感的，建议使用Mac的用户可以学习一下一些基本的命令。

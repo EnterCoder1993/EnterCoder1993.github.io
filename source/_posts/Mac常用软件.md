@@ -1,8 +1,8 @@
 ---
 title: Mac常用软件
 date: 2017-08-31 00:01:00
-tags: 常用
-categories: Mac技巧
+tags: [常用,Mac技巧]
+categories: macOS
 ---
 
 记录自己使用Mac下载的软件及相关配置，备忘
