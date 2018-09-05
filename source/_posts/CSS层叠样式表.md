@@ -26,17 +26,17 @@ categories: 前端
 
 * 嵌入式样式表
 
-```
+```javascript
 <head>
     <style type="text/css">
-    
+
     </style>
 </head>
 ```
 
 * 引入式样式表
 
-```
+```html
 <link rel="stylesheet" type="text/css" href="style.css">
 ```
 
@@ -46,7 +46,7 @@ categories: 前端
 
 * HTML标记定义
 
-```
+```html
 <p>...</p>
 p{
     属性:属性值;
@@ -57,7 +57,7 @@ p{
 
 * class定义
 
-```
+```html
 <p class="a">...</p>
 .a {
     属性:属性值;
@@ -67,7 +67,7 @@ p{
 
 * id定义
 
-```
+```html
 <p id="b">...</p>
 #b {
     属性:属性值;
@@ -81,7 +81,7 @@ id>class>HTML标记
 
 组合选择器
 
-```
+```html
 h1,h2,h3,.a,#b {
     属性:属性值;
     属性2:属性值2;
@@ -147,28 +147,28 @@ font-family字体加粗`normal|bold|bolder|lighter`,也可以使用100|200|300~9
 
 * 标记类型list-style-type
 
-```
-none	无标记。
-disc	默认。标记是实心圆。
-circle	标记是空心圆。
-square	标记是实心方块。
-decimal	标记是数字。
-decimal-leading-zero	0开头的数字标记。(01, 02, 03, 等。)
-lower-roman  	小写罗马数字(i, ii, iii, iv, v, 等。)
-upper-roman	大写罗马数字(I, II, III, IV, V, 等。)
-lower-alpha 	小写英文字母The marker is lower-alpha (a, b, c, d, e, 等。)
-upper-alpha 	大写英文字母The marker is upper-alpha (A, B, C, D, E, 等。)
-lower-greek	 小写希腊字母(alpha, beta, gamma, 等。)
-lower-latin	小写拉丁字母(a, b, c, d, e, 等。)
-upper-latin	大写拉丁字母(A, B, C, D, E, 等。)
-hebrew	  传统的希伯来编号方式
-armenian	传统的亚美尼亚编号方式
-georgian	传统的乔治亚编号方式(an, ban, gan, 等。)
-cjk-ideographic	简单的表意数字
-hiragana	标记是：a, i, u, e, o, ka, ki, 等。（日文片假名）
-katakana	标记是：A, I, U, E, O, KA, KI, 等。（日文片假名）
-hiragana-iroha	标记是：i, ro, ha, ni, ho, he, to, 等。（日文片假名）
-katakana-iroha	标记是：I, RO, HA, NI, HO, HE, TO, 等。（日文片假名）
+```html
+none                无标记。
+disc                默认。标记是实心圆。
+circle              标记是空心圆。
+square              标记是实心方块。
+decimal             标记是数字。
+decimal-leading-zero    0开头的数字标记。(01, 02, 03, 等。)
+lower-roman         小写罗马数字(i, ii, iii, iv, v, 等。)
+upper-roman         大写罗马数字(I, II, III, IV, V, 等。)
+lower-alpha         小写英文字母The marker is lower-alpha (a, b, c, d, e, 等。)
+upper-alpha         大写英文字母The marker is upper-alpha (A, B, C, D, E, 等。)
+lower-greek         小写希腊字母(alpha, beta, gamma, 等。)
+lower-latin         小写拉丁字母(a, b, c, d, e, 等。)
+upper-latin         大写拉丁字母(A, B, C, D, E, 等。)
+hebrew              传统的希伯来编号方式
+armenian            传统的亚美尼亚编号方式
+georgian            传统的乔治亚编号方式(an, ban, gan, 等。)
+cjk-ideographic     简单的表意数字
+hiragana            标记是：a, i, u, e, o, ka, ki, 等。（日文片假名）
+katakana            标记是：A, I, U, E, O, KA, KI, 等。（日文片假名）
+hiragana-iroha      标记是：i, ro, ha, ni, ho, he, to, 等。（日文片假名）
+katakana-iroha      标记是：I, RO, HA, NI, HO, HE, TO, 等。（日文片假名）
 ```
 
 * 标记位置list-style-position

@@ -113,7 +113,7 @@
 
 
   <meta name="description" content="macOS美化及设置 macOS美化及设置教程">
-<meta name="keywords" content="Mac小技巧">
+<meta name="keywords" content="Mac,Setting">
 <meta property="og:type" content="article">
 <meta property="og:title" content="macOS终端美化及设置">
 <meta property="og:url" content="https://entercoder1993.github.io/2018/09/02/macOS终端美化及设置/index.html">
@@ -121,7 +121,7 @@
 <meta property="og:description" content="macOS美化及设置 macOS美化及设置教程">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://ws3.sinaimg.cn/large/006tKfTcly1ftoi367zyvj30qm0aaacz.jpg">
-<meta property="og:updated_time" content="2018-09-02T15:26:16.711Z">
+<meta property="og:updated_time" content="2018-09-05T03:38:13.304Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="macOS终端美化及设置">
 <meta name="twitter:description" content="macOS美化及设置 macOS美化及设置教程">
@@ -399,12 +399,24 @@
                 
               
 
-              <time title="创建时间：2018-09-02 23:14:21 / 修改时间：23:26:16" itemprop="dateCreated datePublished" datetime="2018-09-02T23:14:21+08:00">2018-09-02</time>
+              <time title="创建时间：2018-09-02 23:14:21" itemprop="dateCreated datePublished" datetime="2018-09-02T23:14:21+08:00">2018-09-02</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-09-05 11:38:13" itemprop="dateModified" datetime="2018-09-05T11:38:13+08:00">2018-09-05</time>
               
             
           </span>
@@ -497,9 +509,9 @@
 <p>macOS美化及设置教程</p>
 </blockquote>
 <a id="more"></a>
-<h3 id="iTerm"><a href="#iTerm" class="headerlink" title="iTerm"></a>iTerm</h3><ul>
+<h2 id="iTerm"><a href="#iTerm" class="headerlink" title="iTerm"></a>iTerm</h2><ul>
 <li><p>安装：<a href="https://iterm2.com/downloads/stable/latest" target="_blank" rel="noopener">下载地址</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ brew cask install iterm</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$brew</span> cask install iterm</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h3 id="oh-my-zsh"><a href="#oh-my-zsh" class="headerlink" title="oh-my-zsh"></a>oh-my-zsh</h3><ul>
@@ -509,46 +521,44 @@
 <li><p>oh-my-zsh主题及插件插件</p>
 <ul>
 <li><p>zsh-autosuggestion</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-autosuggestions <span class="variable">$&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;</span>/plugins/zsh-autosuggestions</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加到./zshrc中</span></span><br><span class="line">plugins=(zsh-autosuggestions)</span><br><span class="line"></span><br><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装</span></span><br><span class="line"><span class="variable">$git</span> <span class="built_in">clone</span> https://github.com/zsh-users/zsh-autosuggestions <span class="variable">$&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;</span>/plugins/zsh-autosuggestions</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加到./zshrc中</span></span><br><span class="line">plugins=(zsh-autosuggestions)</span><br><span class="line"></span><br><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>zsh-syntax-highlighting</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/zsh-users/zsh-syntax-highlighting.git <span class="variable">$&#123;ZSH_CUSTOM:-~/.oh-my-zsh/custom&#125;</span>/plugins/zsh-syntax-highlighting</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加到./zshrc中</span></span><br><span class="line">plugins=(zsh-syntax-highlighting)</span><br><span class="line"></span><br><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>autojump</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装</span></span><br><span class="line">brew install autojump</span><br><span class="line"></span><br><span class="line"><span class="comment">#在.zshrc中添加</span></span><br><span class="line">plugins=(autojump)</span><br><span class="line"></span><br><span class="line">[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] &amp;&amp; . $(brew --prefix)/etc/profile.d/autojump.sh</span><br><span class="line"></span><br><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装</span></span><br><span class="line"><span class="variable">$brew</span> install autojump</span><br><span class="line"></span><br><span class="line"><span class="comment">#在.zshrc中添加</span></span><br><span class="line">plugins=(autojump)</span><br><span class="line"></span><br><span class="line">[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] &amp;&amp; . $(brew --prefix)/etc/profile.d/autojump.sh</span><br><span class="line"></span><br><span class="line"><span class="variable">$source</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
 <li><p>brew安装，更换及替换Homebrew默认源</p>
 <ul>
 <li><p>安装</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ /usr/bin/ruby -e <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$/usr/bin/ruby -e <span class="string">"<span class="variable">$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)</span>"</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>安装brew cask</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ brew install cask</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$brew</span> install cask</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>替换默认源</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> <span class="string">"<span class="variable">$(brew --repo)</span>"</span></span><br><span class="line">$ git remote <span class="built_in">set</span>-url origin https://mirrors.ustc.edu.cn/brew.git</span><br><span class="line"></span><br><span class="line">$ <span class="built_in">cd</span> <span class="string">"<span class="variable">$(brew --repo)</span>/Library/Taps/homebrew/homebrew-core"</span></span><br><span class="line">$ git remote <span class="built_in">set</span>-url origin https://mirrors.ustc.edu.cn/homebrew-core.git</span><br><span class="line"></span><br><span class="line">$ brew update</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$cd</span> <span class="string">"<span class="variable">$(brew --repo)</span>"</span></span><br><span class="line"><span class="variable">$git</span> remote <span class="built_in">set</span>-url origin https://mirrors.ustc.edu.cn/brew.git</span><br><span class="line"></span><br><span class="line"><span class="variable">$cd</span> <span class="string">"<span class="variable">$(brew --repo)</span>/Library/Taps/homebrew/homebrew-core"</span></span><br><span class="line"><span class="variable">$git</span> remote <span class="built_in">set</span>-url origin https://mirrors.ustc.edu.cn/homebrew-core.git</span><br><span class="line"></span><br><span class="line">$ brew update</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>替换Homebrew-bottles二进制预编译包</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">echo</span> <span class="string">'export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles'</span> &gt;&gt; ~/.bash_profile</span><br><span class="line">$ <span class="built_in">source</span> ~/.bash_profile</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$echo</span> <span class="string">'export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.ustc.edu.cn/homebrew-bottles'</span> &gt;&gt; ~/.bash_profile</span><br><span class="line"><span class="variable">$source</span> ~/.bash_profile</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>替换brew cask源</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> <span class="string">"<span class="variable">$(brew --repo)</span>"</span>/Library/Taps/homebrew/homebrew-cask</span><br><span class="line">git remote <span class="built_in">set</span>-url origin https://mirrors.ustc.edu.cn/homebrew-cask.git</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>重置为默认源</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 重置brew.git:</span></span><br><span class="line">$ <span class="built_in">cd</span> <span class="string">"<span class="variable">$(brew --repo)</span>"</span></span><br><span class="line">$ git remote <span class="built_in">set</span>-url origin https://github.com/Homebrew/brew.git</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重置homebrew-core.git:</span></span><br><span class="line">$ <span class="built_in">cd</span> <span class="string">"<span class="variable">$(brew --repo)</span>/Library/Taps/homebrew/homebrew-core"</span></span><br><span class="line">$ git remote <span class="built_in">set</span>-url origin https://github.com/Homebrew/homebrew-core.git</span><br><span class="line"></span><br><span class="line"><span class="comment"># Homebrew-bottles二进制只需注释或删除.bash_profile中的代码即可</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 重置brew cask源</span></span><br><span class="line">$ <span class="built_in">cd</span> <span class="string">"<span class="variable">$(brew --repo)</span>"</span>/Library/Taps/homebrew/homebrew-cask</span><br><span class="line">$ git remote <span class="built_in">set</span>-url origin https://github.com/Homebrew/homebrew-cask</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 重置brew.git:</span></span><br><span class="line"><span class="variable">$cd</span> <span class="string">"<span class="variable">$(brew --repo)</span>"</span></span><br><span class="line"><span class="variable">$git</span> remote <span class="built_in">set</span>-url origin https://github.com/Homebrew/brew.git</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重置homebrew-core.git:</span></span><br><span class="line"><span class="variable">$cd</span> <span class="string">"<span class="variable">$(brew --repo)</span>/Library/Taps/homebrew/homebrew-core"</span></span><br><span class="line"><span class="variable">$git</span> remote <span class="built_in">set</span>-url origin https://github.com/Homebrew/homebrew-core.git</span><br><span class="line"></span><br><span class="line"><span class="comment"># Homebrew-bottles二进制只需注释或删除.bash_profile中的代码即可</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 重置brew cask源</span></span><br><span class="line"><span class="variable">$cd</span> <span class="string">"<span class="variable">$(brew --repo)</span>"</span>/Library/Taps/homebrew/homebrew-cask</span><br><span class="line"><span class="variable">$git</span> remote <span class="built_in">set</span>-url origin https://github.com/Homebrew/homebrew-cask</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
 </ul>
-<h3 id="App允许任何来源下载安装"><a href="#App允许任何来源下载安装" class="headerlink" title="App允许任何来源下载安装"></a>App允许任何来源下载安装</h3>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ sudo spctl --master-disable</span><br></pre></td></tr></table></figure>
+<h3 id="App允许任何来源下载安装"><a href="#App允许任何来源下载安装" class="headerlink" title="App允许任何来源下载安装"></a>App允许任何来源下载安装</h3>  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$sudo</span> spctl --master-disable</span><br></pre></td></tr></table></figure>
 <h3 id="Dock设置"><a href="#Dock设置" class="headerlink" title="Dock设置"></a>Dock设置</h3><ul>
 <li><p>设置启动台每行显示数量</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ defaults write com.apple.dock springboard-columns -int 8 <span class="comment"># 每行8个</span></span><br><span class="line">$ defaults write com.apple.dock ResetLaunchPad -bool TRUE;killall Dock <span class="comment"># 重启dock</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$defaults</span> write com.apple.dock springboard-columns -int 8 <span class="comment"># 每行8个</span></span><br><span class="line"><span class="variable">$defaults</span> write com.apple.dock ResetLaunchPad -bool TRUE;killall Dock <span class="comment"># 重启dock</span></span><br></pre></td></tr></table></figure>
 </li>
-</ul>
-<ul>
 <li><p>显示隐藏文件</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.finder AppleShowAllFiles -bool <span class="literal">true</span> ; killall Finder</span><br></pre></td></tr></table></figure>
 </li>
@@ -566,8 +576,6 @@
 <li><p>效果如下所示</p>
 <p><img src="https://ws3.sinaimg.cn/large/006tKfTcly1ftoi367zyvj30qm0aaacz.jpg" alt="img"></p>
 </li>
-</ul>
-<ul>
 <li><p>相关链接</p>
 <ul>
 <li>GitHub地址：<a href="https://github.com/athlonreg/archey-osx" target="_blank" rel="noopener">https://github.com/athlonreg/archey-osx</a></li>
@@ -575,23 +583,24 @@
 </ul>
 </li>
 <li><p>安装</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> &amp;&amp; git <span class="built_in">clone</span> https://github.com/athlonreg/archey-osx <span class="comment">#若无法下载可直接到github下载zip文件</span></span><br><span class="line">$ sudo mv archey-osx/ /usr/<span class="built_in">local</span>/ </span><br><span class="line">$ sudo ln -s /usr/<span class="built_in">local</span>/archey-osx/bin/archey /usr/<span class="built_in">local</span>/bin/archey <span class="comment">#中文版</span></span><br><span class="line">$ sudo ln -s /usr/<span class="built_in">local</span>/archey-osx/bin/archey-en /usr/<span class="built_in">local</span>/bin/archey-en <span class="comment">#英文版</span></span><br></pre></td></tr></table></figure>
-<p>设置终端自启动</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">echo</span> archey &gt;&gt; ./.bashrc <span class="comment">#中文版</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">echo</span> archey-en &gt;&gt; ./.bashrc <span class="comment">#英文版</span></span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">echo</span> <span class="string">"[[ -s ~/.bashrc ]] &amp;&amp; source ~/.bashrc"</span> &gt;&gt; ./.bash_profile </span></span><br><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">source</span> ./.bashrc &amp;&amp; <span class="built_in">source</span> ./.bash_profile</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$cd</span> &amp;&amp; git <span class="built_in">clone</span> https://github.com/athlonreg/archey-osx <span class="comment">#若无法下载可直接到github下载zip文件</span></span><br><span class="line"><span class="variable">$sudo</span> mv archey-osx/ /usr/<span class="built_in">local</span>/ </span><br><span class="line"><span class="variable">$sudo</span> ln -s /usr/<span class="built_in">local</span>/archey-osx/bin/archey /usr/<span class="built_in">local</span>/bin/archey <span class="comment">#中文版</span></span><br><span class="line"><span class="variable">$sudo</span> ln -s /usr/<span class="built_in">local</span>/archey-osx/bin/archey-en /usr/<span class="built_in">local</span>/bin/archey-en <span class="comment">#英文版</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设置终端自启动</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$echo</span> archey &gt;&gt; ./.bashrc <span class="comment">#中文版</span></span><br><span class="line"><span class="variable">$echo</span> archey-en &gt;&gt; ./.bashrc <span class="comment">#英文版</span></span><br><span class="line"><span class="variable">$echo</span> <span class="string">"[[ -s ~/.bashrc ]] &amp;&amp; source ~/.bashrc"</span> &gt;&gt; ./.bash_profile </span><br><span class="line"><span class="variable">$source</span> ./.bashrc &amp;&amp; <span class="built_in">source</span> ./.bash_profile</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>oh-my-zsh用户</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">echo</span> archey &gt;&gt; ./.zshrc <span class="comment">#中文版</span></span><br><span class="line">$ <span class="built_in">echo</span> archey-en &gt;&gt; ./.zshrc <span class="comment">#英文版</span></span><br><span class="line">$ <span class="built_in">source</span> ./.zshrc</span><br></pre></td></tr></table></figure>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$echo</span> archey &gt;&gt; ./.zshrc <span class="comment">#中文版</span></span><br><span class="line"><span class="variable">$echo</span> archey-en &gt;&gt; ./.zshrc <span class="comment">#英文版</span></span><br><span class="line"><span class="variable">$source</span> ./.zshrc</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>更新</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/archey-osx/ &amp;&amp; git pull &amp;&amp; <span class="built_in">cd</span></span><br></pre></td></tr></table></figure>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/archey-osx/ &amp;&amp; git pull &amp;&amp; <span class="built_in">cd</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>修改</p>
-<p>因为我的电脑显示显卡信息太长了，因此替换为用户名，只需修改archey文件中的User即可。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">User=$(<span class="built_in">echo</span> $(whoami) | sed <span class="string">"s/-/ /g"</span>)</span><br></pre></td></tr></table></figure>
+<p>  因为我的电脑显示显卡信息太长了，因此替换为用户名，只需修改archey文件中的User即可。</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">User=$(<span class="built_in">echo</span> $(whoami) | sed <span class="string">"s/-/ /g"</span>)</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="取消自动大写字词的首字母"><a href="#取消自动大写字词的首字母" class="headerlink" title="取消自动大写字词的首字母"></a>取消自动大写字词的首字母</h3><pre><code>设置-键盘-文本-取消自动大写字词的首字母
-</code></pre>
+<h3 id="取消自动大写字词的首字母"><a href="#取消自动大写字词的首字母" class="headerlink" title="取消自动大写字词的首字母"></a>取消自动大写字词的首字母</h3><p>设置-键盘-文本-取消自动大写字词的首字母</p>
+
       
     </div>
 
@@ -625,7 +634,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Mac小技巧/" rel="tag"># Mac小技巧</a>
+            <a href="/tags/Mac/" rel="tag"># Mac</a>
+          
+            <a href="/tags/Setting/" rel="tag"># Setting</a>
           
         </div>
       
@@ -638,8 +649,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/27/Docker入门/" rel="next" title="Docker入门">
-                <i class="fa fa-chevron-left"></i> Docker入门
+              <a href="/2018/08/29/怎样在一年内获得一份开发者的工作/" rel="next" title="怎样在一年内获得一份开发者的工作">
+                <i class="fa fa-chevron-left"></i> 怎样在一年内获得一份开发者的工作
               </a>
             
           </div>
@@ -727,7 +738,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">17</span>
+                    <span class="site-state-item-count">19</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -789,7 +800,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">10</span>
+                      
+                    
+                    <span class="site-state-item-count">11</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -834,7 +847,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#macOS美化及设置"><span class="nav-number">1.</span> <span class="nav-text">macOS美化及设置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#iTerm"><span class="nav-number">1.0.1.</span> <span class="nav-text">iTerm</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#oh-my-zsh"><span class="nav-number">1.0.2.</span> <span class="nav-text">oh-my-zsh</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#App允许任何来源下载安装"><span class="nav-number">1.0.3.</span> <span class="nav-text">App允许任何来源下载安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dock设置"><span class="nav-number">1.0.4.</span> <span class="nav-text">Dock设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改终端欢迎画面"><span class="nav-number">1.0.5.</span> <span class="nav-text">修改终端欢迎画面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开启终端显示信息"><span class="nav-number">1.0.6.</span> <span class="nav-text">开启终端显示信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#取消自动大写字词的首字母"><span class="nav-number">1.0.7.</span> <span class="nav-text">取消自动大写字词的首字母</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#macOS美化及设置"><span class="nav-number">1.</span> <span class="nav-text">macOS美化及设置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#iTerm"><span class="nav-number">1.1.</span> <span class="nav-text">iTerm</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#oh-my-zsh"><span class="nav-number">1.1.1.</span> <span class="nav-text">oh-my-zsh</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#App允许任何来源下载安装"><span class="nav-number">1.1.2.</span> <span class="nav-text">App允许任何来源下载安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Dock设置"><span class="nav-number">1.1.3.</span> <span class="nav-text">Dock设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改终端欢迎画面"><span class="nav-number">1.1.4.</span> <span class="nav-text">修改终端欢迎画面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开启终端显示信息"><span class="nav-number">1.1.5.</span> <span class="nav-text">开启终端显示信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#取消自动大写字词的首字母"><span class="nav-number">1.1.6.</span> <span class="nav-text">取消自动大写字词的首字母</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -873,7 +886,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">78k</span>
+    <span title="站点总字数">95k</span>
   
 
   
@@ -882,7 +895,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">1:11</span>
+    <span title="站点阅读时长">1:27</span>
   
 </div>
 

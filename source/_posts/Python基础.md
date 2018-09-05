@@ -56,81 +56,82 @@ Python中默认的编码模式是ASCII格式，需要在Python文件开头加入
 
 1. 在Python中，字符串是以Unicode编码的，对于单个字符的编码Python提供了ord()函数获取字符的整数表示，char()函数把编码转换为对应的字符
 
-```python
->>>ord('A')
-65
->>>chr(26460)
-'杜'
-```
+    ```python
+    >>>ord('A')
+    65
+    >>>chr(26460)
+    '杜'
+    ```
 
-十六进制
+    十六进制
 
-```python
->>>'\u4e2d\u6587'
-'中文'
-```
+    ```python
+    >>>'\u4e2d\u6587'
+    '中文'
+    ```
 
 2. 由于Python的字符串类型是str，在内存中以Unicode表示，一个字符对应若干个字节。如果要在网络上传输，或者保存到磁盘上，就需要把str变为以字节为单位的bytes。'ABC'是字符串
 
-```python
->>>x = b'ABC'
->>>y = 'ABC'
->>>print(x == y)
-False
-```
+    ```python
+    >>>x = b'ABC'
+    >>>y = 'ABC'
+    >>>print(x == y)
+    False
+    ```
 
 3. 以Unicode表示的str通过encode()方法可以编码为指定的bytes，例如：
 
-```python
->>> '中文'.encode('utf-8')
-b'\xe4\xb8\xad\xe6\x96\x87'
-```
+    ```python
+    >>> '中文'.encode('utf-8')
+    b'\xe4\xb8\xad\xe6\x96\x87'
+    ```
 
 4. 纯英文的str可以用ASCII编码为bytes，内容是一样的，含有中文的str可以用UTF-8编码为bytes。含有中文的str无法用ASCII编码，因为中文编码的范围超过了ASCII编码的范围，Python会报错。
 
-反过来，如果我们从网络或磁盘上读取了字节流，那么读到的数据就是bytes。要把bytes变为str，就需要用decode()方法：
+    反过来，如果我们从网络或磁盘上读取了字节流，那么读到的数据就是bytes。要把bytes变为str，就需要用decode()方法：
 
-```python
->>> b'ABC'.decode('ascii')
-'ABC'
->>> b'\xe4\xb8\xad\xe6\x96\x87'.decode('utf-8')
-'中文'
-```
+    ```python
+    >>> b'ABC'.decode('ascii')
+    'ABC'
+    >>> b'\xe4\xb8\xad\xe6\x96\x87'.decode('utf-8')
+    '中文'
+    ```
 
 5. len()函数可以用来要计算str包含的字符数也可以计算bytes的字节数
 
-```python
->>>len('ABC')
-3
->>>len('中文')
-2
->>>len(b'ABC')
-3
->>>len('中文'.encode('utf-8'))
-```
+    ```python
+    >>>len('ABC')
+    3
+    >>>len('中文')
+    2
+    >>>len(b'ABC')
+    3
+    >>>len('中文'.encode('utf-8'))
+    ```
 
-1个中文字符经过UTF-8编码后通常会占用3个字节，而1个英文字符只占用1个字节。
+    1个中文字符经过UTF-8编码后通常会占用3个字节，而1个英文字符只占用1个字节。
 
-```python
-#!/usr/bin/env python3 #linux/OS X系统下为可执行程序
-# -*- coding: utf-8 -*- #按UTF-8读取源代码
-```
+    ```python
+    #!/usr/bin/env python3 #linux/OS X系统下为可执行程序
+    # -*- coding: utf-8 -*- #按UTF-8读取源代码
+    ```
 
 6. 格式化
-在Python中格式化的方式和C一样使用%输出格式化字符
-%运算符就是用来格式化字符串的。在字符串内部，%s表示用字符串替换，%f表示用浮点数替换，%x表示用十六进制替换，%d表示用整数替换，有几个%?占位符，后面就跟几个变量或者值，顺序要对应好。如果只有一个%?，括号可以省略。
 
-```python
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-s1 = int(input('去年的成绩：'))
-s2 = int(input('今年的成绩：'))
-r = (s2 - s1) / s1 * 100
-if s1 > s2:
-    print('下降了：''%.1f %%' % r)
-else:
-    print('提升了：''%.1f %%' % r)
-```
+    在Python中格式化的方式和C一样使用%输出格式化字符
+    %运算符就是用来格式化字符串的。在字符串内部，%s表示用字符串替换，%f表示用浮点数替换，%x表示用十六进制替换，%d表示用整数替换，有几个%?占位符，后面就跟几个变量或者值，顺序要对应好。如果只有一个%?，括号可以省略。
+
+    ```python
+    #!/usr/bin/env python3
+    # -*- coding: utf-8 -*-
+    s1 = int(input('去年的成绩：'))
+    s2 = int(input('今年的成绩：'))
+    r = (s2 - s1) / s1 * 100
+    if s1 > s2:
+        print('下降了：''%.1f %%' % r)
+    else:
+        print('提升了：''%.1f %%' % r)
+    ```
 
 ## 使用list和tuple
 
@@ -188,27 +189,31 @@ if x:
 ## 循环
 
 1. for循环
-for x in ...循环就是把每个元素代入变量x，然后执行缩进块的语句。
-range()函数可以生成一个整数序列，通过list()函数装换为list。
 
-```python
-list(range(5))
-[0,1,2,3,4,]
-```
+
+    for x in ...循环就是把每个元素代入变量x，然后执行缩进块的语句。
+    range()函数可以生成一个整数序列，通过list()函数装换为list。
+
+    ```python
+    list(range(5))
+    [0,1,2,3,4,]
+    ```
 
 2. while循环
-while循环，只要条件满足，就不断循环，条件不满足时退出循环。
 
-```python
-while ...  #条件
-    ...    #条件满足时执行
-print()    #条件不满足执行
-```
+    while循环，只要条件满足，就不断循环，条件不满足时退出循环。
+
+    ```python
+    while ...  #条件
+        ...    #条件满足时执行
+    print()    #条件不满足执行
+    ```
 
 3. break和continue
-在循环中，在满足break语句前的if语句条件时执行，可以提前退出循环。
-continue的作用是提前结束本轮循环，不会执行满足if条件时的语句，直接开始下一轮循环。
-*注意*：不要滥用break和continue语句。break和continue会造成代码执行逻辑分叉过多，容易出错。大多数循环并不需要用到break和continue语句，上面的两个例子，都可以通过改写循环条件或者修改循环逻辑，去掉break和continue语句。
+
+    在循环中，在满足break语句前的if语句条件时执行，可以提前退出循环。
+    continue的作用是提前结束本轮循环，不会执行满足if条件时的语句，直接开始下一轮循环。
+    *注意*：不要滥用break和continue语句。break和continue会造成代码执行逻辑分叉过多，容易出错。大多数循环并不需要用到break和continue语句，上面的两个例子，都可以通过改写循环条件或者修改循环逻辑，去掉break和continue语句。
 
 ## 使用dict和set
 

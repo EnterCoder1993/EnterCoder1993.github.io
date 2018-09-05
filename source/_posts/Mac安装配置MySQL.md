@@ -7,6 +7,8 @@ categories:
   - [数据库]
 ---
 
+# Mac下安装配置MySQL
+
 Mac下MySQL的安装其实是很简单，用brew一行代码就解决了，但是安装完成后并不能直接开始用，会出现一些错误，此文可以解决安装后无法使用的问题。
 
 <!--more-->
@@ -14,9 +16,11 @@ Mac下MySQL的安装其实是很简单，用brew一行代码就解决了，但�
 ## 安装
 
 使用命令行执行
+
+```bash
+$brew install MySQL
 ```
-brew install MySQL
-```
+
 即可安装完成
 
 <!--more-->
@@ -24,32 +28,37 @@ brew install MySQL
 ## 配置
 
 1. 命令行输入
-```
-sudo chown -R 'Mac用户名' /usr/local
-```
+
+    ```bash
+    $sudo chown -R 'Mac用户名' /usr/local
+    ```
 
 2. 连接
-```
-brew link --overwrite mysql
-```
+
+    ```bash
+    $brew link --overwrite mysql
+    ```
 
 3. 命令行输入
-```
-unset TMPDIR
 
-bash mysql_install_db --verbose --user=root
---basedir="$(brew --prefix mysql)"--datadir=/usr/local/var/mysql --tmpdir=/tmp
-```
+    ```bash
+    unset TMPDIR
+
+    $bash mysql_install_db --verbose --user=root
+    --basedir="$(brew --prefix mysql)"--datadir=/usr/local/var/mysql --tmpdir=/tmp
+    ```
 
 4. 启动mysql
-```
-mysql.server start
-```
+
+    ```bash
+    $mysql.server start
+    ```
 
 5. 关闭mysql
-```
-mysql.server stop
-```
+
+    ```bash
+    $mysql.server stop
+    ```
 
 ## 常用Mysql用法
 

@@ -148,32 +148,32 @@ print(r.text) # baidu的html源码
       url = 'https://www.baidu.com'
       print(getHTMLText(url))
   ```
-  
+
 ### HTTP协议
 
-  * HTTP，Hypertext Transfer Protocol，超文本传输协议。
+* HTTP，Hypertext Transfer Protocol，超文本传输协议。
 
-  * HTTP是一个基于“请求与响应”模式的、装状态的应用层协议。
+* HTTP是一个基于“请求与响应”模式的、装状态的应用层协议。
 
-  * HTTP协议采用URL作为定位网络资源的标识
+* HTTP协议采用URL作为定位网络资源的标识
 
-  * URL格式 `http://host[:port][path]` 
-    * host：合法的Internet主机域名或IP地址
-    * port：端口号，缺省端口为80
-    * path：请求资源的路径
+* URL格式 `http://host[:port][path]` 
+  * host：合法的Internet主机域名或IP地址
+  * port：端口号，缺省端口为80
+  * path：请求资源的路径
 
-  * HTTP协议对资源的操作
+* HTTP协议对资源的操作
 
     ![source_http](https://ws4.sinaimg.cn/large/0069RVTdgy1fuoo6nadp0j30mb07kjrm.jpg)
 
     ![image-20180701153345007](https://ws4.sinaimg.cn/large/006tNc79gy1fsued0uqbtj30l005dn17.jpg)
 
-  * 理解PATCH和PUT的区别
+* 理解PATCH和PUT的区别
 
-    * 采用PATCHA，仅向URL提交局部更新的请求
-    * 采用PUT，必须将所有字段一并提交到URL，未提交字段被删除
+  * 采用PATCHA，仅向URL提交局部更新的请求
+  * 采用PUT，必须将所有字段一并提交到URL，未提交字段被删除
 
-  * Requests库的head()方法
+* Requests库的head()方法
 
       ```python
       >>> r = requests.head('http://www.baidu.com')
@@ -183,7 +183,7 @@ print(r.text) # baidu的html源码
       ''
       ```
 
-  * Requests库的post()方法
+* Requests库的post()方法
 
     ```python
     >>> payload = {'key1':'value1','key2':'value2'}
@@ -199,7 +199,7 @@ print(r.text) # baidu的html源码
     }
     ```
 
-  * Requests库的put()方法
+* Requests库的put()方法
 
     ```python
     >>> payload = {'key1':'value1','key2':'value2'}
