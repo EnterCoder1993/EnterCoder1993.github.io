@@ -1,8 +1,10 @@
 ---
 title: Mac安装配置MySQL
 date: 2017-09-05 13:06:24
-tags: MySQL
-categories: [数据库,macOS]
+tags: [MySQL,Mac,Setting]
+categories: 
+  - [macOS]
+  - [数据库]
 ---
 
 Mac下MySQL的安装其实是很简单，用brew一行代码就解决了，但是安装完成后并不能直接开始用，会出现一些错误，此文可以解决安装后无法使用的问题。

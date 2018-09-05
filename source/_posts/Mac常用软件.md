@@ -1,7 +1,7 @@
 ---
 title: Mac常用软件
 date: 2017-08-31 00:01:00
-tags: [常用,Mac技巧]
+tags: [常用,Mac,Setting]
 categories: macOS
 ---
 
@@ -12,6 +12,7 @@ categories: macOS
 # Mac安装软件下载及配置
 
 ## AppStore安装
+
 1. QQ
 2. 微信
 3. 迅雷
@@ -27,6 +28,7 @@ categories: macOS
 13. 坚果云
 
 ## 程序员必备
+
 1. [iTerm2](https://www.iterm2.com/)
     - [ohmyzsh](https://github.com/robbyrussell/oh-my-zsh)
     - [autojump](https://github.com/wting/autojump)
@@ -55,10 +57,9 @@ categories: macOS
 22. MindNote
 23. 实验楼
 24. Focus
-25. 
-
 
 ## chrome插件
+
 1. 1Player for 网易云音乐
 2. AdBlock
 3. Bookmark Sidebar
@@ -74,19 +75,18 @@ categories: macOS
 13. 印象笔记·剪藏
 14. 滴答清单
 
-
 ## 命令行工具
+
 1. [you-get](https://github.com/soimort/you-get)
 2. [musicbox](https://github.com/darknessomi/musicbox/)
 3. [HomeBrew](https://brew.sh/)
 4. [BrewCask](https://caskroom.github.io/)
 5. [cmatrix](http://www.asty.org/cmatrix/)
 
-```
-brew cask install software-name
+```bash
+$brew cask install software-name
 
-brew install package-name
+$brew install package-name
 ```
-
 
 update:2017.11.22

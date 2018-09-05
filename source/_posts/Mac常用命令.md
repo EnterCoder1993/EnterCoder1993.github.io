@@ -1,7 +1,7 @@
 ---
 title: Mac常用命令
 date: 2017-09-15 14:55:03
-tags: Mac技巧
+tags: Mac
 categories: macOS
 ---
 
@@ -9,48 +9,56 @@ macOS常用命令整理,此文记录了平常使用终端的一些基本命令�
 
 <!--more-->
 
-1.man
-```
-man command-name
-eg:
-man ls
-man -k #search all command
-```
+1. man
 
-2.pwd cd ls
-```
-ls -la
-pwd
-cd
-```
+    ```bash
+    $man command-name
+    eg:
+    $man ls
+    $man -k #search all command
+    ```
 
-3.cat less which file
-```
-cat #check test file
-cat a.txt >> b.txt
-less #high grade than cat
-     #spacekey->paging
-     #/ search
-     #Q quit
-     #v go to vi editor
-whicch command-name
-file filename #check file
-```
-4.find & mdfind
+2. pwd cd ls
 
-5.edit file and directory
-```
-mkdir -p a/b/c/d/e
-cp -R <file> a/b/   file --> b/
-mv -R <file> a/b/   file --> b/
-rm -R directory/file
-```
+    ```bash
+    $ls -la
+    $pwd
+    $cd
+    ```
 
-6.vi and nano
+3. cat less which file
 
-7.su and sudo
+    ```bash
+    $cat #check test file
+    $cat a.txt >> b.txt
+    $less #high grade than cat
+        #spacekey->paging
+        #/ search
+        #Q quit
+        #v go to vi editor
+    $whicch command-name
+    $file filename #check file
+    ```
 
-8.* open .
-  * control + c
-  * history
-  * control + l == clear
+4. find & mdfind
+
+5. edit file and directory
+
+    ```bash
+    $mkdir -p a/b/c/d/e
+    $cp -R <file> a/b/   file --> b/
+    $mv -R <file> a/b/   file --> b/
+    $rm -R directory/file
+    ```
+
+6. vi and nano
+
+7. su and sudo
+
+8. open .
+
+9. control + c
+
+10. history
+
+11. control + l == clear

@@ -26,26 +26,26 @@ tags: [Python,Note,Spider]
 终端运行下列命令
 
 ```bash
-$ pip install requests
+$pip install requests
 ```
 
 获得源码
 
 ```bash
-$ git clone git://github.com/kennethreitz/requests.git
+$git clone git://github.com/kennethreitz/requests.git
 ```
 
 也可以下载tarball
 
 ```bash
-$ curl -OL https://github.com/requests/requests/tarball/master
+$curl -OL https://github.com/requests/requests/tarball/master
 ```
 
 现在完成后，使用如下命令进行安装
 
 ```bash
-$ cd requests
-$ pip install .
+$cd requests
+$pip install .
 ```
 
 简单使用
@@ -57,8 +57,6 @@ print(r.status_code) # 200
 r.encoding = 'utf-8'
 print(r.text) # baidu的html源码
 ```
-
-
 
 ### Requests库的7个主要方法
 
@@ -145,13 +143,12 @@ print(r.text) # baidu的html源码
           return r.text
       except：
         return "产生异常"
-      
+
   if __name__ = "__main__":
       url = 'https://www.baidu.com'
       print(getHTMLText(url))
   ```
   
-
 ### HTTP协议
 
   * HTTP，Hypertext Transfer Protocol，超文本传输协议。
@@ -219,8 +216,6 @@ print(r.text) # baidu的html源码
         </body>
       </html>
     ```
-
-    
 
 ### Requests库主要方法解析
 
@@ -359,9 +354,6 @@ print(r.text) # baidu的html源码
 
     ![img](https://ws2.sinaimg.cn/large/006tNc79gy1fsuinx4kc6j30np05wgmm.jpg)
 
-
-
-
 ## Requests库爬取实例
 
 ### 实例1：京东商品页面的爬取
@@ -471,7 +463,7 @@ except:
 * 使用pip安装
 
   ```bash
-  $ pip3 install BeautifulSoup4
+  $pip3 install BeautifulSoup4
   ```
 
 * 源码安装
@@ -481,7 +473,7 @@ except:
   * 通过setup.py安装
 
     ```bash
-    $ Python setup.py install
+    $Python setup.py install
     ```
 
 * 安装解析器
@@ -489,13 +481,13 @@ except:
   * lxml
 
     ```bash
-    $ pip3 install lxml
+    $pip3 install lxml
     ```
 
   * html5lib
 
     ```bash
-    $ pip3 install html5lib
+    $pip3 install html5lib
     ```
 
 * 主要解析器及使用方法
@@ -594,8 +586,6 @@ except:
   <class 'bs4.element.NavigableString'>
   ```
 
-  
-
 ### 基于bs4库的HTML内容遍历方法
 
 * 遍历方式
@@ -667,7 +657,7 @@ except:
     >>> soup.a.previous_sibling
     'Python is a wonderful general-purpose programming language. You can learn Python from novice to professional by tracking the following courses:\r\n'
     >>> soup.a.previous_sibling.previous_sibling
-    
+
     # 标签树的平行遍历
     # 遍历后续节点
     for sibling in soup.a.next_siblings
@@ -837,7 +827,7 @@ Re库是Python的标准库，主要用于字符串匹配，调用方式：import
       >>> match = re.search(r'[1-9]\d{5}','bit 100081')
       >>> if match:
         print(match.group(0))
-      
+
       100081
       ```
 
@@ -895,7 +885,7 @@ Re库是Python的标准库，主要用于字符串匹配，调用方式：import
       >>> for m in re.finditer(r'[1-9]\d{5}','bit100081 tsu100084'):
         if m:
           print(m.group(0))
-        
+
       100081
       100084
       ```
@@ -1007,7 +997,6 @@ Re库是Python的标准库，主要用于字符串匹配，调用方式：import
       for g in ilt:
           count = count + 1
           print(tplt.format(count,g[0],g[1]))
-      
   
   def main():
       goods = 'shubao'
@@ -1112,15 +1101,3 @@ Re库是Python的标准库，主要用于字符串匹配，调用方式：import
   
   main()
   ```
-
-  
-
-​    
-
-​    
-
-​    
-
-​    
-
-​    
