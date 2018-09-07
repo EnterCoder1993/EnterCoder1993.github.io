@@ -120,10 +120,16 @@
 <meta property="og:site_name" content="EnterCoder&#39;s Blog">
 <meta property="og:description" content="git reset相关用法 HEAD 当前版本的别名，即当前分支最近的一个提交。 Index 指下一次提交所包含的文件的集合。 Working Copy 正在工作的文件集。  流程 使用checkout切换分支，HEAD指向当前分支的最近一次commit，当前HEAD、Index和Working Copy中的文件集合是相同的。 对文件执行修改，Git发现文件发生改变，此时Working Copy发">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-09-06T15:42:55.520Z">
+<meta property="og:image" content="https://ws4.sinaimg.cn/large/006tNbRwgy1fv09uav0axj306g0cma9w.jpg">
+<meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNbRwgy1fv09xjd2kvj305s0d1dfo.jpg">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNbRwgy1fv0a2pw4rsj30g103fdfr.jpg">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNbRwgy1fv0a7whniuj30ly04emwz.jpg">
+<meta property="og:image" content="https://ws3.sinaimg.cn/large/006tNbRwgy1fv0a7goyh6j30g103a3yf.jpg">
+<meta property="og:updated_time" content="2018-09-06T16:30:54.152Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git-reset相关用法">
 <meta name="twitter:description" content="git reset相关用法 HEAD 当前版本的别名，即当前分支最近的一个提交。 Index 指下一次提交所包含的文件的集合。 Working Copy 正在工作的文件集。  流程 使用checkout切换分支，HEAD指向当前分支的最近一次commit，当前HEAD、Index和Working Copy中的文件集合是相同的。 对文件执行修改，Git发现文件发生改变，此时Working Copy发">
+<meta name="twitter:image" content="https://ws4.sinaimg.cn/large/006tNbRwgy1fv09uav0axj306g0cma9w.jpg">
 
 
 
@@ -397,12 +403,24 @@
                 
               
 
-              <time title="创建时间：2018-09-06 23:24:38 / 修改时间：23:42:55" itemprop="dateCreated datePublished" datetime="2018-09-06T23:24:38+08:00">2018-09-06</time>
+              <time title="创建时间：2018-09-06 23:24:38" itemprop="dateCreated datePublished" datetime="2018-09-06T23:24:38+08:00">2018-09-06</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-09-07 00:30:54" itemprop="dateModified" datetime="2018-09-07T00:30:54+08:00">2018-09-07</time>
               
             
           </span>
@@ -457,7 +475,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">340</span>
+                <span title="本文字数">1.1k</span>
               
 
               
@@ -502,6 +520,22 @@
 <li>执行git add，Git将改变的文件集合记录到Index，此时Index的状态与Working Copy的状态相同。</li>
 <li>最后执行git commit，Git创建了新的commit，此时HEAD指向新的commit，HEAD、Index和Working Copy一致。</li>
 </ol>
+<h2 id="Rest"><a href="#Rest" class="headerlink" title="Rest"></a>Rest</h2><p>git reset本质是重置HEAD(当前分支的版本顶端)到另一个commit。假设有有个分支如下：</p>
+<p><img src="https://ws4.sinaimg.cn/large/006tNbRwgy1fv09uav0axj306g0cma9w.jpg" alt="branch"></p>
+<p>此时执行<code>git reset HEAD</code>任何事情都不会发生，GIT会重置当前分支到HEAD，而这个正是它现在所在的位置。</p>
+<p>若执行<code>git reset HEAD~1</code>，HEAD将指向上一个commit。若执行<code>git reset HEAD~2</code>则HEAD将指向后两个commit如图：</p>
+<p><img src="https://ws1.sinaimg.cn/large/006tNbRwgy1fv09xjd2kvj305s0d1dfo.jpg" alt="commit"></p>
+<h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><h3 id="–soft"><a href="#–soft" class="headerlink" title="–soft"></a>–soft</h3><p>–soft参数告诉Git重置HEAD到另外一个commit，但此时Index和working copy不会有任何变化。</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNbRwgy1fv0a2pw4rsj30g103fdfr.jpg" alt="soft"></p>
+<h3 id="–hard"><a href="#–hard" class="headerlink" title="–hard"></a>–hard</h3><p>–hard参数将会重置HEAD返回到另一个commit，且index和working copy也将重置。数据因此可能会丢失，若丢失只能只用git reflog。</p>
+<p>如果我们希望彻底丢掉本地修改但是又不希望更改branch所指向的commit，则执行git reset –hard = git reset –hard HEAD。</p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNbRwgy1fv0a7whniuj30ly04emwz.jpg" alt="hard"></p>
+<h3 id="–mixed-default"><a href="#–mixed-default" class="headerlink" title="–mixed(default)"></a>–mixed(default)</h3><p>–mixed是reset的默认参数，它将重置HEAD到另一个commit，并且重置index保持和HEAD相同，但work copy不会改变。</p>
+<p><img src="https://ws3.sinaimg.cn/large/006tNbRwgy1fv0a7goyh6j30g103a3yf.jpg" alt="mixed"></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>–soft 、–mixed以及–hard是三个恢复等级。使用–soft就仅仅将头指针恢复，已经add的缓存以及工作空间的所有东西都不变。如果使用–mixed，就将头恢复掉，已经add的缓存也会丢失掉，工作空间的代码什么的是不变的。如果使用–hard，那么一切就全都恢复了，头变，aad的缓存消失，代码什么的也恢复到以前状态。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><blockquote>
+<p>参考：<a href="https://www.cnblogs.com/kidsitcn/p/4513297.html" target="_blank" rel="noopener">https://www.cnblogs.com/kidsitcn/p/4513297.html</a></p>
+</blockquote>
 
       
     </div>
@@ -549,8 +583,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/06/Python之collections模块/" rel="next" title="Python之collections模块">
-                <i class="fa fa-chevron-left"></i> Python之collections模块
+              <a href="/2018/09/05/Python操作列表元祖字典集合/" rel="next" title="Python操作列表、元祖、字典、集合">
+                <i class="fa fa-chevron-left"></i> Python操作列表、元祖、字典、集合
               </a>
             
           </div>
@@ -558,6 +592,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/07/双系统Windows时间不同步问题/" rel="prev" title="双系统Windows时间不同步问题">
+                双系统Windows时间不同步问题 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -667,7 +705,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">8</span>
+                      
+                    
+                    <span class="site-state-item-count">9</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -702,7 +742,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">11</span>
+                      
+                    
+                    <span class="site-state-item-count">12</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -747,7 +789,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#git-reset相关用法"><span class="nav-number">1.</span> <span class="nav-text">git reset相关用法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#流程"><span class="nav-number">1.1.</span> <span class="nav-text">流程</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#git-reset相关用法"><span class="nav-number">1.</span> <span class="nav-text">git reset相关用法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#流程"><span class="nav-number">1.1.</span> <span class="nav-text">流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Rest"><span class="nav-number">1.2.</span> <span class="nav-text">Rest</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参数"><span class="nav-number">1.3.</span> <span class="nav-text">参数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#–soft"><span class="nav-number">1.3.1.</span> <span class="nav-text">–soft</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#–hard"><span class="nav-number">1.3.2.</span> <span class="nav-text">–hard</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#–mixed-default"><span class="nav-number">1.3.3.</span> <span class="nav-text">–mixed(default)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">1.4.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">1.5.</span> <span class="nav-text">参考</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -786,7 +828,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">102k</span>
+    <span title="站点总字数">103k</span>
   
 
   

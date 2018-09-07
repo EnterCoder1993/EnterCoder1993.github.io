@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[双系统Windows时间不同步问题]]></title>
+    <url>%2F2018%2F09%2F07%2F%E5%8F%8C%E7%B3%BB%E7%BB%9FWindows%E6%97%B6%E9%97%B4%E4%B8%8D%E5%90%8C%E6%AD%A5%E9%97%AE%E9%A2%98%2F</url>
+    <content type="text"><![CDATA[双系统Windows时间不同步问题在电脑上安装使用双系统时，Windows常常会出现时间不同步的为题。需要重新设置时间才能解决。今天偶然在掘金上看到这个问题，并解决了我电脑的问题，因此记录下来备忘。 Win + R 运行regedit打开注册表编辑器 在左边的导航菜单，找到HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\TimeZoneInformation路径，然后再右边的窗口点击空白位置，选择New &gt;&gt; DWORD(32 bit) Value 将这个条目重命名为RealTimeIsUniversal，并设置为1 之后重启就不会出现时间不同步的问题了。 参考： https://juejin.im/entry/5adbd1ad51882567137dc6de 原文]]></content>
+      <categories>
+        <category>Problems</category>
+      </categories>
+      <tags>
+        <tag>Time</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[git-reset相关用法]]></title>
     <url>%2F2018%2F09%2F06%2Fgit-reset%E7%9B%B8%E5%85%B3%E7%94%A8%E6%B3%95%2F</url>
-    <content type="text"><![CDATA[git reset相关用法 HEAD 当前版本的别名，即当前分支最近的一个提交。 Index 指下一次提交所包含的文件的集合。 Working Copy 正在工作的文件集。 流程 使用checkout切换分支，HEAD指向当前分支的最近一次commit，当前HEAD、Index和Working Copy中的文件集合是相同的。 对文件执行修改，Git发现文件发生改变，此时Working Copy发生改变。 执行git add，Git将改变的文件集合记录到Index，此时Index的状态与Working Copy的状态相同。 最后执行git commit，Git创建了新的commit，此时HEAD指向新的commit，HEAD、Index和Working Copy一致。]]></content>
+    <content type="text"><![CDATA[git reset相关用法 HEAD 当前版本的别名，即当前分支最近的一个提交。 Index 指下一次提交所包含的文件的集合。 Working Copy 正在工作的文件集。 流程 使用checkout切换分支，HEAD指向当前分支的最近一次commit，当前HEAD、Index和Working Copy中的文件集合是相同的。 对文件执行修改，Git发现文件发生改变，此时Working Copy发生改变。 执行git add，Git将改变的文件集合记录到Index，此时Index的状态与Working Copy的状态相同。 最后执行git commit，Git创建了新的commit，此时HEAD指向新的commit，HEAD、Index和Working Copy一致。 Restgit reset本质是重置HEAD(当前分支的版本顶端)到另一个commit。假设有有个分支如下： 此时执行git reset HEAD任何事情都不会发生，GIT会重置当前分支到HEAD，而这个正是它现在所在的位置。 若执行git reset HEAD~1，HEAD将指向上一个commit。若执行git reset HEAD~2则HEAD将指向后两个commit如图： 参数–soft–soft参数告诉Git重置HEAD到另外一个commit，但此时Index和working copy不会有任何变化。 –hard–hard参数将会重置HEAD返回到另一个commit，且index和working copy也将重置。数据因此可能会丢失，若丢失只能只用git reflog。 如果我们希望彻底丢掉本地修改但是又不希望更改branch所指向的commit，则执行git reset –hard = git reset –hard HEAD。 –mixed(default)–mixed是reset的默认参数，它将重置HEAD到另一个commit，并且重置index保持和HEAD相同，但work copy不会改变。 总结–soft 、–mixed以及–hard是三个恢复等级。使用–soft就仅仅将头指针恢复，已经add的缓存以及工作空间的所有东西都不变。如果使用–mixed，就将头恢复掉，已经add的缓存也会丢失掉，工作空间的代码什么的是不变的。如果使用–hard，那么一切就全都恢复了，头变，aad的缓存消失，代码什么的也恢复到以前状态。 参考 参考：https://www.cnblogs.com/kidsitcn/p/4513297.html]]></content>
       <categories>
         <category>Note</category>
       </categories>
       <tags>
         <tag>Git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Python之collections模块]]></title>
-    <url>%2F2018%2F09%2F06%2FPython%E4%B9%8Bcollections%E6%A8%A1%E5%9D%97%2F</url>
-    <content type="text"><![CDATA[collection模块tuple的功能 不可变、iterable 123name_tuple = ('entercoder1','entercoder2')for name in name_tuple: print(name) 拆包 12345user_tuple = ('entercoder',26,175,'beijing')name,age,height = user_tupleprint(name,age,height)name,*other = user_tupleprint(name,other) 不可变性不是绝对的 12name_tuple = ("entercoder",[29,175])name_tuple[1].append(22) tuple比list好的对象 immutable的重要性 性能优化 线程安全 可以作为dict的key 123user_tuple = ('entercoder',26,175,'beijing')user_info_dict = &#123;&#125;user_info_dict[user_tuple] = 'entercoder' 拆包特性 C语言类比，Tuple对应struct namedtuple的功能用法： 1234from collections import namedtupleUser = namedtuple("User",["name","age","height"])user = User(name="entercoder",age=29,height=175)print(user.name,user.age,name.height)]]></content>
-      <categories>
-        <category>Note</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -186,8 +186,8 @@
         <category>数据库</category>
       </categories>
       <tags>
-        <tag>MySQL</tag>
         <tag>Mac</tag>
+        <tag>MySQL</tag>
         <tag>Setting</tag>
       </tags>
   </entry>
