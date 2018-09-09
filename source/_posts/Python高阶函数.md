@@ -1,5 +1,5 @@
 ---
-title: Python高阶函数
+title: Python函数式编程
 date: 2017-11-23 09:52:17
 tags: Note
 categories: Python
