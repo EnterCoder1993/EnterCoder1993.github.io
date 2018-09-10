@@ -36,8 +36,11 @@ lisa.print_score()
 ```python
 class Student(object)：
     pass
+```
 
-# 变量指向的就是类的实例，0x10b0a60b8是内存地址，每个实例的地址都不一样。
+变量指向的就是类的实例，0x10b0a60b8是内存地址，每个实例的地址都不一样。
+
+```python
 bart = Student()
 bart
 <__main__.Student object at 0x10b0a60b8>
@@ -152,3 +155,211 @@ True
 # 实例属性和类属性
 
 如果类本身需要绑定一个属性呢？可以直接在class中定义属性，这种属性是类属性，归类所有
+
+```python
+class Student(object):
+    name = 'Student'
+```
+
+这个类属性虽然归类所有，但是所有实例都可以访问到。
+
+```python
+# 创建实例s
+>>> s = Student()
+# 因为实例没有name属性，因此会继续查找class的name属性
+>>> s.name
+'Student'
+>>> Student.name
+'Student'
+# 给实例绑定name属性，由于实例属性的优先级比类属性高，因此会屏蔽掉类的name属性
+>>> s.name = 'Michael'
+>>> s.name
+'Michael'
+>>> Student.name
+'Student'
+# 删除实例的name属性，再次调用类属性
+>>> del s.name
+>>> s.name
+'Student'
+```
+
+> 编写程序时，实例属性和类属性不应该使用相同的名字
+
+# 面向对象高级编程
+
+## 使用__slots__
+
+在Python中，我们可以动态地给实例绑定任何属性和方法。
+
+```python
+class Student(object):
+    pass
+# 动态地给实例绑定属性和方法，但只对当前实例有效，对其他实例是不起作用的
+>>> s = Student()
+>>> s.name = 'michael'
+>>> s.age = 23
+>>> s.score = 99
+>>> def set_age(self,age):
+...     self.age = age
+...
+>>> from types import MethodType
+>>> s.set_age = MethodType(set_age,s)
+```
+
+在定义class的时候，定义一个特殊的变量__slots__，可以显示该class实例能添加的属性。
+
+```python
+class Student(object):
+# 用tuple定义允许绑定的属性名称
+    __slots__ = ('name','age')
+```
+
+```python
+>>> s = Student()
+>>> s.name = 'michael'
+>>> s.age = 23
+>>> s.score = 99
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+AttributeError: 'Student' object has no attribute 'score'
+```
+
+> __slots__定义的属性仅对当前类实例起作用，对集成的子类是不起作用的，若在子类中也定义__slots__属性，则子类实例允许的属性就是自身的__slots属性加上父类的__slots__。
+
+## 使用@property
+
+装饰器(decorator)可以给函数动态加上功能，对于类的方法，装饰器同样起作用。Python内置的@property装饰器就是负责把一个方法编程属性调用的。
+
+```python
+class Student(object):
+    @property
+    def score(self):
+        return self._score
+
+    @score.setter
+    def score(self,value):
+        if not isinstance(value,int):
+            raise ValueError('score must be an integer!)
+        if value < 0 or value > 100:
+            raise ValueError('score must between 0 ~ 100')
+        self._score = value
+```
+
+## 多重继承
+
+## 定制类
+
+### __str__
+
+当我们定义类并打印出它的实例是，通常是`<__main__.Student object at 0x00000000>`这种形式的，如何才能将它变得好看又直观呢？只需要在类中定义好__str__()方法。
+
+```python
+>>> class Student():
+...     def __init__(self,name):
+...         self.name = name
+...     def __str__(self):
+...         return 'student object (name: %s)' % self.name
+...
+>>> print(Student('michael'))
+student object (name: michael)
+```
+
+### __iter__
+
+如果一个类想被用于`for ... in`循环，类似list或tuple那样，就必须实现一个`__iter__()`方法，该方法返回一个迭代对象，然后，Python的for循环就会不断调用该迭代对象的`__next__()`方法拿到循环的下一个值，直到遇到`StopIteration`错误时退出循环。
+
+```python
+class Fib(object):
+    def __init__(self):
+        self.a, self.b = 0, 1 # 初始化两个计数器a，b
+
+    def __iter__(self):
+        return self # 实例本身就是迭代对象，故返回自己
+
+    def __next__(self):
+        self.a, self.b = self.b, self.a + self.b # 计算下一个值
+        if self.a > 100000: # 退出循环的条件
+            raise StopIteration()
+        return self.a # 返回下一个值
+```
+
+### __getitem__
+
+虽然可以用类实现循环迭代，但无法像list那样按照下标取出元素，需要实现__getitem__()方法
+
+```python
+class Fib(object):
+    def __getitem__(self,n):
+        if isinstance(n,int):
+            a,b = 1,1
+            for x in range(n):
+                a,b = b,a+b
+            return a
+        if isinstance(n,slice):
+            start = n.start
+            stop = n.stop
+            if start is None:
+                start = 0
+            a,b = 1,1
+            L = []
+            for x in range(stop):
+                if x >= start:
+                    L.append(a)
+                a,b = b,a+b
+            return L
+
+# 现在就可以按下标访问数列的任意一项了，并加入判断，若n为切片，则使用切片方法
+>>> f = Fib()
+>>> f[0]
+1
+```
+
+### __getattr__
+
+通常情况下，当我们调用类的属性或方法时，若不存在即报错，但是使用`__getattr__()`方法，可以动态返回一个属性。
+
+```python
+class Student(object):
+    def __init__(self):
+        self.name = 'Michael'
+    def __getattr__(self,attr):
+        if attr == 'score':
+            return 99
+        # 也可以返回函数
+        if attr == 'age':
+            return lambda:25
+
+>>> s.scorre
+99
+>>> s.age()
+25
+# 只有在没有找到属性的情况下才会调用__getattr__，已有的属性不会再__getattr__中查找。
+
+
+```
+
+### __call__
+
+一个对象实例可以有自己的属性和方法，当我们调用实例方法时，使用instance.method()来调用。在Python中，任何类只需要定义一个`__call__()`方法，就可以直接对实例进行调用。
+
+```python
+class Student(object):
+    def __init__(self,name):
+        self.name = name
+    def __call__(self):
+        print('My name is %s.' % self.name)
+
+# 调用方法如下
+>>> s = Student('Michael')
+>>> s()
+My name is Michael.
+```
+
+`__call__()`还可以定义参数，对实例进行直接调用就好像对一个函数进行调用一样。如果你把对象看成函数，那么函数本身其实也可以在运行期动态创建出来，因为类的实例都是运行期创建出来的，这么一来，我们就模糊了对象和函数的界限。那么，怎么判断一个变量是对象还是函数呢？其实，更多的时候，我们需要判断一个对象是否能被调用，能被调用的对象就是一个Callable对象。
+
+```python
+>> callable(s)
+True
+>>> callable(Student('duzhida'))
+True
+```
