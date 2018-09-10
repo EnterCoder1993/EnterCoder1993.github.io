@@ -363,3 +363,34 @@ True
 >>> callable(Student('duzhida'))
 True
 ```
+
+## 使用枚举类
+
+当我们需要定义常量时，一个方法时用大写变量通过整数来定义，例如月份。更好的方法是为这样的枚举类定义一个class类型，然后每个常量都是class的一个唯一实例。Python可以通过Enum类来实现。
+
+```python
+from enum import Enum
+
+Month = Enum('Month',('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'))
+
+for name,member in Month.__members__.items():
+    # value属性是自动赋给成员的int常量，默认从1开始计数
+    print(name,'=>',member,',',member.value)
+```
+
+若需要更精确地控制枚举类型，可以从Enum派生出自定义类
+
+```python
+from enum import Enum, unique
+
+# @unique装饰器可以帮助我们检查保证没有重复值
+@unique
+class Weekday(Enum):
+    Sun = 0 # Sun的value被设定为0
+    Mon = 1
+    Tue = 2
+    Wed = 3
+    Thu = 4
+    Fri = 5
+    Sat = 6
+```
