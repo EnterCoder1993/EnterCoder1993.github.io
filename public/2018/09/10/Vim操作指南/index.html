@@ -112,18 +112,18 @@
 
 
 
-  <meta name="description" content="移动 hjkl ctrl - f 上翻页 ctrl - b 下翻页 % w 移动到单词前端(包含标点符号) W 单词间移动 e 移动到单词末端(包含标点符号) E 移动到单词末端 b 向上移动到单词前端(包含标点符号) B  O 开始新的一行 ^ $ 到 行尾 gg gd [N]G fx ; tx Fx ) 到句首 ( } { * `. 智能移动 书签  插入模式 i I a A o O Esc">
+  <meta name="description" content="移动 hjkl ctrl - f 上翻页 ctrl - b 下翻页 % w 移动到单词前端(包含标点符号) W 单词间移动 e 移动到单词末端(包含标点符号) E 移动到单词末端 b 向上移动到单词词首(包含标点符号) B 空白字符分割的上词词首 O 开始新的一行 ^ 当前行的第一个非空字符 $ 到 行尾 gg 第一行 gd  [N]G 第N行行首 fx  ; tx Fx ) 到句首 ( 到句尾">
 <meta name="keywords" content="Vim">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vim操作指南">
 <meta property="og:url" content="http://entercoder.com/2018/09/10/Vim操作指南/index.html">
 <meta property="og:site_name" content="EnterCoder&#39;s Blog">
-<meta property="og:description" content="移动 hjkl ctrl - f 上翻页 ctrl - b 下翻页 % w 移动到单词前端(包含标点符号) W 单词间移动 e 移动到单词末端(包含标点符号) E 移动到单词末端 b 向上移动到单词前端(包含标点符号) B  O 开始新的一行 ^ $ 到 行尾 gg gd [N]G fx ; tx Fx ) 到句首 ( } { * `. 智能移动 书签  插入模式 i I a A o O Esc">
+<meta property="og:description" content="移动 hjkl ctrl - f 上翻页 ctrl - b 下翻页 % w 移动到单词前端(包含标点符号) W 单词间移动 e 移动到单词末端(包含标点符号) E 移动到单词末端 b 向上移动到单词词首(包含标点符号) B 空白字符分割的上词词首 O 开始新的一行 ^ 当前行的第一个非空字符 $ 到 行尾 gg 第一行 gd  [N]G 第N行行首 fx  ; tx Fx ) 到句首 ( 到句尾">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-09-10T16:22:46.144Z">
+<meta property="og:updated_time" content="2018-09-12T15:35:55.562Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vim操作指南">
-<meta name="twitter:description" content="移动 hjkl ctrl - f 上翻页 ctrl - b 下翻页 % w 移动到单词前端(包含标点符号) W 单词间移动 e 移动到单词末端(包含标点符号) E 移动到单词末端 b 向上移动到单词前端(包含标点符号) B  O 开始新的一行 ^ $ 到 行尾 gg gd [N]G fx ; tx Fx ) 到句首 ( } { * `. 智能移动 书签  插入模式 i I a A o O Esc">
+<meta name="twitter:description" content="移动 hjkl ctrl - f 上翻页 ctrl - b 下翻页 % w 移动到单词前端(包含标点符号) W 单词间移动 e 移动到单词末端(包含标点符号) E 移动到单词末端 b 向上移动到单词词首(包含标点符号) B 空白字符分割的上词词首 O 开始新的一行 ^ 当前行的第一个非空字符 $ 到 行尾 gg 第一行 gd  [N]G 第N行行首 fx  ; tx Fx ) 到句首 ( 到句尾">
 
 
 
@@ -414,7 +414,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-09-11 00:22:46" itemprop="dateModified" datetime="2018-09-11T00:22:46+08:00">2018-09-11</time>
+                <time title="修改时间：2018-09-12 23:35:55" itemprop="dateModified" datetime="2018-09-12T23:35:55+08:00">2018-09-12</time>
               
             
           </span>
@@ -469,7 +469,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">608</span>
+                <span title="本文字数">800</span>
               
 
               
@@ -512,43 +512,43 @@
 <li>W 单词间移动</li>
 <li>e 移动到单词末端(包含标点符号)</li>
 <li>E 移动到单词末端</li>
-<li>b 向上移动到单词前端(包含标点符号)</li>
-<li>B </li>
+<li>b 向上移动到单词词首(包含标点符号)</li>
+<li>B 空白字符分割的上词词首</li>
 <li>O 开始新的一行</li>
-<li>^</li>
+<li>^ 当前行的第一个非空字符</li>
 <li>$ 到 行尾</li>
-<li>gg</li>
-<li>gd</li>
-<li>[N]G</li>
-<li>fx</li>
+<li>gg 第一行</li>
+<li>gd </li>
+<li>[N]G 第N行行首</li>
+<li>fx </li>
 <li>;</li>
 <li>tx</li>
 <li>Fx</li>
 <li>) 到句首</li>
-<li>(</li>
-<li>}</li>
-<li>{</li>
+<li>( 到句尾</li>
+<li>} 到段首</li>
+<li>{ 到段尾</li>
 <li>*</li>
 <li>`.</li>
 <li>智能移动</li>
 <li>书签</li>
 </ul>
 <h1 id="插入模式"><a href="#插入模式" class="headerlink" title="插入模式"></a>插入模式</h1><ul>
-<li>i</li>
-<li>I</li>
-<li>a</li>
-<li>A</li>
-<li>o</li>
-<li>O</li>
-<li>Esc</li>
+<li>i 在光标之前插入</li>
+<li>I 行尾插入</li>
+<li>a 在光标之后插入</li>
+<li>A 行首插入</li>
+<li>o 当前行下插入一空行</li>
+<li>O 当前行上插入一空行</li>
+<li>Esc 返回模式选择</li>
 <li>提示<ul>
-<li>ctrl - n</li>
+<li>ctrl - n </li>
 <li>ctrl - p</li>
 </ul>
 </li>
 </ul>
 <h1 id="编辑"><a href="#编辑" class="headerlink" title="编辑"></a>编辑</h1><ul>
-<li>r</li>
+<li>r </li>
 <li>J</li>
 <li>cc</li>
 <li>cw</li>
@@ -556,9 +556,9 @@
 <li>s</li>
 <li>S</li>
 <li>xp</li>
-<li>u</li>
-<li>ctrl - r</li>
-<li>.</li>
+<li>u 撤销改动</li>
+<li>ctrl - r 重做</li>
+<li>. 重复上一命令</li>
 <li>~</li>
 <li>g~iw</li>
 <li>gUiw</li>
@@ -568,19 +568,20 @@
 <li>== </li>
 </ul>
 <h1 id="剪切和复制"><a href="#剪切和复制" class="headerlink" title="剪切和复制"></a>剪切和复制</h1><ul>
-<li>dd</li>
-<li>dw</li>
-<li>x</li>
-<li>X</li>
-<li>D</li>
-<li>yy</li>
-<li>2yy</li>
+<li>dd 删除一行</li>
+<li>dw 删除一个单词</li>
+<li>x 删除当前光标下的字符</li>
+<li>X 删除当前光标左边的字符</li>
+<li>D 删除到行尾的内容</li>
+<li>yy 复制一行</li>
+<li>nyy 复制n行</li>
 <li>yw</li>
 <li>y$</li>
-<li>p</li>
-<li>P</li>
+<li>p 粘贴到光标之前</li>
+<li>P 粘贴到光标之后</li>
 <li>]p</li>
 <li>“a</li>
+<li>d 剪切</li>
 </ul>
 <h1 id="多文件"><a href="#多文件" class="headerlink" title="多文件"></a>多文件</h1><ul>
 <li>:e</li>
