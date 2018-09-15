@@ -160,3 +160,30 @@ if __name__=='__main__':
     # pr进程里是死循环，无法等待其结束，只能强行终止:
     pr.terminate()
 ```
+
+## 多线程
+
+多任务可以由多进程完成，也可以由一个进程内的多线程完成。Python的标准库提供了`_thread`和`threading`，`_thread`是低级模块，`threading`是高级模块。绝大多数，我们只需使用`threading`这个高级模块。
+
+```python
+import time,threading
+
+def loop():
+    print('thread %s is running...' % threading.current_thread().name)
+    n = 0
+    while n < 5:
+        n = n + 1
+        print('thread %s >>> %s' % (threading.current_thread().name,n))
+        time.sleep(1)
+    print('thread %s ended.' % threading.current_thread().name)
+
+print('thread %s is running...' % threading.current_thread().name)
+t = threading.Thread(target=loop, name='LoopThread')
+t.start()
+t.join()
+print('thread %s ended.' % threading.current_thread().name)
+```
+
+任何进程默认就会启动一个线程，我们把该线程称为主线程，主线程又可以启动新的线程，Python的threading模块里有个current_thread()函数，它就永远返回当前线程的实例。主线程实例的名字叫MainThread，子线程的名字在创建时指定，我们用LoopThread命名子线程。名字仅仅在打印时用来显示，完全没有其他意义，如果不起名字Python就自动给线程命名为Thread-1，Thread-2……
+
+### Lock

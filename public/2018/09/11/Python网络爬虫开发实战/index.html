@@ -138,7 +138,7 @@
 <meta property="og:image" content="http://entercoder.com/var/folders/g_/cckjvp_d1b39h60g3s9grbp00000gn/T/abnerworks.Typora/image.tiff">
 <meta property="og:image" content="http://entercoder.com/var/folders/g_/cckjvp_d1b39h60g3s9grbp00000gn/T/abnerworks.Typora/image-20180810214920108.tiff">
 <meta property="og:image" content="https://ws4.sinaimg.cn/large/0069RVTdgy1fu4y2uiikhj31kw0v5174.jpg">
-<meta property="og:updated_time" content="2018-09-11T14:39:13.162Z">
+<meta property="og:updated_time" content="2018-09-15T14:54:53.093Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python网络爬虫开发实战">
 <meta name="twitter:description" content="Python网络爬虫开发实战一、开发环境配置1.1 Python3 相关链接 官方网站：https://www.python.org 下载地址：https://www.python.org/downloads 第三方库：https://pypi.org 官方文档：https://docs.python.org/3 中文文档 中文教程： 菜鸟教程 廖雪峰Python3教程      1.2 请求库的">
@@ -416,12 +416,24 @@
                 
               
 
-              <time title="创建时间：2018-09-11 22:24:32 / 修改时间：22:39:13" itemprop="dateCreated datePublished" datetime="2018-09-11T22:24:32+08:00">2018-09-11</time>
+              <time title="创建时间：2018-09-11 22:24:32" itemprop="dateCreated datePublished" datetime="2018-09-11T22:24:32+08:00">2018-09-11</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-09-15 22:54:53" itemprop="dateModified" datetime="2018-09-15T22:54:53+08:00">2018-09-15</time>
               
             
           </span>
@@ -476,7 +488,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">57k</span>
+                <span title="本文字数">59k</span>
               
 
               
@@ -490,7 +502,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">52 分钟</span>
+                <span title="阅读时长">53 分钟</span>
               
             </div>
           
@@ -941,6 +953,18 @@
 </ul>
 </li>
 <li><p>Request</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"></span><br><span class="line">request = urllib.request.Request(<span class="string">'https://python.org'</span>)</span><br><span class="line">response = urllib.request.urlopen(request)</span><br><span class="line">print(response.read().decode(<span class="string">'utf-8'</span>))</span><br></pre></td></tr></table></figure>
+<p>依然通过urlopen()方法来发送请求，但是该方法的参数不再是URL。而是一个request类型的对象。这样可以将请求独立成一个对象，也可以灵活地配置参数。</p>
+<p>class urllib.request.Request(url,data=None,headers={},origin_req_host=None,unverifiable=False,method=None)</p>
+<ul>
+<li>url：用于请求URL，这是必传参数，其他都是可选参数。</li>
+<li>data：必须传bytes(字节流)类型的参数。如果是字典，可以通过rullib.parse模块里的urlencode()编码。</li>
+<li>headers：该参数是一个字典，它就是请求头，可以直接构造，也可以通过调用请求实例的add_headers()方法添加。</li>
+<li>origin_req_host：指的是请求方的host名称或IP地址。</li>
+<li>unverifiable：表示这个请求是否是无法验证的，默认是False。例如，我们请求一个HTML文档中的图片，但是我们没有自动抓取图像的权限，这时unverifiable的值就是True。</li>
+<li>method：用来指示请求使用的方法，比如GET、POST和PUT等。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> urllib <span class="keyword">import</span> request,parse</span><br><span class="line"></span><br><span class="line">url = <span class="string">'http://httpbin.rog/post'</span></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">'User-Agent'</span>:<span class="string">'...'</span>,</span><br><span class="line">    <span class="string">'Host'</span>:<span class="string">'httpbin.org'</span></span><br><span class="line">&#125;</span><br><span class="line">dict = &#123;</span><br><span class="line">    <span class="string">'name'</span>:<span class="string">'Germey'</span></span><br><span class="line">&#125;</span><br><span class="line">data = bytes(parse.urlencode(dict),encoding=<span class="string">'utf-8'</span>)</span><br><span class="line">req = request.Request(url=urll,data=data,headers=headers,method=<span class="string">'POST'</span>)</span><br><span class="line"><span class="comment"># 使用add_headers()方法添加</span></span><br><span class="line"><span class="comment"># req = request.Request(url=urll,data=data,method='POST')</span></span><br><span class="line"><span class="comment"># req.add_headers('User-Agent','Mozilla/4.0...')</span></span><br><span class="line">response = request.urlopen(req)</span><br><span class="line">print(response.read().decode(<span class="string">'utf-8'</span>))</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>高级用法</p>
 </li>
@@ -1828,7 +1852,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">179k</span>
+    <span title="站点总字数">181k</span>
   
 
   
@@ -1837,7 +1861,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">2:43</span>
+    <span title="站点阅读时长">2:45</span>
   
 </div>
 

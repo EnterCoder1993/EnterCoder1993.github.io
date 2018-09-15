@@ -496,10 +496,10 @@ HTTP协议对事务处理是没有记忆能力的，即服务器不知道客户�
 
     ```python
     import urllib.request
-
+    
     response = urllib.request.urlopen('https://www.python.org')
     print(response.read().decode('utf-8'))
-
+    
     # 输出为HTTPResponse类型对象，主要包含read()、readinto()、getheader(name)、getheaders()、fileno()等方法
     # msg、version、status、reason、debuglevel、closed属性等
     print(type(response))
@@ -513,6 +513,45 @@ HTTP协议对事务处理是没有记忆能力的，即服务器不知道客户�
     * 其他参数
 
   * Request
+
+    ```python
+    import urllib.request
+    
+    request = urllib.request.Request('https://python.org')
+    response = urllib.request.urlopen(request)
+    print(response.read().decode('utf-8'))
+    ```
+
+    依然通过urlopen()方法来发送请求，但是该方法的参数不再是URL。而是一个request类型的对象。这样可以将请求独立成一个对象，也可以灵活地配置参数。
+
+    class urllib.request.Request(url,data=None,headers={},origin_req_host=None,unverifiable=False,method=None)
+
+    * url：用于请求URL，这是必传参数，其他都是可选参数。
+    * data：必须传bytes(字节流)类型的参数。如果是字典，可以通过rullib.parse模块里的urlencode()编码。
+    * headers：该参数是一个字典，它就是请求头，可以直接构造，也可以通过调用请求实例的add_headers()方法添加。
+    * origin_req_host：指的是请求方的host名称或IP地址。
+    * unverifiable：表示这个请求是否是无法验证的，默认是False。例如，我们请求一个HTML文档中的图片，但是我们没有自动抓取图像的权限，这时unverifiable的值就是True。
+    * method：用来指示请求使用的方法，比如GET、POST和PUT等。
+
+    ```python
+    from urllib import request,parse
+    
+    url = 'http://httpbin.rog/post'
+    headers = {
+        'User-Agent':'...',
+        'Host':'httpbin.org'
+    }
+    dict = {
+        'name':'Germey'
+    }
+    data = bytes(parse.urlencode(dict),encoding='utf-8')
+    req = request.Request(url=urll,data=data,headers=headers,method='POST')
+    # 使用add_headers()方法添加
+    # req = request.Request(url=urll,data=data,method='POST')
+    # req.add_headers('User-Agent','Mozilla/4.0...')
+    response = request.urlopen(req)
+    print(response.read().decode('utf-8'))
+    ```
 
   * 高级用法
 
