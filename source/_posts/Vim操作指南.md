@@ -46,8 +46,8 @@ categories: Tools
 * O 当前行上插入一空行
 * Esc 返回模式选择
 * 提示
-    * ctrl - n 
-    * ctrl - p
+  * ctrl - n
+  * ctrl - p
 
 # 编辑
 

@@ -6,7 +6,7 @@ categories: 前端
 
 ---
 
-
+# 层叠样式表
 
 > 层叠样式表(英文全称：Cascading Style Sheets)是一种用来表现HTML（标准通用标记语言的一个应用）或XML（标准通用标记语言的一个子集）等文件样式的计算机语言。CSS不仅可以静态地修饰网页，还可以配合各种脚本语言动态地对网页各元素进行格式化。
 
@@ -174,17 +174,17 @@ katakana-iroha      标记是：I, RO, HA, NI, HO, HE, TO, 等。（日文片假
 * 标记位置list-style-position
 
 ```
-inside	列表项目标记放置在文本以内，且环绕文本根据标记对齐。
-outside	默认值。保持标记位于文本的左侧。列表项目标记放置在文本以外，且环绕文本不根据标记对齐。
-inherit	规定应该从父元素继承 list-style-position 属性的值。
+inside 列表项目标记放置在文本以内，且环绕文本根据标记对齐。
+outside 默认值。保持标记位于文本的左侧。列表项目标记放置在文本以外，且环绕文本不根据标记对齐。
+inherit 规定应该从父元素继承 list-style-position 属性的值。
 ```
 
 * 设置图像列表标记list-style-image
 
 ```
-URL	图像的路径。
-none	默认。无图形被显示。
-inherit	规定应该从父元素继承 list-style-image 属性的值。
+URL 图像的路径。
+none 默认。无图形被显示。
+inherit 规定应该从父元素继承 list-style-image 属性的值。
 ```
 
 简写方式list-style:square inside url('/user/hello.jpg');
@@ -240,7 +240,6 @@ DIV和SPAN在整个HTML标记中，没有任何意义，他们的存在就是为
 7. overflow溢出处理
 
     hidden隐藏超出层大小的内容
-    
 
 ### **兼容问题及高效开发工具**
 
@@ -271,6 +270,3 @@ DIV和SPAN在整个HTML标记中，没有任何意义，他们的存在就是为
 
 * fireworks
 * photoshop
-
-
-
