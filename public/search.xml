@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Problems_Docker]]></title>
+    <url>%2F2018%2F09%2F23%2FProblems-Docker%2F</url>
+    <content type="text"><![CDATA[Problems_DockerDocker pull training/web 显示unauthorized: incorrect username or password A：使用docker login进行登录之后再使用docker pull下载镜像]]></content>
+      <categories>
+        <category>Tools</category>
+      </categories>
+      <tags>
+        <tag>Problems</tag>
+        <tag>Docker</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Problems_Python]]></title>
     <url>%2F2018%2F09%2F22%2FProblems-Python%2F</url>
     <content type="text"><![CDATA[Problems of Python1. PyCharm:AttributeError: module ‘pip’ has no attribute ‘main’ 解决步骤 打开/Applications/PyCharm.app/Contents/helpers/packaging_tool.py 修改do_install和do_uninstall 123456789101112131415161718192021222324252627282930313233343536373839原来：def do_install(pkgs): try: import pip except ImportError: error_no_pip() return pip.main(['install'] + pkgs)def do_uninstall(pkgs): try: import pip except ImportError: error_no_pip() return pip.main(['uninstall', '-y'] + pkgs)修改后def do_install(pkgs): try: #import pip try: from pip._internal import main except Exception: from pip import main except ImportError: error_no_pip() return main(['install'] + pkgs)def do_uninstall(pkgs): try: #import pip try: from pip._internal import main except Exception: from pip import main except ImportError: error_no_pip() return main(['uninstall', '-y'] + pkgs) 2. 安装pyspider失败，提示PycURL how to specify the SSL backend manually. 卸载已存在pycurl 1$ pip3 uninstall pycurl 使用link-time ssl后端导出变量 1$ export PYCURL_SSL_LIBRARY=openssl 重新安装pycurl 1$ pip3 install pycurl 参考 https://stackoverflow.com/questions/21096436/ssl-backend-error-when-using-openssl 3. 运行pyspider提示async=True, get_object=False, no_input=False 因为async和await从python3.7开始已经加入保留关键字中，参考What’s New Python3.7，所以async和await不能作为函数的参数名 需要降低python版本至3.6]]></content>
@@ -8,8 +20,8 @@
         <category>Python</category>
       </categories>
       <tags>
-        <tag>Python</tag>
         <tag>Problems</tag>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
