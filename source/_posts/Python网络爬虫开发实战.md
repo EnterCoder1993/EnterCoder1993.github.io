@@ -2590,9 +2590,18 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import re
 from pyquery import PyQuery as pq
+from config import *
+import pymongo
 
-
-browser = webdriver.Chrome()
+MONGO_URL = 'localhost'
+MONGO_DB = 'taobao'
+MONGO_TABLE = 'product'
+client = pymongo.MongoClient(MONGO_URL)
+db = client[MONGO_DB]
+option = webdriver.ChromeOptions()
+option.add_argument('-headless')
+browser = webdriver.Chrome(options=option)
+# browser = webdriver.Chrome()
 wait = WebDriverWait(browser, 10)
 
 
@@ -2645,7 +2654,16 @@ def get_products():
             'deal': item.find('.deal-cnt').text()[:-3],
             'shop': item.find('.shop').text(),
         }
-        print(product)
+        # print(product)
+        save_to_mongo(product)
+
+
+def save_to_mongo(result):
+    try:
+        if db[MONGO_TABLE].insert(result):
+            print('存储成功',result)
+    except Exception:
+        print('存储失败',result)
 
 
 def main():
@@ -2653,6 +2671,7 @@ def main():
     total = int(re.compile(('(\d+)')).search(total).group(1))
     for i in range(2,total + 1):
         next_page(i)
+    browser.close()
 
 
 if __name__ == '__main__':
