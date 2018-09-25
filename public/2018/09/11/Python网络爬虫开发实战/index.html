@@ -138,7 +138,8 @@
 <meta property="og:image" content="http://entercoder.com/var/folders/g_/cckjvp_d1b39h60g3s9grbp00000gn/T/abnerworks.Typora/image.tiff">
 <meta property="og:image" content="http://entercoder.com/var/folders/g_/cckjvp_d1b39h60g3s9grbp00000gn/T/abnerworks.Typora/image-20180810214920108.tiff">
 <meta property="og:image" content="https://ws4.sinaimg.cn/large/0069RVTdgy1fu4y2uiikhj31kw0v5174.jpg">
-<meta property="og:updated_time" content="2018-09-15T14:54:53.000Z">
+<meta property="og:image" content="https://ws2.sinaimg.cn/large/006tNbRwgy1fvm5on4s0lj311h0opqv5.jpg">
+<meta property="og:updated_time" content="2018-09-25T15:42:34.801Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python网络爬虫开发实战">
 <meta name="twitter:description" content="Python网络爬虫开发实战一、开发环境配置1.1 Python3 相关链接 官方网站：https://www.python.org 下载地址：https://www.python.org/downloads 第三方库：https://pypi.org 官方文档：https://docs.python.org/3 中文文档 中文教程： 菜鸟教程 廖雪峰Python3教程      1.2 请求库的">
@@ -449,7 +450,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-09-15 22:54:53" itemprop="dateModified" datetime="2018-09-15T22:54:53+08:00">2018-09-15</time>
+                <time title="修改时间：2018-09-25 23:42:34" itemprop="dateModified" datetime="2018-09-25T23:42:34+08:00">2018-09-25</time>
               
             
           </span>
@@ -504,7 +505,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">59k</span>
+                <span title="本文字数">61k</span>
               
 
               
@@ -518,7 +519,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">53 分钟</span>
+                <span title="阅读时长">56 分钟</span>
               
             </div>
           
@@ -1542,7 +1543,28 @@
 </li>
 <li></li>
 </ul>
-<h3 id="7-3-Splash负载均衡配置"><a href="#7-3-Splash负载均衡配置" class="headerlink" title="7.3 Splash负载均衡配置"></a>7.3 Splash负载均衡配置</h3><h3 id="7-4-使用Selenium爬取淘宝商品"><a href="#7-4-使用Selenium爬取淘宝商品" class="headerlink" title="7.4 使用Selenium爬取淘宝商品"></a>7.4 使用Selenium爬取淘宝商品</h3><h2 id="八、验证码识别"><a href="#八、验证码识别" class="headerlink" title="八、验证码识别"></a>八、验证码识别</h2><h3 id="8-1-图形验证码的识别"><a href="#8-1-图形验证码的识别" class="headerlink" title="8.1 图形验证码的识别"></a>8.1 图形验证码的识别</h3><h2 id="九、代理的使用"><a href="#九、代理的使用" class="headerlink" title="九、代理的使用"></a>九、代理的使用</h2><h2 id="十、模拟登陆"><a href="#十、模拟登陆" class="headerlink" title="十、模拟登陆"></a>十、模拟登陆</h2><h2 id="十一、APP的爬取"><a href="#十一、APP的爬取" class="headerlink" title="十一、APP的爬取"></a>十一、APP的爬取</h2><h2 id="十二、-pyspider框架的使用"><a href="#十二、-pyspider框架的使用" class="headerlink" title="十二、 pyspider框架的使用"></a>十二、 pyspider框架的使用</h2><ul>
+<h3 id="7-3-Splash负载均衡配置"><a href="#7-3-Splash负载均衡配置" class="headerlink" title="7.3 Splash负载均衡配置"></a>7.3 Splash负载均衡配置</h3><h3 id="7-4-使用Selenium爬取淘宝商品"><a href="#7-4-使用Selenium爬取淘宝商品" class="headerlink" title="7.4 使用Selenium爬取淘宝商品"></a>7.4 使用Selenium爬取淘宝商品</h3><blockquote>
+<p>使用Selenium模拟浏览器操作，抓取淘宝的商品信息，并将结果保存到MongoDB</p>
+</blockquote>
+<p>目标地址：<a href="https://s.taobao.com/search?q=美食" target="_blank" rel="noopener">https://s.taobao.com/search?q=美食</a></p>
+<p><img src="https://ws2.sinaimg.cn/large/006tNbRwgy1fvm5on4s0lj311h0opqv5.jpg" alt="meishi"></p>
+<p>步骤：</p>
+<ol>
+<li><p>搜索关键词</p>
+<p>利用Selenium驱动浏览器搜索关键词，得到查询后的商品列表</p>
+</li>
+<li><p>分析页码并翻页</p>
+<p>得到商品页码数，模拟翻页，得到后续页面的商品列表</p>
+</li>
+<li><p>分析提取商品内容</p>
+<p>利用PyQuery分析源码，解析得到商品列表</p>
+</li>
+<li><p>存储至mongoDB</p>
+<p>将商品列表存储至数据库MongoDB</p>
+</li>
+</ol>
+<p>代码<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">from</span> selenium.common.exceptions <span class="keyword">import</span> TimeoutException</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.common.by <span class="keyword">import</span> By</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.support.ui <span class="keyword">import</span> WebDriverWait</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.support <span class="keyword">import</span> expected_conditions <span class="keyword">as</span> EC</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">from</span> pyquery <span class="keyword">import</span> PyQuery <span class="keyword">as</span> pq</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">browser = webdriver.Chrome()</span><br><span class="line">wait = WebDriverWait(browser, <span class="number">10</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">search</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        browser.get(<span class="string">'https://www.taobao.com'</span>)</span><br><span class="line">        input = wait.until(</span><br><span class="line">            EC.presence_of_element_located((By.CSS_SELECTOR, <span class="string">"#q"</span>))</span><br><span class="line">        )</span><br><span class="line">        submit = wait.until(</span><br><span class="line">            EC.element_to_be_clickable((By.CSS_SELECTOR, <span class="string">"#J_TSearchForm &gt; div.search-button &gt; button"</span>))</span><br><span class="line">        )</span><br><span class="line">        input.send_keys(<span class="string">'美食'</span>)</span><br><span class="line">        submit.click()</span><br><span class="line">        total = wait.until(EC.presence_of_element_located((By.CSS_SELECTOR,<span class="string">'#mainsrp-pager &gt; div &gt; div &gt; div &gt; div.total'</span>)))</span><br><span class="line">        get_products()</span><br><span class="line">        <span class="keyword">return</span> total.text</span><br><span class="line">    <span class="keyword">except</span> TimeoutException:</span><br><span class="line">        <span class="keyword">return</span> search()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">next_page</span><span class="params">(page_number)</span>:</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        input = wait.until(</span><br><span class="line">            EC.presence_of_element_located((By.CSS_SELECTOR, <span class="string">"#mainsrp-pager &gt; div &gt; div &gt; div &gt; div.form &gt; input"</span>))</span><br><span class="line">        )</span><br><span class="line">        submit = wait.until(</span><br><span class="line">            EC.element_to_be_clickable((By.CSS_SELECTOR, <span class="string">"#mainsrp-pager &gt; div &gt; div &gt; div &gt; div.form &gt; span.btn.J_Submit"</span>))</span><br><span class="line">        )</span><br><span class="line">        input.clear()</span><br><span class="line">        input.send_keys(page_number)</span><br><span class="line">        submit.click()</span><br><span class="line">        wait.until(EC.text_to_be_present_in_element((By.CSS_SELECTOR,<span class="string">'#mainsrp-pager &gt; div &gt; div &gt; div &gt; ul &gt; li.item.active &gt; span'</span>),str(page_number)))</span><br><span class="line">        get_products()</span><br><span class="line">    <span class="keyword">except</span> TimeoutException:</span><br><span class="line">        next_page(page_number)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_products</span><span class="params">()</span>:</span></span><br><span class="line">    wait.until(EC.presence_of_element_located((By.CSS_SELECTOR,<span class="string">'#mainsrp-itemlist .items .item'</span>)))</span><br><span class="line">    html = browser.page_source</span><br><span class="line">    doc = pq(html)</span><br><span class="line">    items = doc(<span class="string">'#mainsrp-itemlist .items .item'</span>).items()</span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> items:</span><br><span class="line">        product = &#123;</span><br><span class="line">            <span class="string">'title'</span>: item.find(<span class="string">'.title'</span>).text(),</span><br><span class="line">            <span class="string">'price'</span>: item.find(<span class="string">'.price'</span>).text(),</span><br><span class="line">            <span class="string">'location'</span>: item.find(<span class="string">'.location'</span>).text(),</span><br><span class="line">            <span class="string">'image'</span>: item.find(<span class="string">'.pic .img'</span>).attr(<span class="string">'data-src'</span>),</span><br><span class="line">            <span class="string">'deal'</span>: item.find(<span class="string">'.deal-cnt'</span>).text()[:<span class="number">-3</span>],</span><br><span class="line">            <span class="string">'shop'</span>: item.find(<span class="string">'.shop'</span>).text(),</span><br><span class="line">        &#125;</span><br><span class="line">        print(product)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    total = search()</span><br><span class="line">    total = int(re.compile((<span class="string">'(\d+)'</span>)).search(total).group(<span class="number">1</span>))</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>,total + <span class="number">1</span>):</span><br><span class="line">        next_page(i)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure></p>
+<h2 id="八、验证码识别"><a href="#八、验证码识别" class="headerlink" title="八、验证码识别"></a>八、验证码识别</h2><h3 id="8-1-图形验证码的识别"><a href="#8-1-图形验证码的识别" class="headerlink" title="8.1 图形验证码的识别"></a>8.1 图形验证码的识别</h3><h2 id="九、代理的使用"><a href="#九、代理的使用" class="headerlink" title="九、代理的使用"></a>九、代理的使用</h2><h2 id="十、模拟登陆"><a href="#十、模拟登陆" class="headerlink" title="十、模拟登陆"></a>十、模拟登陆</h2><h2 id="十一、APP的爬取"><a href="#十一、APP的爬取" class="headerlink" title="十一、APP的爬取"></a>十一、APP的爬取</h2><h2 id="十二、-pyspider框架的使用"><a href="#十二、-pyspider框架的使用" class="headerlink" title="十二、 pyspider框架的使用"></a>十二、 pyspider框架的使用</h2><ul>
 <li>相关链接<ul>
 <li>GItHub地址：<a href="https://github.com/binux/pyspider" target="_blank" rel="noopener">https://github.com/binux/pyspider</a></li>
 <li>官方文档：<a href="http://docs.pyspider.org/en/latest/" target="_blank" rel="noopener">http://docs.pyspider.org/en/latest/</a></li>
@@ -1870,7 +1892,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">186k</span>
+    <span title="站点总字数">189k</span>
   
 
   
@@ -1879,7 +1901,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">2:49</span>
+    <span title="站点阅读时长">2:52</span>
   
 </div>
 

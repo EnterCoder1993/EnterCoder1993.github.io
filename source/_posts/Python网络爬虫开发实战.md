@@ -2558,6 +2558,107 @@ with open('data.csv','w',encoding='utf-8') as csvfile:
 
 ### 7.4 使用Selenium爬取淘宝商品
 
+> 使用Selenium模拟浏览器操作，抓取淘宝的商品信息，并将结果保存到MongoDB
+
+目标地址：[https://s.taobao.com/search?q=美食](https://s.taobao.com/search?q=美食)
+
+![meishi](https://ws2.sinaimg.cn/large/006tNbRwgy1fvm5on4s0lj311h0opqv5.jpg)
+
+步骤：
+1. 搜索关键词
+
+  利用Selenium驱动浏览器搜索关键词，得到查询后的商品列表
+
+2. 分析页码并翻页
+
+  得到商品页码数，模拟翻页，得到后续页面的商品列表
+
+3. 分析提取商品内容
+
+  利用PyQuery分析源码，解析得到商品列表
+
+4. 存储至mongoDB
+
+  将商品列表存储至数据库MongoDB
+
+代码
+```python
+from selenium import webdriver
+from selenium.common.exceptions import TimeoutException
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+import re
+from pyquery import PyQuery as pq
+
+
+browser = webdriver.Chrome()
+wait = WebDriverWait(browser, 10)
+
+
+def search():
+    try:
+        browser.get('https://www.taobao.com')
+        input = wait.until(
+            EC.presence_of_element_located((By.CSS_SELECTOR, "#q"))
+        )
+        submit = wait.until(
+            EC.element_to_be_clickable((By.CSS_SELECTOR, "#J_TSearchForm > div.search-button > button"))
+        )
+        input.send_keys('美食')
+        submit.click()
+        total = wait.until(EC.presence_of_element_located((By.CSS_SELECTOR,'#mainsrp-pager > div > div > div > div.total')))
+        get_products()
+        return total.text
+    except TimeoutException:
+        return search()
+
+
+def next_page(page_number):
+    try:
+        input = wait.until(
+            EC.presence_of_element_located((By.CSS_SELECTOR, "#mainsrp-pager > div > div > div > div.form > input"))
+        )
+        submit = wait.until(
+            EC.element_to_be_clickable((By.CSS_SELECTOR, "#mainsrp-pager > div > div > div > div.form > span.btn.J_Submit"))
+        )
+        input.clear()
+        input.send_keys(page_number)
+        submit.click()
+        wait.until(EC.text_to_be_present_in_element((By.CSS_SELECTOR,'#mainsrp-pager > div > div > div > ul > li.item.active > span'),str(page_number)))
+        get_products()
+    except TimeoutException:
+        next_page(page_number)
+
+
+def get_products():
+    wait.until(EC.presence_of_element_located((By.CSS_SELECTOR,'#mainsrp-itemlist .items .item')))
+    html = browser.page_source
+    doc = pq(html)
+    items = doc('#mainsrp-itemlist .items .item').items()
+    for item in items:
+        product = {
+            'title': item.find('.title').text(),
+            'price': item.find('.price').text(),
+            'location': item.find('.location').text(),
+            'image': item.find('.pic .img').attr('data-src'),
+            'deal': item.find('.deal-cnt').text()[:-3],
+            'shop': item.find('.shop').text(),
+        }
+        print(product)
+
+
+def main():
+    total = search()
+    total = int(re.compile(('(\d+)')).search(total).group(1))
+    for i in range(2,total + 1):
+        next_page(i)
+
+
+if __name__ == '__main__':
+    main()
+```
+
 ## 八、验证码识别
 
 ### 8.1 图形验证码的识别
