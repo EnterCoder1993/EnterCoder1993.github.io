@@ -7,7 +7,7 @@ categories: Python
 
 # Problems of Python
 
-### 1. PyCharm:AttributeError: module 'pip' has no attribute 'main'
+## 1. PyCharm:AttributeError: module 'pip' has no attribute 'main'
 
 * 解决步骤
 
@@ -58,7 +58,7 @@ categories: Python
     ```
 
 
-### 2. 安装pyspider失败，提示PycURL how to specify the SSL backend manually.
+## 2. 安装pyspider失败，提示PycURL how to specify the SSL backend manually.
 
 * 卸载已存在pycurl
 
@@ -82,7 +82,15 @@ categories: Python
 
   https://stackoverflow.com/questions/21096436/ssl-backend-error-when-using-openssl
 
-### 3. 运行pyspider提示async=True, get_object=False, no_input=False
+## 3. 运行pyspider提示async=True, get_object=False, no_input=False
 
 * 因为async和await从python3.7开始已经加入保留关键字中，参考[What's New Python3.7](https://docs.python.org/3.7/whatsnew/3.7.html)，所以async和await不能作为函数的参数名
 * 需要降低python版本至3.6
+
+## 4. Curl is configured to use SSL, but we have not been able to determine which SSL backend it is using.
+
+```bash
+sudo pip3 uninstall pycurl
+export PYCURL_SSL_LIBRARY=openssl
+export LDFLAGS=-L/usr/local/opt/openssl/lib;export CPPFLAGS=-I/usr/local/opt/openssl/include;pip install pycurl --compile --no-cache-dir
+```

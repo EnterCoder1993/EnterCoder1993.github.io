@@ -138,6 +138,24 @@ categories: Note
 
 #### pyspider的安装
 
+安装：
+
+```python
+pip3 install pyspider
+```
+
+问题：
+
+Curl is configured to use SSL, but we have not been able to determine which SSL backend it is using.
+
+解决方法：
+
+```bash
+sudo pip3 uninstall pycurl
+export PYCURL_SSL_LIBRARY=openssl
+export LDFLAGS=-L/usr/local/opt/openssl/lib;export CPPFLAGS=-I/usr/local/opt/openssl/include;pip install pycurl --compile --no-cache-dir
+```
+
 #### Scrapy的安装
 
 #### Scrapy-Splash的安装
@@ -2177,7 +2195,7 @@ with open('data.csv','w',encoding='utf-8') as csvfile:
     对多页内容遍历，开启多线程提高抓取速度
   '''
 
-
+  # 获取主页源代码
   def get_page_index(offset,keyword):
       data = {
           'offset': offset,
@@ -2187,6 +2205,7 @@ with open('data.csv','w',encoding='utf-8') as csvfile:
           'count': '20',
           'cur_tab': 3
       }
+      # 构造目的地址的url链接
       url = 'https://www.toutiao.com/search_content/?' + urlencode(data)
       try:
           response = requests.get(url)
@@ -2197,14 +2216,16 @@ with open('data.csv','w',encoding='utf-8') as csvfile:
           print('请求索引页错误')
           return None
 
-
+  
+  # 解析获取到的主页源码
   def parse_page_index(html):
       data = json.loads(html)
       if data and 'data' in data.keys():
           for item in data.get('data'):
               yield item.get('article_url')
 
-
+  
+  # 获取详情页的页面源码
   def get_page_detail(url):
       try:
           headers = {
@@ -2218,8 +2239,10 @@ with open('data.csv','w',encoding='utf-8') as csvfile:
           print('请求详情页页错误', url)
           return None
 
-
+  
+  # 解析详情页的代码，获取相关的title，url和images的url链接
   def parse_page_detail(html,url):
+      # 使用BeautifulSoup解析获取的详情页源码，从中提取出包含图片的标题，url和图片url
       soup = BeautifulSoup(html,'lxml')
       title = soup.select("title")[0].get_text()
       images_pattern = re.compile('gallery: JSON.parse\((.*?)\),',re.S)
@@ -2238,6 +2261,7 @@ with open('data.csv','w',encoding='utf-8') as csvfile:
               }
 
 
+  # 下载图片
   def download_image(url, title):
       print("正在下载：" + title)
       try:
@@ -2248,7 +2272,8 @@ with open('data.csv','w',encoding='utf-8') as csvfile:
           print('请求图片出错', url)
           return None
 
-
+  
+  # 保存图片到本地
   def save_image(content, title):
       if not os.path.exists(title):
           os.mkdir(title)
@@ -2258,7 +2283,8 @@ with open('data.csv','w',encoding='utf-8') as csvfile:
               f.write(content)
               f.close()
 
-
+  
+  # main函数
   def main():
       for i in range(OFFSET):
           html = get_page_index(20 * i,KEYWORD + '图集')
@@ -2268,8 +2294,10 @@ with open('data.csv','w',encoding='utf-8') as csvfile:
               if html:
                   parse_page_detail(html,url)
 
-
+  
+  # 程序入口
   if __name__ == '__main__':
+      # 以下代码开启多进程，但多进程可能会导致封IP，因此暂时不适用多线程
       # groups = [x * 20 for x in range(GROUP_START,GROUP_END + 1)]
       # pool = Pool()
       # pool.map(main, groups)
@@ -2823,8 +2851,33 @@ if __name__ == '__main__':
   * 支持单机和分布式部署，支持Docker部署
 * 与Scrapy比较
 * 架构
+
+![pyspider](https://ws4.sinaimg.cn/large/006tNc79gy1fvqu6zgoenj307f07cq4y.jpg)
+
+1. Scheduler 发起任务调度
+2. Fetcher 负责抓取网页内容
+3. Processer 负责解析网页内容
+4. 将新生成的Request发给Scheduler进行调度
+5. 将生成的提取结果输出保存
+
+具体过程：
+
+* 每个ppyspder的项目对应一个Python脚本，脚本中定义了一个Handler类，它有一个on_start()方法。爬取首先调用on_start()方法生成最初的抓取任务，然后发送给Scheduler进行调度。
+
+* Scheduler将抓取任务分发给Fetcher进行抓取，Fetcher执行并得到响应，随后将响应发送给Processer。
+
+* Processer处理响应并提取出新的URL生成新的抓取任务，然后通过消息队列的方式通知Schduler当前抓取任务执行情况，并将新生成的抓取任务发送给Scheduler。若生成了新的提取结果，则将其发送给结果队列等待Result Worker处理。
+
+* Scheduler接收到新的任务，然后查询数据库，判断其如果是新的抓取任务或者是需要重试的任务就继续进行调度，然后将其发送给Fetcher进行抓取。
+
+* 不断重复以上工作，指导所有的任务都执行完毕，抓取结束。
+
+* 抓取结束后，程序会调用on_finished()方法，这里可以自定义后处理过程。
+
 * 基本使用
   * 目标：爬去去哪儿网的旅游攻略，链接为[http://travel.qunar.com/travelbook/list.htm](http://travel.qunar.com/travelbook/list.htm)
+
+
 
 ## 十三、Scrapy框架的使用
 
