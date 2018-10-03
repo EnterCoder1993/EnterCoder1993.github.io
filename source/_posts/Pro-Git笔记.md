@@ -222,7 +222,100 @@ $git help config
 
     ```bash
     $git diff
+    # 若要查看已暂存的将要添加到下次提交里的内容，可以使用git diff --cached(git diff --staged)命令。
     ```
+
+    > 使用`git diff`分析文件差异，也可以通过图形化的方式或其他格式输出，可以使用`git difftool`命令来用Araix，emerge或vimdiff等软件输出diff分析结果。
+
+* 提交更新
+
+    运行提交命令`git commit`前，应先用`git status`查看文件是否都是暂存状态，若文件还不是暂存状态，要用`git add`将修改或新添加的文件添加到暂存区，否则提交的时候不会记录这些还没暂存起来的变化。
+
+    ```bash
+    $git commit -m "message"
+    ```
+
+    > 提交记录的是暂存区域的快照。任何还未暂存的仍然保持已修改状态，可以在下次提交时纳入版本管理。每一次运行提交操作，都是对项目做一次快照。以后可以回到这个状态或进行比较。
+
+* 跳过使用暂存区域
+
+    给`git commit`加上`-a`选项，Git就会自动把所有已经跟踪过的文件暂存起来一并提交，从而跳过`git add`步骤。
+
+* 移除文件
+
+    要从Git中移除某个文件，就必须要从已跟踪文件清单中移除(即从暂存区域移除)，然后提交。
+
+    ```bash
+    $git rm PROJECT.md
+    ```
+
+    下次提交时，该文件就不再纳入版本管理中，如果要删除之前修改并且已经放到暂存区域的话，则必须使用强制删除选项`-f`。
+
+    若想让文件保留在目录中，但不希望Git继续跟踪。可以添加`--cached`选项。
+
+    ```bash
+    $git rm --cached README
+    ```
+    
+    也可以使用glob模式
+
+    ```bash
+    # 该命令删除log目录下扩展名为.log的所有文件
+    $git rm log/\*.log
+    ```
+
+* 移动文件
+
+    使用`git mv`命令，也可以对文件进行重命名
+
+    ```bash
+    $git mv file_from file_to
+    ```
+
+    运行`git mv`相当于运行了下面三条命令，不过Git会意识到这是一次改名。
+
+    ```bash
+    $mv README.md README
+    $git rm README.md
+    $git add README
+    ```
+
+### 查看提交历史
+
+使用`git log`命令可以查看提交历史记录。默认会按提交时间列出所有更新，最近的更新在最上面。
+
+`-p`选项用来显示每次提交内容的差异。使用`-num`可以显示最近num次提交的记录。
+
+```bash
+$git log -p --stat -2
+```
+
+添加`-stat`选项可以返回每次提交的简略的统计信息。另一个常用的选项是`--pretty`(oneline，short，full，fuller)，这个选项可以指定使用不同于默认格式的方式展示提交历史。`format`可以定制要显示的记录格式。`--graph`可以形象地展示分支、合并历史。
+
+```bash
+$git log --pretty=format:"%h - %an, %ar : %s" --graph
+586f3df - entercoder1993, 34 hours ago : update note of git
+0c17bed - entercoder1993, 6 days ago : update spider of python
+a0fe9fc - entercoder1993, 7 days ago : add data analysis of python
+```
+
+`format`常用选项
+
+![format](https://ws1.sinaimg.cn/large/006tNbRwly1fvv7fct89zj30kt0d1dil.jpg)
+
+`git log`的常用选项表格
+
+| 选项            | 说明                                                         |
+| --------------- | ------------------------------------------------------------ |
+| -p              | 按补丁格式显示每个更新之间的差异                             |
+| --stat          | 显示每次更新的文件修改统计信息                               |
+| --shortstat     | 只显示—stat中最后的行数修改添加移除统计                      |
+| --name-only     | 仅在提交信息后显示已修改的文件清单                           |
+| --abbrev-commit | 仅显示SHA-1的前几个字符                                      |
+| --relative-date | 使用较短的相对时间显示                                       |
+| --graph         | 显示ASCII图形表示的分支合并历史                              |
+| --pretty        | 使用其他格式显示历史提交信息。可用的选项包括 oneline，short，full，fuller 和 format（后跟指定格式）。 |
+| --name-status   | 显示新增、修改、删除的文件清单                               |
 
 ## Git分支
 
