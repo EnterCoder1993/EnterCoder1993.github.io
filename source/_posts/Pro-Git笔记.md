@@ -317,6 +317,16 @@ a0fe9fc - entercoder1993, 7 days ago : add data analysis of python
 | --pretty        | 使用其他格式显示历史提交信息。可用的选项包括 oneline，short，full，fuller 和 format（后跟指定格式）。 |
 | --name-status   | 显示新增、修改、删除的文件清单                               |
 
+### 撤销操作
+
+运行带有`--amend`选项的提交命令会将暂存区中的文件提交。如果上次提交以来未做任何修改，则修改的只是提交信息。
+
+* 取消暂存的文件
+
+    使用`git reset HEAD <file>`可以用来取消暂存。
+
+* 取消对文件的修改
+
 ## Git分支
 
 ### 分支简介

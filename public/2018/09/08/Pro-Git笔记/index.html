@@ -123,7 +123,7 @@
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/0079wTXjgy1fsmpcjuov0j30jz0b1taa">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/0079wTXjgy1fsns4c405fj30n509rwfp">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/006tNbRwly1fvv7fct89zj30kt0d1dil.jpg">
-<meta property="og:updated_time" content="2018-10-03T10:28:20.791Z">
+<meta property="og:updated_time" content="2018-10-04T15:25:51.591Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Pro-Git笔记">
 <meta name="twitter:description" content="Pro Git学习笔记目录 Git简介 安装Git 初次运行Git前的配置 Git基础 Git分支  Git简介 直接记录快照，而非差异比较 近乎所有操作都是本地执行 Git保证完整性 Git一般只添加数据 三种状态 以提交 – 已提交表示数据已经安全的保存在本地数据库中   已修改 – 修改了文件，但还没保存到数据库中 已暂存 – 对一个已修改的文件的当前版本做了标记，使之包含在下次提交的快照中">
@@ -434,7 +434,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-10-03 18:28:20" itemprop="dateModified" datetime="2018-10-03T18:28:20+08:00">2018-10-03</time>
+                <time title="修改时间：2018-10-04 23:25:51" itemprop="dateModified" datetime="2018-10-04T23:25:51+08:00">2018-10-04</time>
               
             
           </span>
@@ -489,7 +489,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">5.7k</span>
+                <span title="本文字数">5.8k</span>
               
 
               
@@ -756,6 +756,14 @@ glob模式是指shell所使用的简化了的正则表达式。
 </tr>
 </tbody>
 </table>
+<h3 id="撤销操作"><a href="#撤销操作" class="headerlink" title="撤销操作"></a>撤销操作</h3><p>运行带有<code>--amend</code>选项的提交命令会将暂存区中的文件提交。如果上次提交以来未做任何修改，则修改的只是提交信息。</p>
+<ul>
+<li><p>取消暂存的文件</p>
+<p>  使用<code>git reset HEAD &lt;file&gt;</code>可以用来取消暂存。</p>
+</li>
+<li><p>取消对文件的修改</p>
+</li>
+</ul>
 <h2 id="Git分支"><a href="#Git分支" class="headerlink" title="Git分支"></a>Git分支</h2><h3 id="分支简介"><a href="#分支简介" class="headerlink" title="分支简介"></a>分支简介</h3><ul>
 <li><p>创建分支</p>
   <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$git</span> branch bran-name</span><br></pre></td></tr></table></figure>
@@ -1066,7 +1074,7 @@ glob模式是指shell所使用的简化了的正则表达式。
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Pro-Git学习笔记"><span class="nav-number">1.</span> <span class="nav-text">Pro Git学习笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#目录"><span class="nav-number">1.1.</span> <span class="nav-text">目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git简介"><span class="nav-number">1.2.</span> <span class="nav-text">Git简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Git"><span class="nav-number">1.3.</span> <span class="nav-text">安装Git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初次运行Git前的配置"><span class="nav-number">1.4.</span> <span class="nav-text">初次运行Git前的配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#三个配置变量"><span class="nav-number">1.4.1.</span> <span class="nav-text">三个配置变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用户信息和文本编辑器"><span class="nav-number">1.4.2.</span> <span class="nav-text">用户信息和文本编辑器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取帮助"><span class="nav-number">1.4.3.</span> <span class="nav-text">获取帮助</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git基础"><span class="nav-number">1.5.</span> <span class="nav-text">Git基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#获取Git仓库"><span class="nav-number">1.5.1.</span> <span class="nav-text">获取Git仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#记录每次更新到仓库"><span class="nav-number">1.5.2.</span> <span class="nav-text">记录每次更新到仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看提交历史"><span class="nav-number">1.5.3.</span> <span class="nav-text">查看提交历史</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git分支"><span class="nav-number">1.6.</span> <span class="nav-text">Git分支</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#分支简介"><span class="nav-number">1.6.1.</span> <span class="nav-text">分支简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分支的新建与合并"><span class="nav-number">1.6.2.</span> <span class="nav-text">分支的新建与合并</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Pro-Git学习笔记"><span class="nav-number">1.</span> <span class="nav-text">Pro Git学习笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#目录"><span class="nav-number">1.1.</span> <span class="nav-text">目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git简介"><span class="nav-number">1.2.</span> <span class="nav-text">Git简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Git"><span class="nav-number">1.3.</span> <span class="nav-text">安装Git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初次运行Git前的配置"><span class="nav-number">1.4.</span> <span class="nav-text">初次运行Git前的配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#三个配置变量"><span class="nav-number">1.4.1.</span> <span class="nav-text">三个配置变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用户信息和文本编辑器"><span class="nav-number">1.4.2.</span> <span class="nav-text">用户信息和文本编辑器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取帮助"><span class="nav-number">1.4.3.</span> <span class="nav-text">获取帮助</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git基础"><span class="nav-number">1.5.</span> <span class="nav-text">Git基础</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#获取Git仓库"><span class="nav-number">1.5.1.</span> <span class="nav-text">获取Git仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#记录每次更新到仓库"><span class="nav-number">1.5.2.</span> <span class="nav-text">记录每次更新到仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看提交历史"><span class="nav-number">1.5.3.</span> <span class="nav-text">查看提交历史</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#撤销操作"><span class="nav-number">1.5.4.</span> <span class="nav-text">撤销操作</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git分支"><span class="nav-number">1.6.</span> <span class="nav-text">Git分支</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#分支简介"><span class="nav-number">1.6.1.</span> <span class="nav-text">分支简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分支的新建与合并"><span class="nav-number">1.6.2.</span> <span class="nav-text">分支的新建与合并</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
