@@ -327,6 +327,39 @@ a0fe9fc - entercoder1993, 7 days ago : add data analysis of python
 
 * 取消对文件的修改
 
+### 远程仓库的使用
+
+> 远程仓库是指托管在因特网或其他网络中的项目版本库。
+
+* 常看远程仓库
+
+    使用`git remote`命令可以查看已经配置的远程仓库服务器，使用`-v`选项会显示需要读写远程仓库使用的Git保存的简写与其对应的URL。
+
+    ```bash
+    $git remote -v
+    origin	https://github.com/entercoder1993/entercoder1993.github.io.git (fetch)
+    origin	https://github.com/entercoder1993/entercoder1993.github.io.git (push)
+    ```
+
+* 添加远程仓库
+
+    使用`git remote add <shortname> <url>`可以添加一个新的远程仓库。
+
+* 从远程仓库抓取与拉取
+
+    使用`git fetch <remote-name>`可以从远程仓库中获得数据。它会访问远程仓库，从中拉取所有你还没有的信息。
+    如果使用`clone`克隆一个仓库，命令会自动添加为远程仓库并默认一“origin”为简写。
+    `git fetch origin`会抓取(或上一次抓取)后新推送的所有工作。但需要手动将其合并到工作中。
+    `git pull`会自动的抓取然后合并远程分支到当前分支。
+
+* 推送到远程分支
+
+    `git push <remote-name> <branch-name>`可以将项目推送到远程仓库服务器。只有当你有所克隆服务器的写入权限，并且之前没有人推送过时才可以使用此命令。若有其他人先推送了，则必须先将他们的工作拉取下来并将其合并进你的工作后才能推送。
+
+* 查看远程仓库
+
+    使用`git remote show <remote-name>`可以查看某一远程仓库的更多信息。
+
 ## Git分支
 
 ### 分支简介
