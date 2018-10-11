@@ -32,8 +32,8 @@
         <category>Python</category>
       </categories>
       <tags>
-        <tag>Problems</tag>
         <tag>Python</tag>
+        <tag>Problems</tag>
       </tags>
   </entry>
   <entry>
@@ -96,7 +96,7 @@
   <entry>
     <title><![CDATA[Vim操作指南]]></title>
     <url>%2F2018%2F09%2F10%2FVim%E6%93%8D%E4%BD%9C%E6%8C%87%E5%8D%97%2F</url>
-    <content type="text"><![CDATA[移动 hjkl ctrl - f 上翻页 ctrl - b 下翻页 % w 移动到单词前端(包含标点符号) W 单词间移动 e 移动到单词末端(包含标点符号) E 移动到单词末端 b 向上移动到单词词首(包含标点符号) B 空白字符分割的上词词首 O 开始新的一行 ^ 当前行的第一个非空字符 $ 到 行尾 gg 第一行 gd [N]G 第N行行首 fx ; tx Fx ) 到句首 ( 到句尾 } 到段首 { 到段尾 * `. 智能移动 书签 插入模式 i 在光标之前插入 I 行尾插入 a 在光标之后插入 A 行首插入 o 当前行下插入一空行 O 当前行上插入一空行 Esc 返回模式选择 提示 ctrl - n ctrl - p 编辑 r J cc cw c$ s S xp u 撤销改动 ctrl - r 重做 . 重复上一命令 ~ g~iw gUiw guiw >> &lt;&lt; == 剪切和复制 dd 删除一行 dw 删除一个单词 x 删除当前光标下的字符 X 删除当前光标左边的字符 D 删除到行尾的内容 yy 复制一行 nyy 复制n行 yw y$ p 粘贴到光标之前 P 粘贴到光标之后 ]p “a d 剪切 多文件 :e :bn :bd :sp fn ctrl - w ctrl - w s ctrl - w w ctrl - w q ctrl - w v :table fn gt gT :tabr :tabl :tabm [N] 搜索/替换 /pattern ?pattern n N :s/old/new/g :s/old/new/gc 选中模式 文本标记 v V ctrl - v o U O aw ab aB ib iB 命令 &lt; y d ~ 离开 :w :wq :x :q :q! 宏命令 qa q @a]]></content>
+    <content type="text"><![CDATA[Vim的四种模式 模式 说明 正常模式 可以使用快捷键命令，或按:输入命令行。 插入模式 可以输入文本，在正常模式下，按i、a、o等都可以进入插入模式。 可视模式 正常模式下按v可以进入可视模式，按V进入可视行模式，整行的选中。ctrl+v进入可视块模式。 替换模式 正常模式下，按R进入。 移动 h 向左移动 j 向下移动 k 向上移动 l 向右移动 ctrl - f 上翻页 ctrl - b 下翻页 % 不仅能移动到匹配的(),{}或[]上，而且能在#if，#else， #endif之间跳跃。 w 移动到单词前端(包含标点符号) W 单词间移动 e 移动到单词末端(包含标点符号) E 移动到单词末端 b 向上移动到单词词首(包含标点符号) B 空白字符分割的上词词首 O 开始新的一行 ^ 当前行的第一个非空字符 $ 到 行尾 gg 第一行 gd 跳转到局部变量的定义处； [N]G 第N行行首 tx 把光标移动到目标字符的前一个字符上 fx 向前查找本行中的字符x ) 到句首 ( 到句尾 } 到段首 { 到段尾 * 向下搜索光标所在词 `. 移动到最后改动的地方。 智能移动 书签 插入模式 i 在光标之前插入 I 行尾插入 a 在光标之后插入 A 行首插入 o 当前行下插入一空行 O 当前行上插入一空行 Esc 返回模式选择 编辑 r J cc cw c$ s S xp u 撤销改动 ctrl - r 重做 . 重复上一命令 ~ g~iw gUiw guiw >> &lt;&lt; == 剪切和复制 dd 删除一行 dw 删除一个单词 x 删除当前光标下的字符 X 删除当前光标左边的字符 D 删除到行尾的内容 yy 复制一行 nyy 复制n行 yw y$ p 粘贴到光标之前 P 粘贴到光标之后 ]p “a d 剪切 多文件 :open 在vim窗口中打开一个新文件 :split file 在新窗口中打开文件 :e 打开文件 :bn 切换到下一个文件 :bp 切换到上一个文件 :split 打开横向窗口 :vsplit 打开纵向窗口 ctrl - w ctrl - w s ctrl - w w 移动到下一个窗口 ctrl - w q ctrl - w v ctrl - w j 移动到下方的窗口 ctrl - w k 移动到上方的窗口 :table fn gt gT :tabr :tabl :tabm [N] :close 关闭窗口，最后一个窗口无法使用此命令 :only 关闭所有窗口，只保留当前窗口 搜索/替换 /pattern ?pattern n N :s/old/new 替换当前行的第一个匹配 :s/old/new/g 替换当前行的所有匹配 :s/old/new/gc 替换命令尾部加上c(confirm用于确认)，在替换每个old前都会提示并确认 :%s/old/new/ 替换所有行的第一个匹配 :%s/old/new/g 替换整个文件的所有匹配 选中模式 文本标记 v 进入可视模式，移动光标选择块 V 整行整行的选中 ctrl - v 进入可视块模式 o 在可视模式中首尾跳转 U 选中的所有单词变为大写 u 选中的所有单词变为大写 aw 以单词为单位跳转 ab 选中()中的内容，包含() aB 选中{}中的内容，包含{} ib 选中()中的内容，不包含() iB 选中{}中的内容，不包含{} 命令 &lt; y d ~ 离开 :w 保存 :wq 保存并退出(即使文件没有被修改也强制写入，并更新文件的修改时间。) :x 保存并退出(仅当文件被修改时才写入，并更新文件修改时间，否则不会更新文件修改时间。) :q 退出 :q! 强制退出 宏命令 qa q+任意字母开始录制，再按q结束录制 q 录制 @a @+字母使用这个宏 执行shell命令 :!command :!ls 列出当前目录下的文件 高级用法 :X 设置密码 :set key= 取消密码]]></content>
       <categories>
         <category>Tools</category>
       </categories>

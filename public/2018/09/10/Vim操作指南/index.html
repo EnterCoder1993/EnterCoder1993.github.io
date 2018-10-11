@@ -112,18 +112,18 @@
 
 
 
-  <meta name="description" content="移动 hjkl ctrl - f 上翻页 ctrl - b 下翻页 % w 移动到单词前端(包含标点符号) W 单词间移动 e 移动到单词末端(包含标点符号) E 移动到单词末端 b 向上移动到单词词首(包含标点符号) B 空白字符分割的上词词首 O 开始新的一行 ^ 当前行的第一个非空字符 $ 到 行尾 gg 第一行 gd  [N]G 第N行行首 fx  ; tx Fx ) 到句首 ( 到句尾">
+  <meta name="description" content="Vim的四种模式    模式 说明     正常模式 可以使用快捷键命令，或按:输入命令行。   插入模式 可以输入文本，在正常模式下，按i、a、o等都可以进入插入模式。   可视模式 正常模式下按v可以进入可视模式，按V进入可视行模式，整行的选中。ctrl+v进入可视块模式。   替换模式 正常模式下，按R进入。    移动 h 向左移动 j 向下移动 k 向上移动 l 向右移动 ctrl -">
 <meta name="keywords" content="Vim">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Vim操作指南">
 <meta property="og:url" content="http://entercoder.com/2018/09/10/Vim操作指南/index.html">
 <meta property="og:site_name" content="EnterCoder&#39;s Blog">
-<meta property="og:description" content="移动 hjkl ctrl - f 上翻页 ctrl - b 下翻页 % w 移动到单词前端(包含标点符号) W 单词间移动 e 移动到单词末端(包含标点符号) E 移动到单词末端 b 向上移动到单词词首(包含标点符号) B 空白字符分割的上词词首 O 开始新的一行 ^ 当前行的第一个非空字符 $ 到 行尾 gg 第一行 gd  [N]G 第N行行首 fx  ; tx Fx ) 到句首 ( 到句尾">
+<meta property="og:description" content="Vim的四种模式    模式 说明     正常模式 可以使用快捷键命令，或按:输入命令行。   插入模式 可以输入文本，在正常模式下，按i、a、o等都可以进入插入模式。   可视模式 正常模式下按v可以进入可视模式，按V进入可视行模式，整行的选中。ctrl+v进入可视块模式。   替换模式 正常模式下，按R进入。    移动 h 向左移动 j 向下移动 k 向上移动 l 向右移动 ctrl -">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-09-21T15:06:03.000Z">
+<meta property="og:updated_time" content="2018-10-11T15:42:30.622Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vim操作指南">
-<meta name="twitter:description" content="移动 hjkl ctrl - f 上翻页 ctrl - b 下翻页 % w 移动到单词前端(包含标点符号) W 单词间移动 e 移动到单词末端(包含标点符号) E 移动到单词末端 b 向上移动到单词词首(包含标点符号) B 空白字符分割的上词词首 O 开始新的一行 ^ 当前行的第一个非空字符 $ 到 行尾 gg 第一行 gd  [N]G 第N行行首 fx  ; tx Fx ) 到句首 ( 到句尾">
+<meta name="twitter:description" content="Vim的四种模式    模式 说明     正常模式 可以使用快捷键命令，或按:输入命令行。   插入模式 可以输入文本，在正常模式下，按i、a、o等都可以进入插入模式。   可视模式 正常模式下按v可以进入可视模式，按V进入可视行模式，整行的选中。ctrl+v进入可视块模式。   替换模式 正常模式下，按R进入。    移动 h 向左移动 j 向下移动 k 向上移动 l 向右移动 ctrl -">
 
 
 
@@ -430,7 +430,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-09-21 23:06:03" itemprop="dateModified" datetime="2018-09-21T23:06:03+08:00">2018-09-21</time>
+                <time title="修改时间：2018-10-11 23:42:30" itemprop="dateModified" datetime="2018-10-11T23:42:30+08:00">2018-10-11</time>
               
             
           </span>
@@ -485,7 +485,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">799</span>
+                <span title="本文字数">1.7k</span>
               
 
               
@@ -499,7 +499,7 @@
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">1 分钟</span>
+                <span title="阅读时长">2 分钟</span>
               
             </div>
           
@@ -519,11 +519,41 @@
       
 
       
-        <h1 id="移动"><a href="#移动" class="headerlink" title="移动"></a>移动</h1><ul>
-<li>hjkl</li>
+        <p>Vim的四种模式</p>
+<table>
+<thead>
+<tr>
+<th>模式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>正常模式</td>
+<td>可以使用快捷键命令，或按:输入命令行。</td>
+</tr>
+<tr>
+<td>插入模式</td>
+<td>可以输入文本，在正常模式下，按i、a、o等都可以进入插入模式。</td>
+</tr>
+<tr>
+<td>可视模式</td>
+<td>正常模式下按v可以进入可视模式，按V进入可视行模式，整行的选中。ctrl+v进入可视块模式。</td>
+</tr>
+<tr>
+<td>替换模式</td>
+<td>正常模式下，按R进入。</td>
+</tr>
+</tbody>
+</table>
+<h1 id="移动"><a href="#移动" class="headerlink" title="移动"></a>移动</h1><ul>
+<li>h 向左移动</li>
+<li>j 向下移动</li>
+<li>k 向上移动</li>
+<li>l 向右移动</li>
 <li>ctrl - f 上翻页</li>
 <li>ctrl - b 下翻页</li>
-<li>%</li>
+<li>% 不仅能移动到匹配的(),{}或[]上，而且能在#if，#else， #endif之间跳跃。</li>
 <li>w 移动到单词前端(包含标点符号)</li>
 <li>W 单词间移动</li>
 <li>e 移动到单词末端(包含标点符号)</li>
@@ -534,18 +564,16 @@
 <li>^ 当前行的第一个非空字符</li>
 <li>$ 到 行尾</li>
 <li>gg 第一行</li>
-<li>gd </li>
+<li>gd 跳转到局部变量的定义处；</li>
 <li>[N]G 第N行行首</li>
-<li>fx </li>
-<li>;</li>
-<li>tx</li>
-<li>Fx</li>
+<li>tx 把光标移动到目标字符的前一个字符上</li>
+<li>fx 向前查找本行中的字符x</li>
 <li>) 到句首</li>
 <li>( 到句尾</li>
 <li>} 到段首</li>
 <li>{ 到段尾</li>
-<li>*</li>
-<li>`.</li>
+<li>* 向下搜索光标所在词</li>
+<li>`. 移动到最后改动的地方。</li>
 <li>智能移动</li>
 <li>书签</li>
 </ul>
@@ -557,14 +585,9 @@
 <li>o 当前行下插入一空行</li>
 <li>O 当前行上插入一空行</li>
 <li>Esc 返回模式选择</li>
-<li>提示<ul>
-<li>ctrl - n</li>
-<li>ctrl - p</li>
-</ul>
-</li>
 </ul>
 <h1 id="编辑"><a href="#编辑" class="headerlink" title="编辑"></a>编辑</h1><ul>
-<li>r </li>
+<li>r  </li>
 <li>J</li>
 <li>cc</li>
 <li>cw</li>
@@ -600,15 +623,20 @@
 <li>d 剪切</li>
 </ul>
 <h1 id="多文件"><a href="#多文件" class="headerlink" title="多文件"></a>多文件</h1><ul>
-<li>:e</li>
-<li>:bn</li>
-<li>:bd</li>
-<li>:sp fn</li>
+<li>:open 在vim窗口中打开一个新文件</li>
+<li>:split file 在新窗口中打开文件</li>
+<li>:e 打开文件</li>
+<li>:bn 切换到下一个文件</li>
+<li>:bp 切换到上一个文件</li>
+<li>:split 打开横向窗口</li>
+<li>:vsplit 打开纵向窗口</li>
 <li>ctrl - w<ul>
-<li>ctrl - w s</li>
-<li>ctrl - w w</li>
+<li>ctrl - w s </li>
+<li>ctrl - w w 移动到下一个窗口</li>
 <li>ctrl - w q</li>
 <li>ctrl - w v</li>
+<li>ctrl - w j 移动到下方的窗口</li>
+<li>ctrl - w k 移动到上方的窗口</li>
 </ul>
 </li>
 <li>:table fn</li>
@@ -617,28 +645,33 @@
 <li>:tabr</li>
 <li>:tabl</li>
 <li>:tabm [N]</li>
+<li>:close 关闭窗口，最后一个窗口无法使用此命令</li>
+<li>:only 关闭所有窗口，只保留当前窗口</li>
 </ul>
 <h1 id="搜索-替换"><a href="#搜索-替换" class="headerlink" title="搜索/替换"></a>搜索/替换</h1><ul>
 <li>/pattern</li>
 <li>?pattern</li>
 <li>n</li>
 <li>N</li>
-<li>:s/old/new/g</li>
-<li>:s/old/new/gc</li>
+<li>:s/old/new 替换当前行的第一个匹配</li>
+<li>:s/old/new/g 替换当前行的所有匹配</li>
+<li>:s/old/new/gc 替换命令尾部加上c(confirm用于确认)，在替换每个old前都会提示并确认</li>
+<li>:%s/old/new/ 替换所有行的第一个匹配</li>
+<li>:%s/old/new/g 替换整个文件的所有匹配</li>
 </ul>
 <h1 id="选中模式"><a href="#选中模式" class="headerlink" title="选中模式"></a>选中模式</h1><ul>
 <li>文本标记<ul>
-<li>v</li>
-<li>V</li>
-<li>ctrl - v</li>
-<li>o</li>
-<li>U</li>
-<li>O</li>
-<li>aw</li>
-<li>ab</li>
-<li>aB</li>
-<li>ib</li>
-<li>iB</li>
+<li>v 进入可视模式，移动光标选择块</li>
+<li>V 整行整行的选中</li>
+<li>ctrl - v 进入可视块模式</li>
+<li>o 在可视模式中首尾跳转</li>
+<li>U 选中的所有单词变为大写</li>
+<li>u 选中的所有单词变为大写</li>
+<li>aw 以单词为单位跳转</li>
+<li>ab 选中()中的内容，包含()</li>
+<li>aB 选中{}中的内容，包含{}</li>
+<li>ib 选中()中的内容，不包含()</li>
+<li>iB 选中{}中的内容，不包含{}</li>
 </ul>
 </li>
 <li>命令<ul>
@@ -653,16 +686,24 @@
 </li>
 </ul>
 <h1 id="离开"><a href="#离开" class="headerlink" title="离开"></a>离开</h1><ul>
-<li>:w</li>
-<li>:wq</li>
-<li>:x</li>
-<li>:q</li>
-<li>:q!</li>
+<li>:w 保存</li>
+<li>:wq 保存并退出(即使文件没有被修改也强制写入，并更新文件的修改时间。)</li>
+<li>:x 保存并退出(仅当文件被修改时才写入，并更新文件修改时间，否则不会更新文件修改时间。)</li>
+<li>:q 退出</li>
+<li>:q! 强制退出</li>
 </ul>
 <h1 id="宏命令"><a href="#宏命令" class="headerlink" title="宏命令"></a>宏命令</h1><ul>
-<li>qa</li>
-<li>q</li>
-<li>@a</li>
+<li>qa q+任意字母开始录制，再按q结束录制</li>
+<li>q 录制</li>
+<li>@a @+字母使用这个宏</li>
+</ul>
+<h1 id="执行shell命令"><a href="#执行shell命令" class="headerlink" title="执行shell命令"></a>执行shell命令</h1><ul>
+<li>:!command</li>
+<li>:!ls 列出当前目录下的文件</li>
+</ul>
+<h1 id="高级用法"><a href="#高级用法" class="headerlink" title="高级用法"></a>高级用法</h1><ul>
+<li>:X 设置密码</li>
+<li>:set key=  取消密码</li>
 </ul>
 
       
@@ -927,7 +968,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#移动"><span class="nav-number">1.</span> <span class="nav-text">移动</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#插入模式"><span class="nav-number">2.</span> <span class="nav-text">插入模式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#编辑"><span class="nav-number">3.</span> <span class="nav-text">编辑</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#剪切和复制"><span class="nav-number">4.</span> <span class="nav-text">剪切和复制</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#多文件"><span class="nav-number">5.</span> <span class="nav-text">多文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#搜索-替换"><span class="nav-number">6.</span> <span class="nav-text">搜索/替换</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#选中模式"><span class="nav-number">7.</span> <span class="nav-text">选中模式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#离开"><span class="nav-number">8.</span> <span class="nav-text">离开</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#宏命令"><span class="nav-number">9.</span> <span class="nav-text">宏命令</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#移动"><span class="nav-number">1.</span> <span class="nav-text">移动</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#插入模式"><span class="nav-number">2.</span> <span class="nav-text">插入模式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#编辑"><span class="nav-number">3.</span> <span class="nav-text">编辑</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#剪切和复制"><span class="nav-number">4.</span> <span class="nav-text">剪切和复制</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#多文件"><span class="nav-number">5.</span> <span class="nav-text">多文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#搜索-替换"><span class="nav-number">6.</span> <span class="nav-text">搜索/替换</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#选中模式"><span class="nav-number">7.</span> <span class="nav-text">选中模式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#离开"><span class="nav-number">8.</span> <span class="nav-text">离开</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#宏命令"><span class="nav-number">9.</span> <span class="nav-text">宏命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#执行shell命令"><span class="nav-number">10.</span> <span class="nav-text">执行shell命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#高级用法"><span class="nav-number">11.</span> <span class="nav-text">高级用法</span></a></li></ol></div>
             
 
           </div>
@@ -966,7 +1007,7 @@
       <i class="fa fa-area-chart"></i>
     </span>
     
-    <span title="站点总字数">202k</span>
+    <span title="站点总字数">203k</span>
   
 
   
@@ -975,7 +1016,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">3:03</span>
+    <span title="站点阅读时长">3:04</span>
   
 </div>
 
