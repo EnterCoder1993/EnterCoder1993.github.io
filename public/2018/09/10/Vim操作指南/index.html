@@ -120,7 +120,7 @@
 <meta property="og:site_name" content="EnterCoder&#39;s Blog">
 <meta property="og:description" content="Vim的四种模式    模式 说明     正常模式 可以使用快捷键命令，或按:输入命令行。   插入模式 可以输入文本，在正常模式下，按i、a、o等都可以进入插入模式。   可视模式 正常模式下按v可以进入可视模式，按V进入可视行模式，整行的选中。ctrl+v进入可视块模式。   替换模式 正常模式下，按R进入。    移动 h 向左移动 j 向下移动 k 向上移动 l 向右移动 ctrl -">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-10-11T15:42:30.622Z">
+<meta property="og:updated_time" content="2018-10-12T02:45:47.128Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vim操作指南">
 <meta name="twitter:description" content="Vim的四种模式    模式 说明     正常模式 可以使用快捷键命令，或按:输入命令行。   插入模式 可以输入文本，在正常模式下，按i、a、o等都可以进入插入模式。   可视模式 正常模式下按v可以进入可视模式，按V进入可视行模式，整行的选中。ctrl+v进入可视块模式。   替换模式 正常模式下，按R进入。    移动 h 向左移动 j 向下移动 k 向上移动 l 向右移动 ctrl -">
@@ -430,7 +430,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-10-11 23:42:30" itemprop="dateModified" datetime="2018-10-11T23:42:30+08:00">2018-10-11</time>
+                <time title="修改时间：2018-10-12 10:45:47" itemprop="dateModified" datetime="2018-10-12T10:45:47+08:00">2018-10-12</time>
               
             
           </span>
@@ -485,7 +485,7 @@
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <span title="本文字数">1.7k</span>
+                <span title="本文字数">2.4k</span>
               
 
               
@@ -574,8 +574,6 @@
 <li>{ 到段尾</li>
 <li>* 向下搜索光标所在词</li>
 <li>`. 移动到最后改动的地方。</li>
-<li>智能移动</li>
-<li>书签</li>
 </ul>
 <h1 id="插入模式"><a href="#插入模式" class="headerlink" title="插入模式"></a>插入模式</h1><ul>
 <li>i 在光标之前插入</li>
@@ -594,7 +592,6 @@
 <li>c$</li>
 <li>s</li>
 <li>S</li>
-<li>xp</li>
 <li>u 撤销改动</li>
 <li>ctrl - r 重做</li>
 <li>. 重复上一命令</li>
@@ -614,8 +611,8 @@
 <li>D 删除到行尾的内容</li>
 <li>yy 复制一行</li>
 <li>nyy 复制n行</li>
-<li>yw</li>
-<li>y$</li>
+<li>yw 复制一个单词</li>
+<li>y$ 复制到行尾</li>
 <li>p 粘贴到光标之前</li>
 <li>P 粘贴到光标之后</li>
 <li>]p</li>
@@ -631,26 +628,18 @@
 <li>:split 打开横向窗口</li>
 <li>:vsplit 打开纵向窗口</li>
 <li>ctrl - w<ul>
-<li>ctrl - w s </li>
 <li>ctrl - w w 移动到下一个窗口</li>
-<li>ctrl - w q</li>
-<li>ctrl - w v</li>
 <li>ctrl - w j 移动到下方的窗口</li>
 <li>ctrl - w k 移动到上方的窗口</li>
 </ul>
 </li>
-<li>:table fn</li>
-<li>gt</li>
-<li>gT</li>
-<li>:tabr</li>
-<li>:tabl</li>
 <li>:tabm [N]</li>
 <li>:close 关闭窗口，最后一个窗口无法使用此命令</li>
 <li>:only 关闭所有窗口，只保留当前窗口</li>
 </ul>
 <h1 id="搜索-替换"><a href="#搜索-替换" class="headerlink" title="搜索/替换"></a>搜索/替换</h1><ul>
-<li>/pattern</li>
-<li>?pattern</li>
+<li>/pattern 向后查找</li>
+<li>?pattern 向前查找</li>
 <li>n</li>
 <li>N</li>
 <li>:s/old/new 替换当前行的第一个匹配</li>
@@ -676,10 +665,11 @@
 </li>
 <li>命令<ul>
 <li><blockquote>
+<p>光标所在行向右缩进四个空格</p>
 </blockquote>
 </li>
-<li>&lt;</li>
-<li>y</li>
+<li>&lt; 光标所在行向左缩进四个空格</li>
+<li>y </li>
 <li>d</li>
 <li>~</li>
 </ul>
@@ -704,6 +694,33 @@
 <h1 id="高级用法"><a href="#高级用法" class="headerlink" title="高级用法"></a>高级用法</h1><ul>
 <li>:X 设置密码</li>
 <li>:set key=  取消密码</li>
+</ul>
+<h1 id="编程常用"><a href="#编程常用" class="headerlink" title="编程常用"></a>编程常用</h1><ul>
+<li>gd: 跳转到局部变量的定义处；</li>
+<li>gD: 跳转到全局变量的定义处，从当前文件开头开始搜索；</li>
+<li>g;: 上一个修改过的地方；</li>
+<li>g,: 下一个修改过的地方；</li>
+<li>[[: 跳转到上一个函数块开始，需要有单独一行的{。</li>
+<li>]]: 跳转到下一个函数块开始，需要有单独一行的{。</li>
+<li>[]: 跳转到上一个函数块结束，需要有单独一行的}。</li>
+<li>][: 跳转到下一个函数块结束，需要有单独一行的}。</li>
+<li>[{: 跳转到当前块开始处；</li>
+<li>]}: 跳转到当前块结束处；</li>
+<li>[/: 跳转到当前注释块开始处；</li>
+<li>]/: 跳转到当前注释块结束处；</li>
+<li>%: 不仅能移动到匹配的(),{}或[]上，而且能在#if，#else,#endif之间跳跃。</li>
+<li>ci’, di’, yi’：修改、剪切或复制’之间的内容。</li>
+<li>ca’, da’, ya’：修改、剪切或复制’之间的内容，包含’。</li>
+<li>ci”, di”, yi”：修改、剪切或复制”之间的内容。</li>
+<li>ca”, da”, ya”：修改、剪切或复制”之间的内容，包含”。</li>
+<li>ci(, di(, yi(：修改、剪切或复制()之间的内容。</li>
+<li>ca(, da(, ya(：修改、剪切或复制()之间的内容，包含()。</li>
+<li>ci[, di[, yi[：修改、剪切或复制[]之间的内容。</li>
+<li>ca[, da[, ya[：修改、剪切或复制[]之间的内容，包含[]。</li>
+<li>ci{, di{, yi{：修改、剪切或复制{}之间的内容。</li>
+<li>ca{, da{, ya{：修改、剪切或复制{}之间的内容，包含{}。</li>
+<li>ci&lt;, di&lt;, yi&lt;：修改、剪切或复制&lt;&gt;之间的内容。</li>
+<li>ca&lt;, da&lt;, ya&lt;：修改、剪切或复制&lt;&gt;之间的内容，包含&lt;&gt;。</li>
 </ul>
 
       
@@ -845,7 +862,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">33</span>
+                    <span class="site-state-item-count">34</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -876,7 +893,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">9</span>
+                      
+                    
+                    <span class="site-state-item-count">10</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
                 </div>
@@ -923,7 +942,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">17</span>
+                      
+                    
+                    <span class="site-state-item-count">18</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -968,7 +989,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#移动"><span class="nav-number">1.</span> <span class="nav-text">移动</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#插入模式"><span class="nav-number">2.</span> <span class="nav-text">插入模式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#编辑"><span class="nav-number">3.</span> <span class="nav-text">编辑</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#剪切和复制"><span class="nav-number">4.</span> <span class="nav-text">剪切和复制</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#多文件"><span class="nav-number">5.</span> <span class="nav-text">多文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#搜索-替换"><span class="nav-number">6.</span> <span class="nav-text">搜索/替换</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#选中模式"><span class="nav-number">7.</span> <span class="nav-text">选中模式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#离开"><span class="nav-number">8.</span> <span class="nav-text">离开</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#宏命令"><span class="nav-number">9.</span> <span class="nav-text">宏命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#执行shell命令"><span class="nav-number">10.</span> <span class="nav-text">执行shell命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#高级用法"><span class="nav-number">11.</span> <span class="nav-text">高级用法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#移动"><span class="nav-number">1.</span> <span class="nav-text">移动</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#插入模式"><span class="nav-number">2.</span> <span class="nav-text">插入模式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#编辑"><span class="nav-number">3.</span> <span class="nav-text">编辑</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#剪切和复制"><span class="nav-number">4.</span> <span class="nav-text">剪切和复制</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#多文件"><span class="nav-number">5.</span> <span class="nav-text">多文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#搜索-替换"><span class="nav-number">6.</span> <span class="nav-text">搜索/替换</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#选中模式"><span class="nav-number">7.</span> <span class="nav-text">选中模式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#离开"><span class="nav-number">8.</span> <span class="nav-text">离开</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#宏命令"><span class="nav-number">9.</span> <span class="nav-text">宏命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#执行shell命令"><span class="nav-number">10.</span> <span class="nav-text">执行shell命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#高级用法"><span class="nav-number">11.</span> <span class="nav-text">高级用法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#编程常用"><span class="nav-number">12.</span> <span class="nav-text">编程常用</span></a></li></ol></div>
             
 
           </div>
@@ -1016,7 +1037,7 @@
       <i class="fa fa-coffee"></i>
     </span>
     
-    <span title="站点阅读时长">3:04</span>
+    <span title="站点阅读时长">3:05</span>
   
 </div>
 
@@ -1565,6 +1586,75 @@
 
 
   
+  <style>
+    .copy-btn {
+      display: inline-block;
+      padding: 6px 12px;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 20px;
+      color: #333;
+      white-space: nowrap;
+      vertical-align: middle;
+      cursor: pointer;
+      background-color: #eee;
+      background-image: linear-gradient(#fcfcfc, #eee);
+      border: 1px solid #d5d5d5;
+      border-radius: 3px;
+      user-select: none;
+      outline: 0;
+    }
+
+    .highlight-wrap .copy-btn {
+      transition: opacity .3s ease-in-out;
+      opacity: 0;
+      padding: 2px 6px;
+      position: absolute;
+      right: 4px;
+      top: 8px;
+    }
+
+    .highlight-wrap:hover .copy-btn,
+    .highlight-wrap .copy-btn:focus {
+      opacity: 1
+    }
+
+    .highlight-wrap {
+      position: relative;
+    }
+  </style>
+  <script>
+    $('.highlight').each(function (i, e) {
+      var $wrap = $('<div>').addClass('highlight-wrap')
+      $(e).after($wrap)
+      $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function (e) {
+        var code = $(this).parent().find('.code').find('.line').map(function (i, e) {
+          return $(e).text()
+        }).toArray().join('\n')
+        var ta = document.createElement('textarea')
+        document.body.appendChild(ta)
+        ta.style.position = 'absolute'
+        ta.style.top = '0px'
+        ta.style.left = '0px'
+        ta.value = code
+        ta.select()
+        ta.focus()
+        var result = document.execCommand('copy')
+        document.body.removeChild(ta)
+        
+          if(result)$(this).text('复制成功')
+          else $(this).text('复制失败')
+        
+        $(this).blur()
+      })).on('mouseleave', function (e) {
+        var $b = $(this).find('.copy-btn')
+        setTimeout(function () {
+          $b.text('复制')
+        }, 300)
+      }).append(e)
+    })
+  </script>
+
 
 </body>
 </html>
