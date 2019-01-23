@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[IDEA使用教程]]></title>
+    <url>%2F2018%2F12%2F26%2FIDEA%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
     <title><![CDATA[如何使用iconfont资源]]></title>
     <url>%2F2018%2F10%2F25%2F%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8iconfont%E8%B5%84%E6%BA%90%2F</url>
     <content type="text"><![CDATA[iconfont的图标资源非常丰富，可以在网页中直接使用。 下载资源在iconfont上找到所需要的图标资源，并加入购物车 引入资源文件使用资源的三种方式]]></content>

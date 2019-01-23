@@ -5,9 +5,13 @@ tags: [Python,数据分析]
 categories: Note
 ---
 
+![数据分析](https://ws1.sinaimg.cn/large/006tNc79gy1fzgcb7v0efj31cn0u0ngy.jpg)
+
 # 初识Python数据分析
 
 > 使用Python进行数据分析，本次使用Python爬取淘宝网全网月饼销售数据，并依据此数据生成词云。
+
+<!--more-->
 
 ## 获取数据
 
