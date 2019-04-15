@@ -8,7 +8,7 @@ def push_deploy(message):
     os.system('git push origin hexo')
 
 def main():
-    workpath = '/Users/entercoder/entercoder1993.github.io'
+    workpath = '.'
     os.chdir(workpath)
     message = input("commit message:")
     push_deploy(message)
