@@ -1450,7 +1450,6 @@ a:hover {
 }
 a#site-name {
   text-decoration: none;
-  color: #eee;
 }
 a.fancybox {
   outline: none;
@@ -1476,14 +1475,11 @@ img:hover {
   -webkit-box-shadow: 0 0 8px 0 rgba(232,237,250,0.6), 0 2px 4px 0 rgba(232,237,250,0.5);
   box-shadow: 0 0 8px 0 rgba(232,237,250,0.6), 0 2px 4px 0 rgba(232,237,250,0.5);
 }
-.code-area-wrap {
-  position: relative;
-}
 .fa-clipboard {
-  position: absolute;
-  top: 0.4rem;
+  position: fixed;
   right: 10px;
   z-index: 1;
+  margin-top: -1rem;
   color: #89ddff;
   cursor: pointer;
   -webkit-transition: color 0.2s;
@@ -1497,7 +1493,7 @@ img:hover {
 }
 .copy-notice {
   position: absolute;
-  top: 0;
+  top: 4px;
   right: 0;
   z-index: 1;
   background: #1c2429;
@@ -1584,11 +1580,9 @@ img:hover {
   }
   #top-container #post-title {
     font-size: 1.1rem;
-    color: #eee;
   }
   #post-title {
     font-size: 1.1rem;
-    color: #eee;
   }
 }
 @media screen and (min-width: 768px) {
@@ -1604,9 +1598,6 @@ img:hover {
     width: 900px;
     height: 506.25px;
   }
-}
-.katex-wrap {
-  overflow: auto;
 }
 #sidebar {
   position: fixed;
