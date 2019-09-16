@@ -1,10 +1,9 @@
 $(function () {
   // Add copy icon
-  $('figure.highlight').wrap('<div class="code-area-wrap"></div>')
   var $copyIcon = $('<i class="fa fa-clipboard" aria-hidden="true"></i>')
   var $notice = $('<div class="copy-notice"></div>')
-  $('.code-area-wrap').prepend($copyIcon)
-  $('.code-area-wrap').prepend($notice)
+  $('figure.highlight').prepend($copyIcon)
+  $('figure.highlight').prepend($notice)
   // copy function
   function copy (text, ctx) {
     if (document.queryCommandSupported && document.queryCommandSupported('copy')) {
@@ -38,10 +37,10 @@ $(function () {
     }
   }
   // click events
-  $('.code-area-wrap .fa-clipboard').on('click', function () {
+  $('.highlight .fa-clipboard').on('click', function () {
     var selection = window.getSelection()
     var range = document.createRange()
-    range.selectNodeContents($(this).siblings('figure').find('.code pre')[0])
+    range.selectNodeContents($(this).siblings('table').find('.code pre')[0])
     selection.removeAllRanges()
     selection.addRange(range)
     var text = selection.toString()
