@@ -1,0 +1,257 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="Python操作列表、元祖、字典、集合"><meta name="keywords" content="Python"><meta name="author" content="entercoder1993"><meta name="copyright" content="entercoder1993"><title>Python操作列表、元祖、字典、集合 | EnterCoder's Blog</title><link rel="shortcut icon" href="/melody-favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.7.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.7.0"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"We didn't find any results for the search: ${query}"}},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  }
+} </script></head><body><canvas class="fireworks"></canvas><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="Toggle article">Toggle site</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">Catalog</div><div class="sidebar-toc__progress"><span class="progress-notice">You've read</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#列表"><span class="toc-number">1.</span> <span class="toc-text">列表</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#修改、添加和删除元素"><span class="toc-number">1.1.</span> <span class="toc-text">修改、添加和删除元素</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#修改列表元素"><span class="toc-number">1.1.1.</span> <span class="toc-text">修改列表元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#添加列表元素"><span class="toc-number">1.1.2.</span> <span class="toc-text">添加列表元素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除列表元素"><span class="toc-number">1.1.3.</span> <span class="toc-text">删除列表元素</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#组织列表"><span class="toc-number">1.2.</span> <span class="toc-text">组织列表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用sort-方法对列表进行永久性排序"><span class="toc-number">1.2.1.</span> <span class="toc-text">使用sort()方法对列表进行永久性排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用sorted-对列表进行临时排序"><span class="toc-number">1.2.2.</span> <span class="toc-text">使用sorted()对列表进行临时排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#倒着打印列表"><span class="toc-number">1.2.3.</span> <span class="toc-text">倒着打印列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#确定列表的长度"><span class="toc-number">1.2.4.</span> <span class="toc-text">确定列表的长度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#遍历整个列表"><span class="toc-number">1.2.5.</span> <span class="toc-text">遍历整个列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建数值列表"><span class="toc-number">1.2.6.</span> <span class="toc-text">创建数值列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#列表解析"><span class="toc-number">1.2.7.</span> <span class="toc-text">列表解析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用列表的一部分"><span class="toc-number">1.2.8.</span> <span class="toc-text">使用列表的一部分</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#切片"><span class="toc-number">1.2.8.1.</span> <span class="toc-text">切片</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#复制列表"><span class="toc-number">1.2.8.2.</span> <span class="toc-text">复制列表</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#方法"><span class="toc-number">1.3.</span> <span class="toc-text">方法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#元祖"><span class="toc-number">2.</span> <span class="toc-text">元祖</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#字典"><span class="toc-number">3.</span> <span class="toc-text">字典</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#使用字典"><span class="toc-number">3.1.</span> <span class="toc-text">使用字典</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#访问字典中的值"><span class="toc-number">3.1.1.</span> <span class="toc-text">访问字典中的值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#添加键——值对"><span class="toc-number">3.1.2.</span> <span class="toc-text">添加键——值对</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建一个空字典"><span class="toc-number">3.1.3.</span> <span class="toc-text">创建一个空字典</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改字典中的值"><span class="toc-number">3.1.4.</span> <span class="toc-text">修改字典中的值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除键——值对"><span class="toc-number">3.1.5.</span> <span class="toc-text">删除键——值对</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#由类似对象组成的字典"><span class="toc-number">3.1.6.</span> <span class="toc-text">由类似对象组成的字典</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#遍历字典"><span class="toc-number">3.2.</span> <span class="toc-text">遍历字典</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#方法-1"><span class="toc-number">3.3.</span> <span class="toc-text">方法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#集合"><span class="toc-number">4.</span> <span class="toc-text">集合</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#方法-2"><span class="toc-number">4.1.</span> <span class="toc-text">方法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#差异"><span class="toc-number">5.</span> <span class="toc-text">差异</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#用法"><span class="toc-number">5.1.</span> <span class="toc-text">用法</span></a></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="https://entercodeimage.oss-cn-shenzhen.aliyuncs.com/20200510135939.png"></div><div class="author-info__name text-center">entercoder1993</div><div class="author-info__description text-center">just coding</div><div class="follow-button"><a href="https://github.com/entercoder1993">Follow me</a></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">36</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">19</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">Categories</span><span class="pull-right">11</span></a></div><hr><div class="author-info-links"><div class="author-info-links__title text-center">Links</div><a class="author-info-links__name text-center" href="https://molunerfinn.com">Molunerfinn</a></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(https://s2.ax1x.com/2019/09/16/nW7S7n.jpg)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">EnterCoder's Blog</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a><a class="site-page" href="/about">About</a><a class="site-page" href="/image">Photo album</a><a class="site-page" href="/gallery">Gallery</a></span><span class="pull-right"><a class="site-page social-icon search"><i class="fa fa-search"></i><span> Search</span></a></span></div><div id="post-info"><div id="post-title">Python操作列表、元祖、字典、集合</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2018-09-05</time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/Note/">Note</a><div class="post-meta-wordcount"><span>Word count: </span><span class="word-count">2,198</span><span class="post-meta__separator">|</span><span>Reading time: 8 min</span></div></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><h1 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h1><ul>
+<li><p><strong>列表</strong>：由一系列按特定顺序排列的元素组成。可用list()函数或方括号创建，元素间用逗号分隔。</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">my_list = [<span class="string">'name'</span>,<span class="string">'age'</span>]</span><br><span class="line">list1 = list((<span class="number">1</span>,<span class="number">2</span>))</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>访问元素</strong>：列表是有序集合，通过元素的位置或索引即可访问列表的任何元素</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">computer = [<span class="string">'dell'</span>,<span class="string">'asus'</span>,<span class="string">'apple'</span>]</span><br><span class="line">print(computer[<span class="number">0</span>])</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="修改、添加和删除元素"><a href="#修改、添加和删除元素" class="headerlink" title="修改、添加和删除元素"></a>修改、添加和删除元素</h2><h3 id="修改列表元素"><a href="#修改列表元素" class="headerlink" title="修改列表元素"></a>修改列表元素</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">phone = [<span class="string">'xiaomi'</span>,<span class="string">'oneplus'</span>,<span class="string">'apple'</span>]</span><br><span class="line">phone[<span class="number">0</span>] = <span class="string">'vivo'</span></span><br></pre></td></tr></table></figure>
+<h3 id="添加列表元素"><a href="#添加列表元素" class="headerlink" title="添加列表元素"></a>添加列表元素</h3><ol>
+<li><p>在列表末尾添加元素</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">phone = [<span class="string">'xiaomi'</span>,<span class="string">'oneplus'</span>,<span class="string">'apple'</span>]</span><br><span class="line">phone.append(<span class="string">'oppo'</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在列表中插入元素</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">phone = [<span class="string">'xiaomi'</span>,<span class="string">'oneplus'</span>,<span class="string">'apple'</span>]</span><br><span class="line">phone.insert(<span class="number">1</span>,<span class="string">'SAMSUNG'</span>)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h3 id="删除列表元素"><a href="#删除列表元素" class="headerlink" title="删除列表元素"></a>删除列表元素</h3><ol>
+<li><p>使用del语句删除元素</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">phone = [<span class="string">'xiaomi'</span>,<span class="string">'oneplus'</span>,<span class="string">'apple'</span>]</span><br><span class="line"><span class="keyword">del</span> phone[<span class="number">2</span>]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用pop()方法删除元素</p>
+<p> pop()方法可删除列表末尾的元素，并且可以接着使用它。</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">phone = [<span class="string">'xiaomi'</span>,<span class="string">'oneplus'</span>,<span class="string">'apple'</span>]</span><br><span class="line">new_phone = phone.pop()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 在括号中指定要删除的元素的索引可删除任何位置的元素</span></span><br><span class="line">my_phone = phone.pop(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>根据值删除元素</p>
+<p> 使用remove方法可以删除元素的值，并且也可以接着使用它的值。</p>
+ <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">phone = [<span class="string">'xiaomi'</span>,<span class="string">'oneplus'</span>,<span class="string">'apple'</span>]</span><br><span class="line">your_phone = phone.remove(<span class="string">'oneplus'</span>)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>方法remove()只删除第一个指定的值。多国药删除的值可能多次在列表中出现多次，就需要用循环来判断是否删除了所有的值。</p>
+</blockquote>
+</li>
+</ol>
+<h2 id="组织列表"><a href="#组织列表" class="headerlink" title="组织列表"></a>组织列表</h2><h3 id="使用sort-方法对列表进行永久性排序"><a href="#使用sort-方法对列表进行永久性排序" class="headerlink" title="使用sort()方法对列表进行永久性排序"></a>使用sort()方法对列表进行永久性排序</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cars = [<span class="string">'bmw'</span>,<span class="string">'audi'</span>,<span class="string">'toyota'</span>]</span><br><span class="line">cars.sort()</span><br><span class="line"><span class="comment"># 按与字母顺序想法的顺序排列列表元素</span></span><br><span class="line">cars.sort(reverse=<span class="keyword">True</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="使用sorted-对列表进行临时排序"><a href="#使用sorted-对列表进行临时排序" class="headerlink" title="使用sorted()对列表进行临时排序"></a>使用sorted()对列表进行临时排序</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cars = [<span class="string">'bmw'</span>,<span class="string">'audi'</span>,<span class="string">'toyota'</span>,<span class="string">'BMW'</span>]</span><br><span class="line">sorted(cars)</span><br><span class="line">[<span class="string">'BMW'</span>, <span class="string">'audi'</span>, <span class="string">'bmw'</span>, <span class="string">'toyota'</span>]</span><br></pre></td></tr></table></figure>
+<h3 id="倒着打印列表"><a href="#倒着打印列表" class="headerlink" title="倒着打印列表"></a>倒着打印列表</h3><p>使用reverse()方法可以反转列表元素的排列顺序，reverse()方法永久性地修改列表元素的排列顺序，但可以恢复原来的排列顺序，只需再次使用reverse()方法。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cars = [<span class="string">'BMW'</span>, <span class="string">'audi'</span>, <span class="string">'bmw'</span>, <span class="string">'toyota'</span>]</span><br><span class="line">cars.reverse()</span><br></pre></td></tr></table></figure>
+<h3 id="确定列表的长度"><a href="#确定列表的长度" class="headerlink" title="确定列表的长度"></a>确定列表的长度</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cars = [<span class="string">'BMW'</span>, <span class="string">'audi'</span>, <span class="string">'bmw'</span>, <span class="string">'toyota'</span>]</span><br><span class="line">len(cars)</span><br></pre></td></tr></table></figure>
+<h3 id="遍历整个列表"><a href="#遍历整个列表" class="headerlink" title="遍历整个列表"></a>遍历整个列表</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cars = [<span class="string">'BMW'</span>, <span class="string">'audi'</span>, <span class="string">'bmw'</span>, <span class="string">'toyota'</span>]</span><br><span class="line"><span class="keyword">for</span> car <span class="keyword">in</span> cars:</span><br><span class="line">    print(car)</span><br></pre></td></tr></table></figure>
+<h3 id="创建数值列表"><a href="#创建数值列表" class="headerlink" title="创建数值列表"></a>创建数值列表</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> value <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">5</span>):</span><br><span class="line">    print(value)</span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">4</span></span><br><span class="line"></span><br><span class="line">numbers = list(range(<span class="number">1</span>,<span class="number">6</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 指定步长</span></span><br><span class="line">even_numbers = list(range(<span class="number">2</span>,<span class="number">11</span>,<span class="number">2</span>))</span><br><span class="line"><span class="comment"># 找出列表的最大值、最小值和总和</span></span><br><span class="line">min(numbers)</span><br><span class="line">max(numbers)</span><br><span class="line">sum(numbers)</span><br></pre></td></tr></table></figure>
+<h3 id="列表解析"><a href="#列表解析" class="headerlink" title="列表解析"></a>列表解析</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">squares = [value**<span class="number">2</span> <span class="keyword">for</span> value <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">11</span>)]</span><br></pre></td></tr></table></figure>
+<h3 id="使用列表的一部分"><a href="#使用列表的一部分" class="headerlink" title="使用列表的一部分"></a>使用列表的一部分</h3><h4 id="切片"><a href="#切片" class="headerlink" title="切片"></a>切片</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cars = [<span class="string">'BMW'</span>, <span class="string">'audi'</span>, <span class="string">'bmw'</span>, <span class="string">'toyota'</span>]</span><br><span class="line">print(cars[<span class="number">0</span>:<span class="number">2</span>])</span><br><span class="line">[<span class="string">'BMW'</span>, <span class="string">'audi'</span>]</span><br><span class="line">print(cars[:<span class="number">3</span>])</span><br><span class="line">print(cars[<span class="number">2</span>:])</span><br><span class="line">print(cars[<span class="number">-2</span>:])</span><br></pre></td></tr></table></figure>
+<h4 id="复制列表"><a href="#复制列表" class="headerlink" title="复制列表"></a>复制列表</h4><p>复制列表可以创建一个包含整个列表的切片，方法是同时省略起始索引和终止索引([:])</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">my_foods = [<span class="string">'pizza'</span>,<span class="string">'falafel'</span>,<span class="string">'corrot cake'</span>]</span><br><span class="line">your_foods = my_foods[:]</span><br></pre></td></tr></table></figure>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><table>
+<thead>
+<tr>
+<th>操作</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>list.append()</td>
+<td>追加元素</td>
+</tr>
+<tr>
+<td>list.count(x)</td>
+<td>计算列表中参数x出现的次数</td>
+</tr>
+<tr>
+<td>list.extend(L)</td>
+<td>向列表中追加另一个列表L</td>
+</tr>
+<tr>
+<td>list.index(x)</td>
+<td>获得参数x在列表中的位置</td>
+</tr>
+<tr>
+<td>list.insert()</td>
+<td>向列表中插入数据</td>
+</tr>
+<tr>
+<td>list.pop()</td>
+<td>删除列表中的成员（通过下标删除）</td>
+</tr>
+<tr>
+<td>list.remove()</td>
+<td>删除列表中的成员（直接删除）</td>
+</tr>
+<tr>
+<td>list.reverse()</td>
+<td>将列表中成员的顺序颠倒</td>
+</tr>
+<tr>
+<td>list.sort</td>
+<td>将列表中成员排序</td>
+</tr>
+</tbody>
+</table>
+<h1 id="元祖"><a href="#元祖" class="headerlink" title="元祖"></a>元祖</h1><p>不可变的列表被称为元祖。使用圆括号来标识。使用索引来访问元素。可以用tuple()函数或者括号创建，元素间用逗号分隔。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">dimensions = (<span class="number">200</span>，<span class="number">50</span>)</span><br><span class="line">tuple1 = tuple([<span class="number">1</span>,<span class="number">2</span>])</span><br><span class="line">print(dimensions[<span class="number">0</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment">## 遍历元祖中的所有值</span></span><br><span class="line"><span class="keyword">for</span> dimension <span class="keyword">in</span> dimensions:</span><br><span class="line">    print(demension)</span><br></pre></td></tr></table></figure>
+<p>虽然不能修改元祖的元素，但可以给存储元祖的变量赋值，重新定义整个元祖。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dimensions = (<span class="number">100</span>，<span class="number">200</span>)</span><br><span class="line">print(dimensions[<span class="number">0</span>])</span><br></pre></td></tr></table></figure>
+<p>元组由于它的不可变性（第五点特点），相比列表的操作少了很多，只保留了index()，count()函数，用法同列表。当然也可以用内置函数来对他进行操作，这些内置函数对于列表也适用。</p>
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cmp(tuple1, tuple2)</td>
+<td>比较两个元组元素。</td>
+</tr>
+<tr>
+<td>len(tuple)</td>
+<td>计算元组元素个数。</td>
+</tr>
+<tr>
+<td>max(tuple)</td>
+<td>返回元组中元素最大值。</td>
+</tr>
+<tr>
+<td>min(tuple)</td>
+<td>返回元组中元素最小值。</td>
+</tr>
+<tr>
+<td>tuple(seq)</td>
+<td>将列表转换为元组。</td>
+</tr>
+<tr>
+<td>list(seq)</td>
+<td>将元组转换为列表。</td>
+</tr>
+</tbody>
+</table>
+<h1 id="字典"><a href="#字典" class="headerlink" title="字典"></a>字典</h1><h2 id="使用字典"><a href="#使用字典" class="headerlink" title="使用字典"></a>使用字典</h2><p><strong>字典</strong>是一系列键——值对。每个键都与一个值相关联，可以使用键来访问与之相关的值。可将任何Python对象用作字典中的值。可以用dict()或花括号创建，元素之间用逗号’,‘’分隔，键与值之间用冒号”:”隔开。键必须是唯一的，但值则不必。值可以取任何数据类型，但键必须是不可变的，如字符串，数字或元组。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">alien = &#123;<span class="string">'color'</span>:<span class="string">'green'</span>,<span class="string">'point'</span>:<span class="number">5</span>&#125;</span><br><span class="line">dict1 = dict([(<span class="string">'name'</span>,<span class="string">'entercoder'</span>),(<span class="string">'age'</span>,<span class="number">10</span>)])</span><br></pre></td></tr></table></figure>
+<h3 id="访问字典中的值"><a href="#访问字典中的值" class="headerlink" title="访问字典中的值"></a>访问字典中的值</h3><p>获取与键相关的值，指定字典名和放在方括号内的键。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">alien = &#123;<span class="string">'color'</span>:<span class="string">'green'</span>,<span class="string">'point'</span>:<span class="number">5</span>&#125;</span><br><span class="line">alien[<span class="string">'color'</span>]</span><br><span class="line">alien[<span class="string">'point'</span>]</span><br></pre></td></tr></table></figure>
+<h3 id="添加键——值对"><a href="#添加键——值对" class="headerlink" title="添加键——值对"></a>添加键——值对</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">alien[<span class="string">'x_position'</span>] = <span class="number">0</span></span><br><span class="line">alien[<span class="string">'y_position'</span>] = <span class="number">25</span></span><br></pre></td></tr></table></figure>
+<h3 id="创建一个空字典"><a href="#创建一个空字典" class="headerlink" title="创建一个空字典"></a>创建一个空字典</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">alien_0 = &#123;&#125;</span><br><span class="line">alien_0[<span class="string">'color'</span>] = <span class="string">'green'</span></span><br><span class="line">alien_0[<span class="string">'points'</span>] = <span class="number">5</span></span><br></pre></td></tr></table></figure>
+<h3 id="修改字典中的值"><a href="#修改字典中的值" class="headerlink" title="修改字典中的值"></a>修改字典中的值</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alien_0[<span class="string">'color'</span>] = <span class="string">'yellow'</span></span><br></pre></td></tr></table></figure>
+<h3 id="删除键——值对"><a href="#删除键——值对" class="headerlink" title="删除键——值对"></a>删除键——值对</h3><p>使用del语句将相应的键——值对彻底删除。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">del</span> alien_0[<span class="string">'points'</span>]</span><br></pre></td></tr></table></figure>
+<h3 id="由类似对象组成的字典"><a href="#由类似对象组成的字典" class="headerlink" title="由类似对象组成的字典"></a>由类似对象组成的字典</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">favorite_language = &#123;</span><br><span class="line">    <span class="string">'jen'</span>:<span class="string">'python'</span>,</span><br><span class="line">    <span class="string">'sarah'</span>:<span class="string">'c'</span>,</span><br><span class="line">    <span class="string">'edward'</span>:<span class="string">'ruby'</span>,</span><br><span class="line">    <span class="string">'phil'</span>:<span class="string">'python'</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="遍历字典"><a href="#遍历字典" class="headerlink" title="遍历字典"></a>遍历字典</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">favorite_language = &#123;</span><br><span class="line">    <span class="string">'jen'</span>:<span class="string">'python'</span>,</span><br><span class="line">    <span class="string">'sarah'</span>:<span class="string">'c'</span>,</span><br><span class="line">    <span class="string">'edward'</span>:<span class="string">'ruby'</span>,</span><br><span class="line">    <span class="string">'phil'</span>:<span class="string">'python'</span>,</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">for</span> key,value <span class="keyword">in</span> favorite_language.items():</span><br><span class="line">    print(<span class="string">"\nname: "</span> + key.title())</span><br><span class="line">    print(<span class="string">"\nlanguage: "</span> + value.title())</span><br><span class="line"></span><br><span class="line"><span class="comment"># 遍历字典中的所有键</span></span><br><span class="line"><span class="keyword">for</span> name <span class="keyword">in</span> favorite_language.keys():</span><br><span class="line">    print(name.title())</span><br><span class="line"></span><br><span class="line"><span class="comment"># 遍历字典中的所有值</span></span><br><span class="line"><span class="keyword">for</span> value <span class="keyword">in</span> favorite_language.values():</span><br><span class="line">    print(value.title())</span><br><span class="line"></span><br><span class="line"><span class="comment"># 按顺序遍历字典中的所有键</span></span><br><span class="line"><span class="keyword">for</span> name <span class="keyword">in</span> sorted(favorite_language.keys()):</span><br><span class="line">    print(name.title())</span><br></pre></td></tr></table></figure>
+<h2 id="方法-1"><a href="#方法-1" class="headerlink" title="方法"></a>方法</h2><table>
+<thead>
+<tr>
+<th>操作</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>adict.keys()</td>
+<td>返回一个包含字典所有KEY的列表；</td>
+</tr>
+<tr>
+<td>adict.values()</td>
+<td>返回一个包含字典所有value的列表；</td>
+</tr>
+<tr>
+<td>adict.items()</td>
+<td>返回一个包含所有（键，值）元祖的列表；</td>
+</tr>
+<tr>
+<td>adict.clear()</td>
+<td>删除字典中的所有项或元素；</td>
+</tr>
+<tr>
+<td>adict.copy()</td>
+<td>返回一个字典浅拷贝的副本；</td>
+</tr>
+<tr>
+<td>adict.fromkeys(seq, val=None)</td>
+<td>创建并返回一个新字典，以seq中的元素做该字典的键，val做该字典中所有键对应的初始值（默认为None）；</td>
+</tr>
+<tr>
+<td>adict.get(key, default = None)</td>
+<td>返回字典中key对应的值，若key不存在字典中，则返回default的值（default默认为None）；</td>
+</tr>
+<tr>
+<td>adict.has_key(key)</td>
+<td>如果key在字典中，返回True，否则返回False。 现在用 in 、 not in；</td>
+</tr>
+<tr>
+<td>adict.iteritems() adict.iterkeys() adict.itervalues()</td>
+<td>与它们对应的非迭代方法一样，不同的是它们返回一个迭代子，而不是一个列表；</td>
+</tr>
+<tr>
+<td>adict.pop(key[,default])</td>
+<td>和get方法相似。如果字典中存在key，删除并返回key对应的vuale；如果key不存在，且没有给出default的值，则引发keyerror异常；</td>
+</tr>
+<tr>
+<td>adict.setdefault(key, default=None)</td>
+<td>和set()方法相似，但如果字典中不存在Key键，由 adict[key] = default 为它赋值；</td>
+</tr>
+<tr>
+<td>adict.update(bdict)</td>
+<td>将字典bdict的键值对添加到字典adict中。</td>
+</tr>
+</tbody>
+</table>
+<h1 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h1><p>1.可以用set()函数或者方括号{}创建，元素之间用逗号”,”分隔。<br>2.与字典相比少了键<br>3.不可索引，不可切片<br>4.不可以有重复元素</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">set1 = set(<span class="string">'entercoder'</span>)</span><br><span class="line">set2 = &#123;<span class="string">'c'</span>,<span class="string">'java'</span>,<span class="string">'python'</span>,<span class="string">'java'</span>&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="方法-2"><a href="#方法-2" class="headerlink" title="方法"></a>方法</h2><table>
+<thead>
+<tr>
+<th>操作</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>s.issubset(t)，s &lt;= t</td>
+<td>测试是否 s 中的每一个元素都在 t 中</td>
+</tr>
+<tr>
+<td>s.issuperset(t)，s &gt;= t</td>
+<td>测试是否 t 中的每一个元素都在 s 中</td>
+</tr>
+<tr>
+<td>s.union(t)，s \</td>
+<td>t</td>
+<td>返回一个新的 set 包含 s 和 t 中的每一个元素</td>
+</tr>
+<tr>
+<td>s.intersection(t)，s &amp; t</td>
+<td>返回一个新的 set 包含 s 和 t 中的公共元素</td>
+</tr>
+<tr>
+<td>s.difference(t),s - t</td>
+<td>返回一个新的 set 包含 s 中有但是 t 中没有的元素</td>
+</tr>
+<tr>
+<td>s.symmetric_difference(t),s ^ t</td>
+<td>返回一个新的 set 包含 s 和 t 中不重复的元素</td>
+</tr>
+<tr>
+<td>s.copy()</td>
+<td>返回 set “s”的一个浅复制</td>
+</tr>
+</tbody>
+</table>
+<h1 id="差异"><a href="#差异" class="headerlink" title="差异"></a>差异</h1><h2 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h2><p>列表主要用于对象长度不可知的情况下，而元组用于对象长度已知的情况下，而且元组元素一旦创建变就不可修改。字典主要应用于需要对元素进行标记的对象，这样在使用的时候便不必记住元素列表中或者元组中的位置，只需要利用键来进行访问对象中相应的值。集合中的元素不可重复的特点使它被拿来去重。</p>
+<blockquote>
+<p>在海量数据中查找元素时，最好将数据创建为字典，或者是集合。这是由于字典和集合背后的查找原理是散列（哈希）表。由于散列表在查找元素时的时间复杂度基本是O(1),这使查找时间很短。</p>
+</blockquote>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">entercoder1993</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://entercoder.com/2018/09/05/Python操作列表元祖字典集合/">http://entercoder.com/2018/09/05/Python操作列表元祖字典集合/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Python/">Python</a></div><nav id="pagination"><div class="prev-post pull-left"><a href="/2018/09/06/git-reset相关用法/"><i class="fa fa-chevron-left">  </i><span>git-reset相关用法</span></a></div><div class="next-post pull-right"><a href="/2018/09/02/macOS终端美化及设置/"><span>macOS终端美化及设置</span><i class="fa fa-chevron-right"></i></a></div></nav></div></div><footer class="footer-bg" style="background-image: url(https://s2.ax1x.com/2019/09/16/nW7S7n.jpg)"><div class="layout" id="footer"><div class="copyright">&copy;2017 - 2020 By entercoder1993</div><div class="framework-info"><span>Driven - </span><a href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="footer_custom_text">联系我 --> 微信:dzd1993</div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.7.0"></script><script src="/js/fancybox.js?version=1.7.0"></script><script src="/js/sidebar.js?version=1.7.0"></script><script src="/js/copy.js?version=1.7.0"></script><script src="/js/fireworks.js?version=1.7.0"></script><script src="/js/transition.js?version=1.7.0"></script><script src="/js/scroll.js?version=1.7.0"></script><script src="/js/head.js?version=1.7.0"></script><script src="/js/search/local-search.js"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+  $('#top-container').addClass('is-mobile')
+}</script><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">Local search</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts"></div></div></div><hr><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>Powered by</span> <a href="https://github.com/wzpan/hexo-generator-search" style="color:#49B1F5;">hexo-generator-search</a></div></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div></body></html>

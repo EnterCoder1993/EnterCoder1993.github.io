@@ -1,0 +1,217 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="Vim操作指南"><meta name="keywords" content="Vim"><meta name="author" content="entercoder1993"><meta name="copyright" content="entercoder1993"><title>Vim操作指南 | EnterCoder's Blog</title><link rel="shortcut icon" href="/melody-favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.7.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.7.0"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"We didn't find any results for the search: ${query}"}},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  }
+} </script></head><body><canvas class="fireworks"></canvas><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="Toggle article">Toggle site</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">Catalog</div><div class="sidebar-toc__progress"><span class="progress-notice">You've read</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#移动"><span class="toc-number">1.</span> <span class="toc-text">移动</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#插入模式"><span class="toc-number">2.</span> <span class="toc-text">插入模式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#编辑"><span class="toc-number">3.</span> <span class="toc-text">编辑</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#剪切和复制"><span class="toc-number">4.</span> <span class="toc-text">剪切和复制</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#多文件"><span class="toc-number">5.</span> <span class="toc-text">多文件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#搜索-替换"><span class="toc-number">6.</span> <span class="toc-text">搜索/替换</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#选中模式"><span class="toc-number">7.</span> <span class="toc-text">选中模式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#离开"><span class="toc-number">8.</span> <span class="toc-text">离开</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#宏命令"><span class="toc-number">9.</span> <span class="toc-text">宏命令</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#执行shell命令"><span class="toc-number">10.</span> <span class="toc-text">执行shell命令</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#高级用法"><span class="toc-number">11.</span> <span class="toc-text">高级用法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#编程常用"><span class="toc-number">12.</span> <span class="toc-text">编程常用</span></a></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="https://entercodeimage.oss-cn-shenzhen.aliyuncs.com/20200510135939.png"></div><div class="author-info__name text-center">entercoder1993</div><div class="author-info__description text-center">just coding</div><div class="follow-button"><a href="https://github.com/entercoder1993">Follow me</a></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">36</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">19</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">Categories</span><span class="pull-right">11</span></a></div><hr><div class="author-info-links"><div class="author-info-links__title text-center">Links</div><a class="author-info-links__name text-center" href="https://molunerfinn.com">Molunerfinn</a></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(https://s2.ax1x.com/2019/09/16/nW7S7n.jpg)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">EnterCoder's Blog</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a><a class="site-page" href="/about">About</a><a class="site-page" href="/image">Photo album</a><a class="site-page" href="/gallery">Gallery</a></span><span class="pull-right"><a class="site-page social-icon search"><i class="fa fa-search"></i><span> Search</span></a></span></div><div id="post-info"><div id="post-title">Vim操作指南</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2018-09-10</time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/Tools/">Tools</a><div class="post-meta-wordcount"><span>Word count: </span><span class="word-count">1,444</span><span class="post-meta__separator">|</span><span>Reading time: 5 min</span></div></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><p>Vim的四种模式</p>
+<table>
+<thead>
+<tr>
+<th>模式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>正常模式</td>
+<td>可以使用快捷键命令，或按:输入命令行。</td>
+</tr>
+<tr>
+<td>插入模式</td>
+<td>可以输入文本，在正常模式下，按i、a、o等都可以进入插入模式。</td>
+</tr>
+<tr>
+<td>可视模式</td>
+<td>正常模式下按v可以进入可视模式，按V进入可视行模式，整行的选中。ctrl+v进入可视块模式。</td>
+</tr>
+<tr>
+<td>替换模式</td>
+<td>正常模式下，按R进入。</td>
+</tr>
+</tbody>
+</table>
+<h1 id="移动"><a href="#移动" class="headerlink" title="移动"></a>移动</h1><ul>
+<li>h 向左移动</li>
+<li>j 向下移动</li>
+<li>k 向上移动</li>
+<li>l 向右移动</li>
+<li>ctrl - f 上翻页</li>
+<li>ctrl - b 下翻页</li>
+<li>% 不仅能移动到匹配的(),{}或[]上，而且能在#if，#else， #endif之间跳跃。</li>
+<li>w 移动到单词前端(包含标点符号)</li>
+<li>W 单词间移动</li>
+<li>e 移动到单词末端(包含标点符号)</li>
+<li>E 移动到单词末端</li>
+<li>b 向上移动到单词词首(包含标点符号)</li>
+<li>B 空白字符分割的上词词首</li>
+<li>O 开始新的一行</li>
+<li>^ 当前行的第一个非空字符</li>
+<li>$ 到 行尾</li>
+<li>gg 第一行</li>
+<li>gd 跳转到局部变量的定义处；</li>
+<li>[N]G 第N行行首</li>
+<li>tx 把光标移动到目标字符的前一个字符上</li>
+<li>fx 向前查找本行中的字符x</li>
+<li>) 到句首</li>
+<li>( 到句尾</li>
+<li>} 到段首</li>
+<li>{ 到段尾</li>
+<li>* 向下搜索光标所在词</li>
+<li>`. 移动到最后改动的地方。</li>
+</ul>
+<h1 id="插入模式"><a href="#插入模式" class="headerlink" title="插入模式"></a>插入模式</h1><ul>
+<li>i 在光标之前插入</li>
+<li>I 行尾插入</li>
+<li>a 在光标之后插入</li>
+<li>A 行首插入</li>
+<li>o 当前行下插入一空行</li>
+<li>O 当前行上插入一空行</li>
+<li>Esc 返回模式选择</li>
+</ul>
+<h1 id="编辑"><a href="#编辑" class="headerlink" title="编辑"></a>编辑</h1><ul>
+<li>r  </li>
+<li>J</li>
+<li>cc</li>
+<li>cw</li>
+<li>c$</li>
+<li>s</li>
+<li>S</li>
+<li>u 撤销改动</li>
+<li>ctrl - r 重做</li>
+<li>. 重复上一命令</li>
+<li>~</li>
+<li>g~iw</li>
+<li>gUiw</li>
+<li>guiw</li>
+<li>>></li>
+<li>&lt;&lt;</li>
+<li>== </li>
+</ul>
+<h1 id="剪切和复制"><a href="#剪切和复制" class="headerlink" title="剪切和复制"></a>剪切和复制</h1><ul>
+<li>dd 删除一行</li>
+<li>dw 删除一个单词</li>
+<li>x 删除当前光标下的字符</li>
+<li>X 删除当前光标左边的字符</li>
+<li>D 删除到行尾的内容</li>
+<li>yy 复制一行</li>
+<li>nyy 复制n行</li>
+<li>yw 复制一个单词</li>
+<li>y$ 复制到行尾</li>
+<li>p 粘贴到光标之前</li>
+<li>P 粘贴到光标之后</li>
+<li>]p</li>
+<li>“a</li>
+<li>d 剪切</li>
+</ul>
+<h1 id="多文件"><a href="#多文件" class="headerlink" title="多文件"></a>多文件</h1><ul>
+<li>:open 在vim窗口中打开一个新文件</li>
+<li>:split file 在新窗口中打开文件</li>
+<li>:e 打开文件</li>
+<li>:bn 切换到下一个文件</li>
+<li>:bp 切换到上一个文件</li>
+<li>:split 打开横向窗口</li>
+<li>:vsplit 打开纵向窗口</li>
+<li>ctrl - w<ul>
+<li>ctrl - w w 移动到下一个窗口</li>
+<li>ctrl - w j 移动到下方的窗口</li>
+<li>ctrl - w k 移动到上方的窗口</li>
+</ul>
+</li>
+<li>:tabm [N]</li>
+<li>:close 关闭窗口，最后一个窗口无法使用此命令</li>
+<li>:only 关闭所有窗口，只保留当前窗口</li>
+</ul>
+<h1 id="搜索-替换"><a href="#搜索-替换" class="headerlink" title="搜索/替换"></a>搜索/替换</h1><ul>
+<li>/pattern 向后查找</li>
+<li>?pattern 向前查找</li>
+<li>n</li>
+<li>N</li>
+<li>:s/old/new 替换当前行的第一个匹配</li>
+<li>:s/old/new/g 替换当前行的所有匹配</li>
+<li>:s/old/new/gc 替换命令尾部加上c(confirm用于确认)，在替换每个old前都会提示并确认</li>
+<li>:%s/old/new/ 替换所有行的第一个匹配</li>
+<li>:%s/old/new/g 替换整个文件的所有匹配</li>
+</ul>
+<h1 id="选中模式"><a href="#选中模式" class="headerlink" title="选中模式"></a>选中模式</h1><ul>
+<li>文本标记<ul>
+<li>v 进入可视模式，移动光标选择块</li>
+<li>V 整行整行的选中</li>
+<li>ctrl - v 进入可视块模式</li>
+<li>o 在可视模式中首尾跳转</li>
+<li>U 选中的所有单词变为大写</li>
+<li>u 选中的所有单词变为大写</li>
+<li>aw 以单词为单位跳转</li>
+<li>ab 选中()中的内容，包含()</li>
+<li>aB 选中{}中的内容，包含{}</li>
+<li>ib 选中()中的内容，不包含()</li>
+<li>iB 选中{}中的内容，不包含{}</li>
+</ul>
+</li>
+<li>命令<ul>
+<li><blockquote>
+<p>光标所在行向右缩进四个空格</p>
+</blockquote>
+</li>
+<li>&lt; 光标所在行向左缩进四个空格</li>
+<li>y </li>
+<li>d</li>
+<li>~</li>
+</ul>
+</li>
+</ul>
+<h1 id="离开"><a href="#离开" class="headerlink" title="离开"></a>离开</h1><ul>
+<li>:w 保存</li>
+<li>:wq 保存并退出(即使文件没有被修改也强制写入，并更新文件的修改时间。)</li>
+<li>:x 保存并退出(仅当文件被修改时才写入，并更新文件修改时间，否则不会更新文件修改时间。)</li>
+<li>:q 退出</li>
+<li>:q! 强制退出</li>
+</ul>
+<h1 id="宏命令"><a href="#宏命令" class="headerlink" title="宏命令"></a>宏命令</h1><ul>
+<li>qa q+任意字母开始录制，再按q结束录制</li>
+<li>q 录制</li>
+<li>@a @+字母使用这个宏</li>
+</ul>
+<h1 id="执行shell命令"><a href="#执行shell命令" class="headerlink" title="执行shell命令"></a>执行shell命令</h1><ul>
+<li>:!command</li>
+<li>:!ls 列出当前目录下的文件</li>
+</ul>
+<h1 id="高级用法"><a href="#高级用法" class="headerlink" title="高级用法"></a>高级用法</h1><ul>
+<li>:X 设置密码</li>
+<li>:set key=  取消密码</li>
+</ul>
+<h1 id="编程常用"><a href="#编程常用" class="headerlink" title="编程常用"></a>编程常用</h1><ul>
+<li>gd: 跳转到局部变量的定义处；</li>
+<li>gD: 跳转到全局变量的定义处，从当前文件开头开始搜索；</li>
+<li>g;: 上一个修改过的地方；</li>
+<li>g,: 下一个修改过的地方；</li>
+<li>[[: 跳转到上一个函数块开始，需要有单独一行的{。</li>
+<li>]]: 跳转到下一个函数块开始，需要有单独一行的{。</li>
+<li>[]: 跳转到上一个函数块结束，需要有单独一行的}。</li>
+<li>][: 跳转到下一个函数块结束，需要有单独一行的}。</li>
+<li>[{: 跳转到当前块开始处；</li>
+<li>]}: 跳转到当前块结束处；</li>
+<li>[/: 跳转到当前注释块开始处；</li>
+<li>]/: 跳转到当前注释块结束处；</li>
+<li>%: 不仅能移动到匹配的(),{}或[]上，而且能在#if，#else,#endif之间跳跃。</li>
+<li>ci’, di’, yi’：修改、剪切或复制’之间的内容。</li>
+<li>ca’, da’, ya’：修改、剪切或复制’之间的内容，包含’。</li>
+<li>ci”, di”, yi”：修改、剪切或复制”之间的内容。</li>
+<li>ca”, da”, ya”：修改、剪切或复制”之间的内容，包含”。</li>
+<li>ci(, di(, yi(：修改、剪切或复制()之间的内容。</li>
+<li>ca(, da(, ya(：修改、剪切或复制()之间的内容，包含()。</li>
+<li>ci[, di[, yi[：修改、剪切或复制[]之间的内容。</li>
+<li>ca[, da[, ya[：修改、剪切或复制[]之间的内容，包含[]。</li>
+<li>ci{, di{, yi{：修改、剪切或复制{}之间的内容。</li>
+<li>ca{, da{, ya{：修改、剪切或复制{}之间的内容，包含{}。</li>
+<li>ci&lt;, di&lt;, yi&lt;：修改、剪切或复制&lt;&gt;之间的内容。</li>
+<li>ca&lt;, da&lt;, ya&lt;：修改、剪切或复制&lt;&gt;之间的内容，包含&lt;&gt;。</li>
+</ul>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">entercoder1993</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://entercoder.com/2018/09/10/Vim操作指南/">http://entercoder.com/2018/09/10/Vim操作指南/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Vim/">Vim</a></div><nav id="pagination"><div class="prev-post pull-left"><a href="/2018/09/11/Python文件处理/"><i class="fa fa-chevron-left">  </i><span>Python文件处理</span></a></div><div class="next-post pull-right"><a href="/2018/09/09/Python面向对象编程/"><span>Python面向对象编程</span><i class="fa fa-chevron-right"></i></a></div></nav></div></div><footer class="footer-bg" style="background-image: url(https://s2.ax1x.com/2019/09/16/nW7S7n.jpg)"><div class="layout" id="footer"><div class="copyright">&copy;2017 - 2020 By entercoder1993</div><div class="framework-info"><span>Driven - </span><a href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="footer_custom_text">联系我 --> 微信:dzd1993</div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.7.0"></script><script src="/js/fancybox.js?version=1.7.0"></script><script src="/js/sidebar.js?version=1.7.0"></script><script src="/js/copy.js?version=1.7.0"></script><script src="/js/fireworks.js?version=1.7.0"></script><script src="/js/transition.js?version=1.7.0"></script><script src="/js/scroll.js?version=1.7.0"></script><script src="/js/head.js?version=1.7.0"></script><script src="/js/search/local-search.js"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+  $('#top-container').addClass('is-mobile')
+}</script><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">Local search</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts"></div></div></div><hr><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>Powered by</span> <a href="https://github.com/wzpan/hexo-generator-search" style="color:#49B1F5;">hexo-generator-search</a></div></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div></body></html>

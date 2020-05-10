@@ -1,0 +1,283 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta name="description" content="CSS层叠样式表"><meta name="keywords" content="Note"><meta name="author" content="entercoder1993"><meta name="copyright" content="entercoder1993"><title>CSS层叠样式表 | EnterCoder's Blog</title><link rel="shortcut icon" href="/melody-favicon.ico"><link rel="stylesheet" href="/css/index.css?version=1.7.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css?version=1.7.0"><meta name="format-detection" content="telephone=no"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"We didn't find any results for the search: ${query}"}},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  }
+} </script></head><body><canvas class="fireworks"></canvas><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div id="sidebar" data-display="true"><div class="toggle-sidebar-info text-center"><span data-toggle="Toggle article">Toggle site</span><hr></div><div class="sidebar-toc"><div class="sidebar-toc__title">Catalog</div><div class="sidebar-toc__progress"><span class="progress-notice">You've read</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar"></div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#层叠样式表"><span class="toc-number">1.</span> <span class="toc-text">层叠样式表</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#使用CSS样式的方式"><span class="toc-number">1.1.</span> <span class="toc-text">使用CSS样式的方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#定义样式表"><span class="toc-number">1.2.</span> <span class="toc-text">定义样式表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常见属性"><span class="toc-number">1.3.</span> <span class="toc-text">常见属性</span></a></li></ol></li></ol></div></div><div class="author-info hide"><div class="author-info__avatar text-center"><img src="https://entercodeimage.oss-cn-shenzhen.aliyuncs.com/20200510135939.png"></div><div class="author-info__name text-center">entercoder1993</div><div class="author-info__description text-center">just coding</div><div class="follow-button"><a href="https://github.com/entercoder1993">Follow me</a></div><hr><div class="author-info-articles"><a class="author-info-articles__archives article-meta" href="/archives"><span class="pull-left">Articles</span><span class="pull-right">36</span></a><a class="author-info-articles__tags article-meta" href="/tags"><span class="pull-left">Tags</span><span class="pull-right">19</span></a><a class="author-info-articles__categories article-meta" href="/categories"><span class="pull-left">Categories</span><span class="pull-right">11</span></a></div><hr><div class="author-info-links"><div class="author-info-links__title text-center">Links</div><a class="author-info-links__name text-center" href="https://molunerfinn.com">Molunerfinn</a></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(https://s2.ax1x.com/2019/09/16/nW7S7n.jpg)"><div id="page-header"><span class="pull-left"> <a id="site-name" href="/">EnterCoder's Blog</a></span><i class="fa fa-bars toggle-menu pull-right" aria-hidden="true"></i><span class="pull-right menus">   <a class="site-page" href="/">Home</a><a class="site-page" href="/archives">Archives</a><a class="site-page" href="/tags">Tags</a><a class="site-page" href="/categories">Categories</a><a class="site-page" href="/about">About</a><a class="site-page" href="/image">Photo album</a><a class="site-page" href="/gallery">Gallery</a></span><span class="pull-right"><a class="site-page social-icon search"><i class="fa fa-search"></i><span> Search</span></a></span></div><div id="post-info"><div id="post-title">CSS层叠样式表</div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 2018-03-31</time><span class="post-meta__separator">|</span><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/前端/">前端</a><div class="post-meta-wordcount"><span>Word count: </span><span class="word-count">995</span><span class="post-meta__separator">|</span><span>Reading time: 4 min</span></div></div></div></div><div class="layout" id="content-inner"><article id="post"><div class="article-container" id="post-content"><h1 id="层叠样式表"><a href="#层叠样式表" class="headerlink" title="层叠样式表"></a>层叠样式表</h1><blockquote>
+<p>层叠样式表(英文全称：Cascading Style Sheets)是一种用来表现HTML（标准通用标记语言的一个应用）或XML（标准通用标记语言的一个子集）等文件样式的计算机语言。CSS不仅可以静态地修饰网页，还可以配合各种脚本语言动态地对网页各元素进行格式化。</p>
+</blockquote>
+<a id="more"></a>
+<p><img src="https://ws1.sinaimg.cn/large/e8c3586egy1fpxkpjnodkj220o28vwuu" alt="CSS层叠样式表"></p>
+<h2 id="使用CSS样式的方式"><a href="#使用CSS样式的方式" class="headerlink" title="使用CSS样式的方式"></a>使用CSS样式的方式</h2><ul>
+<li>HTML声明标签<code>&lt;!DOCTYPE&gt;</code><ul>
+<li>定义与用法<ul>
+<li><code>&lt;!DOCTYPE&gt;</code>必须是HTML文档的第一行</li>
+<li><code>&lt;!DOCTYPE&gt;</code>声明不是HTML标签，它是指示web浏览器关于页面使用哪个浏览器版本进行编写的指令</li>
+<li></li>
+</ul>
+</li>
+<li>各个版本的声明<ul>
+<li>HTML5 <code>&lt;!DOCTYPE HTML&gt;&lt;meta charset=&quot;utf-8&quot;&gt;</code></li>
+<li>HTML4.01</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>内链样式表<ul>
+<li>格式：<code>&lt;body style=&quot;backgroudcolor:green;font-size:20px&quot;&gt;&lt;/body&gt;</code></li>
+</ul>
+</li>
+<li>嵌入式样式表<ul>
+<li>语法格式：<code>&lt;style type=&quot;text/css&quot;&gt;&lt;/style&gt;</code></li>
+<li>样式放在<head><meta name="generator" content="Hexo 3.9.0"></head>中</li>
+</ul>
+</li>
+<li>引入式样式表<ul>
+<li>语法格式：<code>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;style.css&quot;&gt;</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="定义样式表"><a href="#定义样式表" class="headerlink" title="定义样式表"></a>定义样式表</h2><ul>
+<li><p>HTML标记定义</p>
+<ul>
+<li><code>&lt;p&gt;...&lt;/p&gt;</code></li>
+<li>p{属性1:属性值;属性2:属性值}</li>
+<li>p可以叫做选择器，定义标记中的内容执行其中的样式</li>
+</ul>
+</li>
+<li><p>Class定义</p>
+<ul>
+<li>格式：<code>&lt;p class=&quot;p&quot;&gt;...&lt;/p&gt;</code></li>
+<li>class选择器是以”.”开始的</li>
+<li><code>.p{属性1:属性值;属性2:属性值}</code></li>
+</ul>
+</li>
+<li>ID定义<ul>
+<li>唯一选择器</li>
+<li>格式：<code>&lt;p id=&quot;p&quot;&gt;...&lt;/p&gt;</code></li>
+<li>ID选择器是以”#”开始的</li>
+<li><code>#p{属性1:属性值;属性2:属性值}</code></li>
+</ul>
+</li>
+<li>优先级问题<ul>
+<li>ID &gt; CLASS &gt; HTML</li>
+<li>同级时选择离元素最近的一个</li>
+</ul>
+</li>
+<li>组合选择器(同时控制多个元素)<ul>
+<li>选择器组合可以使用”.”隔开</li>
+<li>例如：<code>h1,h2,h3 {color:red;font-size:14px}</code></li>
+</ul>
+</li>
+<li>伪元素选择器<ul>
+<li>a:link – 正常连接的样式</li>
+<li>a:hover – 鼠标放上去的样式</li>
+<li>a:active – 选择链接时的样式</li>
+<li>a:visited – 已经访问过的链接的样式</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>CSS注释：/<em> 注释内容 </em>/</p>
+</blockquote>
+<h2 id="常见属性"><a href="#常见属性" class="headerlink" title="常见属性"></a>常见属性</h2><ul>
+<li>颜色属性<ul>
+<li>color属性定义文本的颜色</li>
+<li>color:green;</li>
+<li>color:#ff6600(简写：color:#f60) – 红 绿 蓝</li>
+<li>color:rgb(255,255,255)</li>
+<li>color:rgba(255,255,255,1)</li>
+</ul>
+</li>
+<li>字体属性<ul>
+<li>font-size<ul>
+<li>px</li>
+<li>%</li>
+<li>smaller</li>
+<li>larger</li>
+<li>inheritt – 继承父元素</li>
+</ul>
+</li>
+<li>font-family<ul>
+<li>多个字体使用”,”隔开，若字体不存在则直接使用下一个</li>
+</ul>
+</li>
+<li>font-weight – 字体加粗<ul>
+<li>normal – 400</li>
+<li>bold – 700</li>
+<li>bolder</li>
+<li>lighter</li>
+</ul>
+</li>
+<li>font-style –字体样式<ul>
+<li>normal</li>
+<li>italic – 斜体</li>
+<li>oblique – 倾斜</li>
+<li>inherit – 继承</li>
+</ul>
+</li>
+<li>font-variant – 小型大写字母显示文本</li>
+</ul>
+</li>
+<li>文本属性<ul>
+<li>text-align – 横向排列</li>
+<li>line-height – 文本行高<ul>
+<li>%</li>
+<li>数值</li>
+</ul>
+</li>
+<li>text-indent – 首行缩进<ul>
+<li>%</li>
+<li>数值</li>
+<li>inherit </li>
+</ul>
+</li>
+<li>letter-space – 字符间距<ul>
+<li>normal</li>
+<li>length(可设置为负值)</li>
+<li>inherit</li>
+</ul>
+</li>
+<li>word-space – 单词间距<ul>
+<li>normal</li>
+<li>px</li>
+<li>inherit</li>
+</ul>
+</li>
+<li>direction – 文本方向<ul>
+<li>ltr</li>
+<li>rtl</li>
+<li>inherit</li>
+</ul>
+</li>
+<li>text-transform – 文本大小写<ul>
+<li>capitalize – 每个单词以大写字母开头</li>
+<li>uppercase</li>
+<li>lowercase</li>
+<li>inherit</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>背景属性</p>
+<ul>
+<li>背景颜色background-color</li>
+<li>背景图片background-image<ul>
+<li>格式：<code>background-image:url(图片路径)</code></li>
+<li>background-image:none</li>
+</ul>
+</li>
+<li>背景重复background-repeat<ul>
+<li>格式：<code>background-repeat:repeat</code></li>
+<li>repeat-x</li>
+<li>repeat-y</li>
+<li>no-repeat – 不重复</li>
+</ul>
+</li>
+<li><p>背景位置background-position</p>
+<ul>
+<li>格式：<code>background-postion:(x) (y)</code></li>
+<li>垂直方向默认居中</li>
+<li>right</li>
+<li>left</li>
+<li>center</li>
+<li>top</li>
+<li>bottom</li>
+<li>也可以用数值表示位置</li>
+</ul>
+</li>
+<li><p>简写方式</p>
+<ul>
+<li>background:背景颜色 url(图像) 重复 位置</li>
+<li>例：<code>background:#f60 url(image/bg.jpg) no-repeat top center</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>边框属性<ul>
+<li>border-style – 边框风格<ul>
+<li>单独定义某一方向<ul>
+<li>border-bottom-style</li>
+<li>border-top-style</li>
+<li>border-left-style</li>
+<li>border-right-style</li>
+</ul>
+</li>
+<li>边框风格样式属性值<ul>
+<li>none – 无边框</li>
+<li>solid – 直线边框</li>
+<li>dashed – 虚线边框</li>
+<li>dotted – 点状边框</li>
+<li>double – 双线边框</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>border-width<ul>
+<li>单独定义某一方向</li>
+<li>属性值<ul>
+<li>thin</li>
+<li>medium</li>
+<li>thick</li>
+<li>px</li>
+<li>inherit</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>border-color<ul>
+<li>单独定义某一方向</li>
+<li>属性值<ul>
+<li>rgb</li>
+<li>rgba</li>
+<li>十六进制</li>
+<li>inherit</li>
+</ul>
+</li>
+<li>属性值的四种情况<ul>
+<li><code>border-color:red</code> – 上下左右红</li>
+<li><code>border-color:red blue</code> – 上下红左右蓝</li>
+<li><code>border-color:blue red blue</code> 上下蓝左右红</li>
+<li><code>border-color:blue white black red</code> </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>简写方式 <code>border:solid 2px #f60</code></li>
+</ul>
+</li>
+<li>列表属性<ul>
+<li>list-style-type – 标记类型<ul>
+<li>none – 无标记</li>
+<li>disc – 实心圆</li>
+<li>circle – 空心圆</li>
+<li>square – 实心方框</li>
+<li>decinal – 数字</li>
+<li>…</li>
+</ul>
+</li>
+<li>list-style-position – 标记的位置<ul>
+<li>inside</li>
+<li>outside(默认值)</li>
+<li>inherit</li>
+</ul>
+</li>
+<li>list-style-image – 设置图像列表标记<ul>
+<li>URL</li>
+<li>none</li>
+<li>inherit</li>
+</ul>
+</li>
+<li>简写方式：<code>list-style:square inside url(/image/1.jpg)</code></li>
+</ul>
+</li>
+</ul>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">entercoder1993</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://entercoder.com/2018/03/31/CSS层叠样式表/">http://entercoder.com/2018/03/31/CSS层叠样式表/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Note/">Note</a></div><nav id="pagination"><div class="prev-post pull-left"><a href="/2018/04/05/JavaScript/"><i class="fa fa-chevron-left">  </i><span>JavaScript</span></a></div><div class="next-post pull-right"><a href="/2018/03/28/HTML标记语言/"><span>HTML标记语言</span><i class="fa fa-chevron-right"></i></a></div></nav></div></div><footer class="footer-bg" style="background-image: url(https://s2.ax1x.com/2019/09/16/nW7S7n.jpg)"><div class="layout" id="footer"><div class="copyright">&copy;2017 - 2020 By entercoder1993</div><div class="framework-info"><span>Driven - </span><a href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme - </span><a href="https://github.com/Molunerfinn/hexo-theme-melody"><span>Melody</span></a></div><div class="footer_custom_text">联系我 --> 微信:dzd1993</div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@latest/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-ui-pack@latest/velocity.ui.min.js"></script><script src="/js/utils.js?version=1.7.0"></script><script src="/js/fancybox.js?version=1.7.0"></script><script src="/js/sidebar.js?version=1.7.0"></script><script src="/js/copy.js?version=1.7.0"></script><script src="/js/fireworks.js?version=1.7.0"></script><script src="/js/transition.js?version=1.7.0"></script><script src="/js/scroll.js?version=1.7.0"></script><script src="/js/head.js?version=1.7.0"></script><script src="/js/search/local-search.js"></script><script>if(/Android|webOS|iPhone|iPod|iPad|BlackBerry/i.test(navigator.userAgent)) {
+  $('#nav').addClass('is-mobile')
+  $('footer').addClass('is-mobile')
+  $('#top-container').addClass('is-mobile')
+}</script><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">Local search</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts"></div></div></div><hr><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>Powered by</span> <a href="https://github.com/wzpan/hexo-generator-search" style="color:#49B1F5;">hexo-generator-search</a></div></div></div><span class="search-close-button"><i class="fa fa-times"></i></span></div><div class="search-mask"></div></body></html>
