@@ -30,6 +30,7 @@ menu:
   Categories: /categories
   About: /about
   Photo album: /image
+  Gallery: /gallery
 
 # Favicon
 # ---------------
@@ -138,7 +139,7 @@ cdn:
 
 # Post info settings
 # ---------------
-avatar: https://ws2.sinaimg.cn/large/006tNc79gy1g20bg4cjaej30b40b4mxp.jpg
+avatar: https://entercodeimage.oss-cn-shenzhen.aliyuncs.com/20200510135939.png
 
 top_img: https://s2.ax1x.com/2019/09/16/nW7S7n.jpg # false or url of img
 
